@@ -1,6 +1,6 @@
 # Maintainer: Mario Finelli <mtfinelli at gmail dot com>
-# Contributor: Andy Weidenbaum <archbaum@gmail.com>
-# Contributor: Peter Wu <lekensteyn@gmail.com>
+# Contributor: Andy Weidenbaum <archbaum at gmail dot com>
+# Contributor: Peter Wu <lekensteyn at gmail dot com>
 
 _npmname=grunt-cli
 pkgname=nodejs-$_npmname
