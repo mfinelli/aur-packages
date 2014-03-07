@@ -1,18 +1,19 @@
-# Maintainer: Martin F. Schumann <mfs@mfs.name>
+# Maintainer: Mario Finelli <mtfinelli at gmail dot com>
+# Contributor: Martin F. Schumann <mfs at mfs dot name>
 
 pkgname=xfce-theme-manager
 _pkgname=Xfce-Theme-Manager
-pkgver=0.3.4
-pkgrel=3
-pkgdesc="A theme manager allowing easy configuration of themes, window borders, controls, icons and cursors for Xfce"
+pkgver=0.3.5
+pkgrel=1
+pkgdesc="A theme manager allowing easy configuration of themes, window borders, controls, icons and cursors for Xfce."
+arch=('i686' 'x86_64')
 url="http://keithhedger.hostingsiteforfree.com/pages/apps.html#themeed"
-license="GPL3"
-arch=(i686 x86_64)
+license=("GPL3")
 depends=('gdk-pixbuf2' 'cairo' 'libxcursor' 'libxfce4ui')
 optdepends=('xfce4-composite-editor: A simple GUI to tweak xfwm, can be launched from xfce-theme-manager')
 makedepends=('pkg-config' 'make' 'autoconf')
-source=("http://aur.mfs.name/$pkgname/$pkgname-${pkgver}.tar.gz")
-md5sums=('763fba31d893afef551d63d47a43a9dd')
+source=("http://keithhedger.hostingsiteforfree.com/zips/xfcethememanager/$_pkgname-${pkgver}.tar.gz")
+md5sums=('d7f48294ae49a1cd99ec077fca083440')
 
 build() {
   cd $srcdir/$_pkgname-$pkgver
