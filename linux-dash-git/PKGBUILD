@@ -3,7 +3,7 @@
 pkgname=linux-dash-git
 _pkgname=linux-dash
 pkgver=r311.7bd5dcb
-pkgrel=1
+pkgrel=2
 pkgdesc="A drop-in, low-overhead monitoring web dashboard for a linux machine."
 arch=('any')
 url="https://github.com/afaqurk/linux-dash"
@@ -50,4 +50,8 @@ EOF
   cp -r css/* "$_install_dir"/css/
   cp -r js/* "$_install_dir"/js/
   cp -r sh/* "$_install_dir"/sh/
+
+  # set permissions
+  find "$_install_dir" -type d -exec chmod 0755 {} \;
+  find "$_install_dir" -type f -exec chmod 0644 {} \;
 }
