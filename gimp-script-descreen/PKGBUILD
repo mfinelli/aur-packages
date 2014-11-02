@@ -2,7 +2,7 @@
 
 pkgname=gimp-script-descreen
 pkgver=1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A GIMP script that does descreening using the FFT Fourier plugin"
 arch=('any')
 url="http://registry.gimp.org/node/24411"
