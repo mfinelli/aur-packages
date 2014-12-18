@@ -2,7 +2,7 @@
 # Contributor: Hubert Maraszek <marach5 at gmail dot com>
 
 pkgname=mp3tag
-pkgver=2.65a
+pkgver=2.66
 pkgrel=1
 pkgdesc="The universal tag editor."
 arch=('i686' 'x86_64')
@@ -14,18 +14,18 @@ source=(mp3tag
         LICENSE
         mp3tag.desktop
         mp3tag.png
-        http://download.mp3tag.de/mp3tagv265asetup.exe)
+        http://download.mp3tag.de/mp3tagv266setup.exe)
 md5sums=('b2e8aa8e4748b2668e0504264eacc6a9'
          'ecafef682bedadde129aeb1a3e762c30'
          '6c8cf49f81f247bea965db3cb5a29f45'
          '7146546bd343649d68e983e841bd4cb3'
-         'c2805270f71dfd6f03058ebf2ac93d96')
+         '712b6c0d196ada8e34988235c5b01614')
 
 options=('!strip')
 
 package() {
   install -d -m755 "$pkgdir/usr/share/$pkgname"
-  7z -y -o"$pkgdir/usr/share/$pkgname" x "$srcdir/mp3tagv265asetup.exe"
+  7z -y -o"$pkgdir/usr/share/$pkgname" x "$srcdir/mp3tagv266setup.exe"
   rm -rf "$pkgdir/usr/share/mp3tag/\$PLUGINSDIR" "$pkgdir/usr/share/mp3tag/\$R0"
   find "$pkgdir/usr/share/$pkgname" -type d -exec chmod 755 "{}" \;
   find "$pkgdir/usr/share/$pkgname" -type f -exec chmod 644 "{}" \;
