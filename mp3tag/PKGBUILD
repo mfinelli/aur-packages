@@ -15,11 +15,11 @@ source=(mp3tag
         mp3tag.desktop
         mp3tag.png
         http://download.mp3tag.de/mp3tagv266setup.exe)
-md5sums=('b2e8aa8e4748b2668e0504264eacc6a9'
-         'ecafef682bedadde129aeb1a3e762c30'
-         '6c8cf49f81f247bea965db3cb5a29f45'
-         '7146546bd343649d68e983e841bd4cb3'
-         '712b6c0d196ada8e34988235c5b01614')
+sha256sums=('3fdcabf91b5ec50373d3aaeaf653611613aed39d94d17af50bb6f5a85afff586'
+            '12d9d506b3208b65f46fb33720bff22368864b3411f6b1a5d9b9772011fe2877'
+            'bc0c7b8a7a9f9ee92dfe2f1880ef5d91920473713b5d60e4afa361d69a446798'
+            'a3e09f7cda34bc31b3b5b1d7cf2010c3b17847c141ef5a074472eb72f760f6bf'
+            'f740644b65b4d1e93387c0d666322a9e38a2ffc777cbdcd5c570dd1214349eef')
 
 options=('!strip')
 
