@@ -3,7 +3,7 @@
 _fontname=bellota
 pkgname=otf-${_fontname}
 pkgver=20130320
-pkgrel=1
+pkgrel=2
 pkgdesc='Bellota OTF font.'
 arch=('any')
 url='http://www.fontsquirrel.com/fonts/bellota'
@@ -13,7 +13,7 @@ makedepends=('unzip')
 install=${_fontname}.install
 source=("${_fontname}.zip::http://www.fontsquirrel.com/fonts/download/${_fontname}"
         "${_fontname}.install")
-sha256sums=('89d31892d1a063697c543a37db1ad3a1ebc1130c80f952f4fd94f3db7cd9ecc4'
+sha256sums=('SKIP'
             '2059531b2e07e837034ca50e251b705a83684a2849cecf4c2955a333bfeaa2e3')
 
 package() {
