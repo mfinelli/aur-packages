@@ -1,14 +1,14 @@
-# Maintainer: Arthur ÈšiÈ›eicÄƒ arthur.titeica/gmail/com
+# Maintainer: Mario Finelli <mtfinelli at gmail dot com>
+# Contributor: Arthur Titeica <arthur.titeica at gmail dot com>
 
 pkgname=ttfautohint
 pkgver=1.3
-pkgrel=1
-pkgdesc="Provides automated hinting process for web fonts"
+pkgrel=2
+pkgdesc="Provides automated hinting process for web fonts."
 arch=('i686' 'x86_64')
 url="http://www.freetype.org/ttfautohint/"
 license=('GPL' 'custom')
 depends=('freetype2' 'qt4')
-# makedepends=('qt4')
 optdepends=('texlive-bin: generate docs'
             'pandoc: generate docs'
             'ghc: pandoc filter')
@@ -40,5 +40,3 @@ package() {
   install -Dm644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/COPYING"
   install -Dm644 FTL.TXT "${pkgdir}/usr/share/licenses/${pkgname}/FTL.TXT"
 }
-
-# vim:set ts=2 sw=2 et:
