@@ -1,0 +1,17 @@
+pkgbase = ruby-coderay
+	pkgdesc = Fast syntax highlighting for selected languages
+	pkgver = 1.1.3
+	pkgrel = 1
+	url = http://coderay.rubychan.de
+	arch = any
+	license = MIT
+	makedepends = git
+	makedepends = rubygems
+	makedepends = ruby-rdoc
+	depends = ruby
+	options = !emptydirs
+	source = git+https://github.com/rubychan/coderay.git?tag=v1.1.3
+	sha256sums = SKIP
+
+pkgname = ruby-coderay
+
