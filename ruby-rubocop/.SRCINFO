@@ -1,0 +1,24 @@
+pkgbase = ruby-rubocop
+	pkgdesc = A Ruby static code analyzer and formatter
+	pkgver = 1.11.0
+	pkgrel = 1
+	url = https://rubocop.org
+	arch = any
+	license = MIT
+	makedepends = rubygems
+	makedepends = ruby-rdoc
+	depends = ruby
+	depends = ruby-parallel
+	depends = ruby-parser
+	depends = ruby-rainbow
+	depends = ruby-regexp_parser
+	depends = ruby-rexml
+	depends = ruby-rubocop-ast
+	depends = ruby-ruby-progressbar
+	depends = ruby-unicode-display_width
+	options = !emptydirs
+	source = https://github.com/rubocop-hq/rubocop/archive/v1.11.0/rubocop-1.11.0.tar.gz
+	sha256sums = b7bd82e23660521941f5499ad98a1b7f4379aa35b8ef96815d353f66b55825ce
+
+pkgname = ruby-rubocop
+
