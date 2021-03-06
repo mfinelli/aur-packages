@@ -1,0 +1,17 @@
+pkgbase = ruby-netrc
+	pkgdesc = Reads and writes netrc files
+	pkgver = 0.11.0
+	pkgrel = 1
+	url = https://github.com/heroku/netrc
+	arch = any
+	license = MIT
+	makedepends = git
+	makedepends = rubygems
+	makedepends = ruby-rdoc
+	depends = ruby
+	options = !emptydirs
+	source = git+https://github.com/heroku/netrc.git?tag=v0.11.0
+	sha256sums = SKIP
+
+pkgname = ruby-netrc
+
