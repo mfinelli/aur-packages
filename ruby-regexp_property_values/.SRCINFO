@@ -1,10 +1,16 @@
 pkgbase = ruby-regexp_property_values
 	pkgdesc = Inspect property values supported by Ruby's regex engine
 	pkgver = 1.0.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/jaynetics/regexp_property_values
 	arch = x86_64
 	license = MIT
+	checkdepends = ruby-bundler
+	checkdepends = ruby-rspec
+	checkdepends = ruby-character_set
+	checkdepends = ruby-rake
+	checkdepends = ruby-rake-compiler
+	checkdepends = ruby-range_compressor
 	makedepends = git
 	makedepends = rubygems
 	makedepends = ruby-rdoc

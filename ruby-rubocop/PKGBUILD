@@ -18,6 +18,7 @@ depends=(
   ruby-ruby-progressbar
   ruby-unicode-display_width
 )
+checkdepends=(ruby-bundler ruby-rake ruby-rspec ruby-webmock ruby-rubocop-rspec ruby-rubocop-performance)
 makedepends=(rubygems ruby-rdoc)
 url=https://rubocop.org
 license=(MIT)
@@ -33,6 +34,11 @@ prepare() {
 build() {
   cd $_gemname-$pkgver
   gem build ${_gemname}.gemspec
+}
+
+check() {
+  cd $_gemname-$pkgver
+  rspec spec
 }
 
 package() {

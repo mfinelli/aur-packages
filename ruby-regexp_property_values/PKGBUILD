@@ -3,10 +3,11 @@
 _gemname=regexp_property_values
 pkgname=ruby-${_gemname}
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Inspect property values supported by Ruby's regex engine"
 arch=(x86_64)
 depends=(ruby)
+checkdepends=(ruby-bundler ruby-rspec ruby-character_set ruby-rake ruby-rake-compiler ruby-range_compressor)
 makedepends=(git rubygems ruby-rdoc)
 url=https://github.com/jaynetics/regexp_property_values
 license=(MIT)
@@ -17,6 +18,11 @@ sha256sums=('SKIP')
 build() {
   cd $_gemname
   gem build ${_gemname}.gemspec
+}
+
+check() {
+  cd $_gemname
+  rake spec
 }
 
 package() {

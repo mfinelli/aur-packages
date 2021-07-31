@@ -3,20 +3,51 @@
 _gemname=bump
 pkgname=ruby-$_gemname
 pkgver=0.10.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A gem to simplify the way you build gems"
 arch=(any)
 url=https://github.com/gregorym/bump
 license=(MIT)
 depends=(ruby)
-makedepends=(ruby-rdoc rubygems)
+checkdepends=(ruby-bundler ruby-rake ruby-rspec)
+# checkdepends=(ruby-bundler ruby-byebug ruby-rake ruby-rspec)
+makedepends=(git ruby-rdoc rubygems)
 options=(!emptydirs)
 source=(git+https://github.com/gregorym/bump.git?tag=v$pkgver)
 sha256sums=('SKIP')
 
+prepare() {
+  cd ${_gemname}
+
+  # sed -i '/bundler/d' Rakefile
+  sed -i '/RuboCop/d' Rakefile
+  sed -i "s/require 'rubocop\/rake_task'//" Rakefile
+  sed -i "s/require 'bump\/tasks'//" Rakefile
+  sed -i '/rubocop/d' ${_gemname}.gemspec
+  sed -i '/byebug/d' Gemfile
+
+  # the tests attempt to run bundle install which tried to do a system install
+  # which we don't want. Make them install into a throwaway directory instead
+  bundle config set --local path "$srcdir/bundle"
+
+  rm Gemfile
+
+  git config --global user.name "Example You"
+  git config --global user.email "you@example.com"
+  git config --global init.defaultBranch master
+}
+
 build() {
   cd ${_gemname}
   gem build ${_gemname}.gemspec
+}
+
+check() {
+  cd ${_gemname}
+
+  # disabled for now because it tries to bundle while running tests
+  # which then needs to write to system locations and it's a mess
+  rake spec
 }
 
 package() {
@@ -30,9 +61,10 @@ package() {
     -n "$pkgdir/usr/bin" \
     $_gemname-$pkgver.gem
 
-  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+  rm -rf "$pkgdir/$_gemdir/cache"
 
   install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
 
 # vim: set ts=2 sw=2 et:

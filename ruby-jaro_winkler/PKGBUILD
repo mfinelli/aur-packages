@@ -3,10 +3,11 @@
 _gemname=jaro_winkler
 pkgname=ruby-${_gemname}
 pkgver=1.5.4
-pkgrel=2
+pkgrel=3
 pkgdesc="Ruby & C implementation of Jaro-Winkler distance algorithm which supports UTF-8 string"
 arch=(i686 x86_64)
 depends=(ruby)
+checkdepends=(ruby-rake ruby-rake-compiler ruby-minitest)
 makedepends=(rubygems ruby-rdoc)
 url=https://github.com/tonytonyjan/jaro_winkler
 license=(MIT)
@@ -17,6 +18,11 @@ sha256sums=('290b0765be8f35eabcebc5623006683803831d99d6c3b6aef0c73571e9af965b')
 build() {
   cd ${_gemname}-${pkgver}
   gem build ${_gemname}.gemspec
+}
+
+check() {
+  cd ${_gemname}-${pkgver}
+  rake test
 }
 
 package() {
@@ -30,10 +36,11 @@ package() {
     -n "$pkgdir/usr/bin" \
     $_gemname-$pkgver.gem
 
-  rm "$pkgdir/$_gemdir/cache/$_gemname-$pkgver.gem"
+  rm -rf "$pkgdir/$_gemdir/cache"
 
   install -Dm0644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm0644 CHANGELOG.md "$pkgdir/usr/share/doc/$pkgname/CHANGELOG.md"
 }
 
 # vim: set ts=2 sw=2 et:

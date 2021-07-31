@@ -3,7 +3,7 @@
 _gemname=ice_nine
 pkgname=ruby-${_gemname}
 pkgver=0.11.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Deep Freeze Ruby Objects"
 arch=(any)
 depends=(ruby)

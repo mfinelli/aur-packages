@@ -1,7 +1,7 @@
 pkgbase = ruby-ice_nine
 	pkgdesc = Deep Freeze Ruby Objects
 	pkgver = 0.11.2
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/dkubb/ice_nine
 	arch = any
 	license = MIT

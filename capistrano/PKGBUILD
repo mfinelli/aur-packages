@@ -2,12 +2,13 @@
 
 pkgname=capistrano
 pkgver=3.16.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A remote server automation and deployment tool written in Ruby"
 arch=(any)
-url="http://capistranorb.com"
+url=https://capistranorb.com
 license=(MIT)
 depends=(ruby ruby-rake ruby-sshkit ruby-i18n ruby-airbrussh)
+checkdepends=(ruby-mocha ruby-rspec)
 makedepends=(git ruby-rdoc rubygems)
 options=(!emptydirs)
 source=(git+https://github.com/capistrano/capistrano.git?tag=v${pkgver})
@@ -21,6 +22,11 @@ prepare() {
 build() {
   cd ${pkgname}
   gem build ${pkgname}.gemspec
+}
+
+check() {
+  cd ${pkgname}
+  rake spec
 }
 
 package() {
