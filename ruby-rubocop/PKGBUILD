@@ -18,7 +18,8 @@ depends=(
   ruby-ruby-progressbar
   ruby-unicode-display_width
 )
-checkdepends=(ruby-bundler ruby-rake ruby-rspec ruby-webmock ruby-rubocop-rspec ruby-rubocop-performance)
+# checkdepends=(ruby-bundler ruby-rake ruby-rspec ruby-webmock ruby-rubocop-rspec ruby-rubocop-performance)
+checkdepends=(ruby-bundler ruby-rake ruby-rspec ruby-webmock ruby-rubocop-rspec ruby-rubocop-performance ruby-rubocop-rake ruby-test-queue ruby-yard ruby-bump)
 makedepends=(rubygems ruby-rdoc)
 url=https://rubocop.org
 license=(MIT)
@@ -29,6 +30,15 @@ sha256sums=('b144e43de6ff990a801a636ea7eb633057bed4a45c043d1373e7619914930bfb')
 prepare() {
   cd $_gemname-$pkgver
   sed -i 's|~>|>=|g' ${_gemname}.gemspec
+
+  # sed -i '/bump/d' Gemfile
+  sed -i '/memory_profiler/d' Gemfile
+  sed -i '/simplecov/d' Gemfile
+  sed -i '/stackprof/d' Gemfile
+  sed -i 's|~>|>=|g' Gemfile
+
+  sed -i '/group/d' Gemfile
+  sed -i '/end/d' Gemfile
 }
 
 build() {
@@ -38,7 +48,9 @@ build() {
 
 check() {
   cd $_gemname-$pkgver
-  rspec spec
+  # rspec spec
+  rake spec
+  rake ascii_spec
 }
 
 package() {

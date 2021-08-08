@@ -19,6 +19,9 @@ sha256sums=('SKIP')
 prepare() {
   cd ${_gemname}
   sed -i 's|~>|>=|g' ${_gemname}.gemspec
+
+  # echo "require 'readline'" | cat - spec/pry_spec.rb > tmp
+  # mv tmp spec/pry_spec.rb
 }
 
 build() {
@@ -28,6 +31,10 @@ build() {
 
 check() {
   cd ${_gemname}
+
+  sed -i "/require 'readline'/d" lib/pry/config.rb
+  sed -i "/require 'ostruct'/a require 'readline'" lib/pry/config.rb
+
   # we need to set an EDITOR environment variable or subject.editor is nil
   EDITOR=testing rake spec
 }
