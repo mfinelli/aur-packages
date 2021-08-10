@@ -1,0 +1,17 @@
+pkgbase = ruby-haml
+	pkgdesc = a layer on top of HTML or XML
+	pkgver = 5.2.2
+	pkgrel = 1
+	url = https://haml.info
+	arch = any
+	license = MIT
+	makedepends = rubygems
+	makedepends = ruby-rdoc
+	depends = ruby
+	depends = ruby-temple
+	depends = ruby-tilt
+	options = !emptydirs
+	source = https://github.com/haml/haml/archive/v5.2.2/haml-5.2.2.tar.gz
+	sha256sums = d34c2913576e97c61038475835fe7dc56ec55c35b2efad0495cc32cdc787e3be
+
+pkgname = ruby-haml
