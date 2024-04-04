@@ -2,7 +2,7 @@
 
 _gemname=ruby_engine
 pkgname=ruby-${_gemname}
-pkgver=2.0.0
+pkgver=2.0.1
 pkgrel=1
 pkgdesc="Adds the RubyEngine pseudo-constant"
 arch=(any)
@@ -13,7 +13,7 @@ checkdepends=(ruby-rspec)
 makedepends=(rubygems ruby-rdoc)
 options=(!emptydirs)
 source=(https://github.com/janlelis/ruby_engine/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('0c831878b609e1fd29681bc3a354e4e64715a16e7be029f762886dfc46cf1019')
+sha256sums=('05d0e33252089f5ba6e986583ccb95d7b26b7bec6688acf6669bb23b9acfaecd')
 
 prepare() {
   cd $_gemname-$pkgver
@@ -22,29 +22,59 @@ prepare() {
 
 build() {
   cd $_gemname-$pkgver
-  gem build ${_gemname}.gemspec
+  local _gemdir="$(gem env gemdir)"
+
+  gem build "${_gemname}.gemspec"
+
+  gem install \
+    --local \
+    --verbose \
+    --ignore-dependencies \
+    --no-user-install \
+    --install-dir "tmp_install/${_gemdir}" \
+    --bindir "tmp_install/usr/bin" \
+    "${_gemname}-${pkgver}.gem"
+
+  # remove unrepreducible files
+  rm --force --recursive --verbose \
+    "tmp_install/${_gemdir}/cache/" \
+    "tmp_install/${_gemdir}/gems/${_gemname}-${pkgver}/vendor/" \
+    "tmp_install/${_gemdir}/doc/${_gemname}-${pkgver}/ri/ext/"
+
+  find "tmp_install/${_gemdir}/gems/" \
+    -type f \
+    \( \
+      -iname "*.o" -o \
+      -iname "*.c" -o \
+      -iname "*.so" -o \
+      -iname "*.time" -o \
+      -iname "gem.build_complete" -o \
+      -iname "Makefile" \
+    \) \
+    -delete
+
+  find "tmp_install/${_gemdir}/extensions/" \
+    -type f \
+    \( \
+      -iname "mkmf.log" -o \
+      -iname "gem_make.out" \
+    \) \
+    -delete
 }
 
 check() {
   cd $_gemname-$pkgver
-  rspec
+  local _gemdir="$(gem env gemdir)"
+  GEM_HOME="tmp_install/${_gemdir}" rspec
 }
 
 package() {
   cd $_gemname-$pkgver
-  local _gemdir="$(gem env gemdir)"
 
-  gem install \
-    --ignore-dependencies \
-    --no-user-install \
-    -i "$pkgdir/$_gemdir" \
-    -n "$pkgdir/usr/bin" \
-    $_gemname-$pkgver.gem
-
-  rm -rf "$pkgdir/$_gemdir/cache"
+  cp --archive --verbose tmp_install/* "${pkgdir}"
 
   install -Dm0644 MIT-LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-  install -Dm0644 README.rdoc "$pkgdir/usr/share/doc/$pkgname/README.rdoc"
+  install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
   install -Dm0644 ChangeLog.md "$pkgdir/usr/share/doc/$pkgname/CHANGELOG.md"
 }
 
