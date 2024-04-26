@@ -2,7 +2,7 @@
 
 _gemname=ruby_engine
 pkgname=ruby-${_gemname}
-pkgver=2.0.1
+pkgver=2.0.3
 pkgrel=1
 pkgdesc="Adds the RubyEngine pseudo-constant"
 arch=(any)
@@ -13,7 +13,7 @@ checkdepends=(ruby-rspec)
 makedepends=(rubygems ruby-rdoc)
 options=(!emptydirs)
 source=(https://github.com/janlelis/ruby_engine/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('05d0e33252089f5ba6e986583ccb95d7b26b7bec6688acf6669bb23b9acfaecd')
+sha256sums=('e3c96da4f3c0d185283e4c087f30ec552d8b05d0e59d438302830d129ca45e66')
 
 prepare() {
   cd $_gemname-$pkgver
