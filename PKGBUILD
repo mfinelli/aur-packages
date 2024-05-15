@@ -10,8 +10,8 @@
 
 _gemname='ruby_parser'
 pkgname="ruby-${_gemname}"
-pkgver=3.18.0
-pkgrel=2
+pkgver=3.21.0
+pkgrel=1
 pkgdesc='Ruby parser written in pure ruby'
 arch=('any')
 url='https://github.com/seattlerb/ruby_parser'
@@ -20,7 +20,7 @@ options=(!emptydirs)
 depends=('ruby' 'ruby-sexp_processor')
 makedepends=('ruby-hoe' 'ruby-minitest' 'ruby-oedipus_lex' 'ruby-racc' 'ruby-rake' 'unifdef')
 source=("${url}/archive/v${pkgver}/${pkgname}-${pkgver}.tar.gz")
-sha512sums=('ccf0119e419cc5c507d238a6e372f7493478924afa96ce65566b6b22c4f4e7bedcc2a5767213abb0ab9ad9d4d57d5bbbdd493a2e97afc6778d9cdc7490926525')
+sha512sums=('923c5c3e850a62d5a6d7742540768827508d40620dcf0809a784d09ef8dcfbc5323f23d19cdb543b60315fbd0bc33997e8c0dccde9c6dbe33c145f1146a1dfdf')
 
 prepare() {
   cd "${_gemname}-${pkgver}"
