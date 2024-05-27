@@ -2,7 +2,7 @@
 
 _gemname=mechanize
 pkgname=ruby-$_gemname
-pkgver=2.9.2
+pkgver=2.10.0
 pkgrel=1
 pkgdesc="The Mechanize library is used for automating interaction with websites"
 arch=(any)
@@ -24,7 +24,7 @@ depends=(
 checkdepends=(ruby-rake ruby-minitest)
 makedepends=(git rubygems ruby-rdoc)
 options=(!emptydirs)
-source=(git+https://github.com/sparklemotion/mechanize.git?tag=v${pkgver})
+source=(git+https://github.com/sparklemotion/mechanize.git#tag=v${pkgver})
 sha256sums=('SKIP')
 
 build() {
