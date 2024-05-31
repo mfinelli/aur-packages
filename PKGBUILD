@@ -2,7 +2,7 @@
 # Old Maintainer: Gabriel M. Dutra <0xdutra@gmail.com>
 
 pkgname=terraform-docs
-pkgver=0.17.0
+pkgver=0.18.0
 pkgrel=1
 pkgdesc=" Generate documentation from Terraform modules in various output formats"
 arch=('x86_64' 'i686' 'armv7h' 'aarch64')
@@ -11,7 +11,7 @@ license=('MIT')
 depends=('glibc')
 makedepends=('go')
 source=("${pkgname}-${pkgver}.tar.gz::https://github.com/terraform-docs/${pkgname}/archive/v${pkgver}.tar.gz")
-sha256sums=('698537c9cc170f8760cda862d560bfeaa24f2a705bbc70c22a8facbf05a829e0')
+sha256sums=('ed4c51a8f8be8f9cf5117331005b200d807f362604447ddeb6781c744e5f4743')
 
 build() {
 	cd "${pkgname}-${pkgver}"
