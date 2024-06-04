@@ -2,18 +2,18 @@
 
 _name=google-cloud-compute
 pkgname=python-$_name
-pkgver=1.14.1
+pkgver=1.19.0
 pkgrel=1
 pkgdesc="Google Cloud Compute python SDK"
-url=https://github.com/googleapis/python-compute
+url=https://github.com/googleapis/google-cloud-python
 arch=(any)
-license=(Apache)
+license=(Apache-2.0)
 depends=(python python-google-api-core python-proto-plus python-protobuf
          python-google-auth python-grpcio)
 makedepends=(python-setuptools python-wheel python-installer python-build)
 options=(!emptydirs)
 source=("https://files.pythonhosted.org/packages/source/${_name::1}/$_name/$_name-$pkgver.tar.gz")
-sha256sums=('acd987647d7c826aa97b4418141c740ead5e8811d3349315f2f89a30c01c7f4b')
+sha256sums=('a07b3408b3f77786dcb196669ff3767bc51080718a7c2d3fd779defc8d817b4d')
 
 build() {
   cd "$_name-$pkgver"
