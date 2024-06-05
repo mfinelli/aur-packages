@@ -1,6 +1,6 @@
 pkgbase = ruby-jaro_winkler
 	pkgdesc = Ruby & C implementation of Jaro-Winkler distance algorithm
-	pkgver = 1.5.6
+	pkgver = 1.6.0
 	pkgrel = 1
 	url = https://github.com/tonytonyjan/jaro_winkler
 	arch = i686
@@ -13,7 +13,7 @@ pkgbase = ruby-jaro_winkler
 	makedepends = ruby-rdoc
 	depends = ruby
 	options = !emptydirs
-	source = https://github.com/tonytonyjan/jaro_winkler/archive/v1.5.6/jaro_winkler-1.5.6.tar.gz
-	sha256sums = b27eb01c660e965898239f069e13634b83793d88569b2ddc22d3dbe97a3277d3
+	source = https://github.com/tonytonyjan/jaro_winkler/archive/v1.6.0/jaro_winkler-1.6.0.tar.gz
+	sha256sums = 22616c7f54b13ab9b0c61f0ab7cd9c7bd64c9e3ba441a7646238b2d2e609234e
 
 pkgname = ruby-jaro_winkler
