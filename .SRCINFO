@@ -1,13 +1,14 @@
 pkgbase = gnome-shell-extension-randomwallpaper
-	pkgdesc = Fetch a random wallpaper from an online source and set it as a desktop background. The desktop background can be updated periodically or manually.
-	pkgver = 2.7.2
+	pkgdesc = Random Wallpapers for Gnome 3
+	pkgver = 3.0.2
 	pkgrel = 1
 	url = https://github.com/ifl0w/RandomWallpaperGnome3
 	arch = any
 	license = MIT
-	makedepends = zip
+	makedepends = blueprint-compiler
+	makedepends = npm
 	depends = gnome-shell
-	source = https://github.com/ifl0w/RandomWallpaperGnome3/archive/v2.7.2.tar.gz
-	b2sums = 608d577aa2a69b35a0ea7c5286a32f0242561f5104e48ac9b3abdd5bdc25255e15eb595fe027e69a3e5c9d04675699b21e13f978fe9b625ce8c34adcb2c14666
+	source = RandomWallpaperGnome3-3.0.2.tar.gz::https://github.com/ifl0w/RandomWallpaperGnome3/archive/v3.0.2.tar.gz
+	sha256sums = b1fcbe4db1da19215d29629230b071692d5100a1d343d4bfdb26ea8519c9f0bf
 
 pkgname = gnome-shell-extension-randomwallpaper
