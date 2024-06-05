@@ -1,28 +1,86 @@
-# Maintainer: Igor Dyatlov <dyatlov.igor@protonmail.com>
+# Maintainer: Mario Finelli <mario at finel dot li>
+# Contributor: Igor Dyatlov <dyatlov.igor@protonmail.com>
 
 pkgname=gnome-shell-extension-randomwallpaper
-_pkgname=RandomWallpaperGnome3
-pkgver=2.7.2
+pkgver=3.0.2
 pkgrel=1
-pkgdesc="Fetch a random wallpaper from an online source and set it as a desktop background.  The desktop background can be updated periodically or manually."
-arch=('any')
-url="https://github.com/ifl0w/RandomWallpaperGnome3"
-license=('MIT')
-depends=('gnome-shell')
-makedepends=('zip')
-source=(${url}/archive/v$pkgver.tar.gz)
-b2sums=('608d577aa2a69b35a0ea7c5286a32f0242561f5104e48ac9b3abdd5bdc25255e15eb595fe027e69a3e5c9d04675699b21e13f978fe9b625ce8c34adcb2c14666')
+pkgdesc="Random Wallpapers for Gnome 3"
+arch=(any)
+url=https://github.com/ifl0w/RandomWallpaperGnome3
+license=(MIT)
+depends=(gnome-shell)
+makedepends=(blueprint-compiler npm)
+source=(RandomWallpaperGnome3-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz)
+sha256sums=('b1fcbe4db1da19215d29629230b071692d5100a1d343d4bfdb26ea8519c9f0bf')
+
+prepare() {
+  cd RandomWallpaperGnome3-$pkgver
+  npm ci
+}
 
 build() {
-  cd "${_pkgname%-git}-$pkgver"
+  cd RandomWallpaperGnome3-$pkgver
 
-  ./build.sh
+  local uuid="$(grep -Po '(?<="uuid": ")[^"]*' src/metadata.json)"
+  local schema=$(grep -Po '(?<="settings-schema": ")[^"]*' \
+    src/metadata.json).gschema.xml
+  mkdir "$uuid"
+
+  # UI
+  blueprint-compiler batch-compile "$uuid/ui" src/ui src/ui/*.blp
+
+  # JS
+  npx tsc
+
+  # schemas
+  mkdir "$uuid/schemas"
+  glib-compile-schemas --targetdir="$uuid/schemas" src/schemas
+
+  # static files
+  cp "src/schemas/$schema" "$uuid/schemas"
+  cp src/metadata.json "$uuid"
+  cp src/stylesheet.css "$uuid"
+
+  # pack into zip
+  local extra_source=()
+  for file in "$uuid"/*; do
+    extra_source+=("--extra-source=$file")
+  done
+
+  gnome-extensions pack "${extra_source[@]}" "$uuid"
 }
 
 package() {
-  cd "${_pkgname%-git}-$pkgver"
+  cd RandomWallpaperGnome3-$pkgver
 
-  uuid=randomwallpaper@iflow.space
-  install -d "$pkgdir/usr/share/gnome-shell/extensions/${uuid}"
-  bsdtar -xvf ${uuid}.zip -C "$pkgdir/usr/share/gnome-shell/extensions/${uuid}"
+  local uuid="$(grep -Po '(?<="uuid": ")[^"]*' src/metadata.json)"
+  local schema=$(grep -Po '(?<="settings-schema": ")[^"]*' \
+    src/metadata.json).gschema.xml
+  local destdir="${pkgdir}/usr/share/gnome-shell/extensions/${uuid}"
+
+  install -dm0755 "$destdir"
+  bsdtar xvf ${uuid}.shell-extension.zip -C "$destdir/" --no-same-owner
+  install -Dm0644 "$destdir/schemas/$schema" \
+    -t "$pkgdir/usr/share/glib-2.0/schemas/"
+
+  install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+
+  # gnome-extensions pack doesn't seem to include the extra-source options
+  # no matter what I try, so we'll just manually add them to the package now...
+  cd "$uuid"
+  find ui -type f -name '*.ui' -exec install -Dm0644 {} -t "$destdir/ui/" \;
+
+  for s in adapter manager ui; do
+    find $s -type f -name '*.js' -exec install -Dm0644 {} -t "$destdir/$s/" \;
+  done
+
+  for js in *.js; do
+    [[ $js == extension.js ]] && continue
+    [[ $js == prefs.js ]] && continue
+    install -Dm0644 $js -t "$destdir/"
+  done
+
+  rm -rf "${destdir}/schemas"
 }
+
+# vim: set ts=2 sw=2 et:
