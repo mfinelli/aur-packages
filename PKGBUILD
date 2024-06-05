@@ -1,9 +1,9 @@
-# Maintainer: George Rawlinson <grawlinson@archlinux.org>
+# Contributor: George Rawlinson <grawlinson@archlinux.org>
 # Contributor: Mario Finelli <mario at finel dot li>
 
 _gemname=dry-core
 pkgname=ruby-$_gemname
-pkgver=0.8.0
+pkgver=1.0.1
 pkgrel=1
 pkgdesc='A toolset of small support modules used throughout the dry-rb ecosystem'
 arch=('any')
@@ -12,34 +12,64 @@ license=('MIT')
 depends=('ruby' 'ruby-concurrent')
 makedepends=('ruby-rdoc')
 options=('!emptydirs')
-source=("https://rubygems.org/downloads/$_gemname-$pkgver.gem")
-noextract=("$_gemname-$pkgver.gem")
-b2sums=('0959a8c22c229e1faa5ff4c92b3054d98a18a49435170cac776d3921cb7daa5207b2cc457bb4612fcfb93a08ca97e0bfc598077ffa282f1d02749852d65915ad')
+source=(${_gemname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz)
+b2sums=('fb85107dd68dfb2a8d3ee2e66b4bb8b416ac325be4d28bcbbf5605e0a90992eb8aa85a8fad3cba8f228a5a7e50109cd2c1dbf920eebc3423d282055204c6b0a5')
 
-package() {
-  local _gemdir="$(ruby -e'puts Gem.default_dir')"
+prepare() {
+  cd "${_gemname}-${pkgver}"
+
+  # update gemspec/Gemfile to allow newer version of the dependencies
+  sed --in-place --regexp-extended 's|~>|>=|g' "${_gemname}.gemspec"
+}
+
+build() {
+  cd "${_gemname}-${pkgver}"
+
+  local _gemdir="$(gem env gemdir)"
+
+  gem build "${_gemname}.gemspec"
 
   gem install \
+    --local \
     --verbose \
     --ignore-dependencies \
     --no-user-install \
-    --install-dir "$pkgdir/$_gemdir" \
-    --bindir "$pkgdir/usr/bin" \
-    "$_gemname-$pkgver.gem"
+    --install-dir "tmp_install/${_gemdir}" \
+    --bindir "tmp_install/usr/bin" \
+    "${_gemname}-${pkgver}.gem"
 
-  # delete cache
-  cd "$pkgdir/$_gemdir"
-  rm -vrf cache
+  # remove unrepreducible files
+  rm --force --recursive --verbose \
+    "tmp_install/${_gemdir}/cache/" \
+    "tmp_install/${_gemdir}/gems/${_gemname}-${pkgver}/vendor/" \
+    "tmp_install/${_gemdir}/doc/${_gemname}-${pkgver}/ri/ext/"
 
-  # delete unnecessary files & folders
-  cd "gems/$_gemname-$pkgver"
-  rm -vrf "$_gemname.gemspec"
+  find "tmp_install/${_gemdir}/gems/" \
+    -type f \
+    \( \
+      -iname "*.o" -o \
+      -iname "*.c" -o \
+      -iname "*.so" -o \
+      -iname "*.time" -o \
+      -iname "gem.build_complete" -o \
+      -iname "Makefile" \
+    \) \
+    -delete
 
-  # move documentation
-  install -vd "$pkgdir/usr/share/doc/$pkgname"
-  mv -vt "$pkgdir/usr/share/doc/$pkgname" *.md
+  find "tmp_install/${_gemdir}/extensions/" \
+    -type f \
+    \( \
+      -iname "mkmf.log" -o \
+      -iname "gem_make.out" \
+    \) \
+    -delete
+}
 
-  # move license
-  install -vd "$pkgdir/usr/share/licenses/$pkgname"
-  mv -vt "$pkgdir/usr/share/licenses/$pkgname" LICENSE
+package() {
+  cd "${_gemname}-${pkgver}"
+
+  cp --archive --verbose tmp_install/* "${pkgdir}"
+
+  install --verbose -D --mode=0644 LICENSE --target-directory "${pkgdir}/usr/share/licenses/${pkgname}"
+  install --verbose -D --mode=0644 *.md --target-directory "${pkgdir}/usr/share/doc/${pkgname}"
 }
