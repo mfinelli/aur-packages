@@ -1,7 +1,7 @@
 pkgbase = dnglab
 	pkgdesc = Camera RAW to DNG file format converter
 	pkgver = 0.6.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/dnglab/dnglab
 	arch = x86_64
 	license = LGPL-2.1-only
