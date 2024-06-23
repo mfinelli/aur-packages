@@ -2,8 +2,9 @@
 # Maintainer: Kevin Concilio (kevin.concilio1@gmail.com)
 
 pkgname=gnome-shell-extension-pano
-pkgver=22
-pkgrel=2
+pkgver=23_alpha2
+version=${pkgver//_/-}
+pkgrel=1
 pkgdesc="Next-gen Clipboard Manager (forked from -git package)"
 arch=('any')
 url="https://github.com/oae/gnome-shell-pano"
@@ -16,21 +17,21 @@ makedepends=('gobject-introspection'
              'yarn'
              'appstream'
              'zip')
-source=("$url/archive/refs/tags/v$pkgver.tar.gz")
+source=("$url/archive/refs/tags/v$version.tar.gz")
 md5sums=("SKIP")
 
 prepare() {
-  cd "gnome-shell-pano-$pkgver"
+  cd "gnome-shell-pano-$version"
   yarn install
 }
 
 build() {
-  cd "gnome-shell-pano-$pkgver"
+  cd "gnome-shell-pano-$version"
   yarn build:package
 }
 
 package() {
-  cd "gnome-shell-pano-$pkgver/dist"
+  cd "gnome-shell-pano-$version/dist"
 
   local uuid=$(grep -Po '(?<="uuid": ")[^"]*' metadata.json)
   local schema=$(grep -Po '(?<="settings-schema": ")[^"]*' metadata.json).gschema.xml
