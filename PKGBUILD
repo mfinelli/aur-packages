@@ -1,17 +1,17 @@
 # Maintainer: Oscar Cowdery Lack <oscar.cowderylack@gmail.com>
 pkgname=nats-server
-pkgver=2.10.16
+pkgver=2.10.17
 pkgrel=1
 pkgdesc="High-Performance server for NATS.io, the cloud and edge native messaging system"
 arch=(x86_64)
 url="https://github.com/nats-io/nats-server"
 license=('Apache-2.0')
-makedepends=(go)
-source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('235b8fdd9a005e4bfb7a14752e4c171d168707662fb5ed00ed064641c8fa588b')
+makedepends=(git go)
+source=("$pkgname::git+$url#tag=v$pkgver")
+sha256sums=('e5bb6e3f69edd54bbd5efa11ddf0d6292a202bf2deafd127b705f3ecc9bbc6cd')
 
 build() {
-    cd "$pkgname-$pkgver"
+    cd "$pkgname"
     export CGO_CPPFLAGS="${CPPFLAGS}"
     export CGO_CFLAGS="${CFLAGS}"
     export CGO_CXXFLAGS="${CXXFLAGS}"
@@ -22,6 +22,6 @@ build() {
 }
 
 package() {
-    cd "$pkgname-$pkgver"
+    cd "$pkgname"
     install -Dm755 ./$pkgname "$pkgdir"/usr/bin/$pkgname
 }
