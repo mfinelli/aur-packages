@@ -2,7 +2,7 @@
 
 _npmname=postcss
 pkgname=nodejs-$_npmname
-pkgver=8.4.38
+pkgver=8.4.39
 pkgrel=1
 pkgdesc="Tool for transforming styles with JS plugins"
 arch=(any)
@@ -12,7 +12,7 @@ depends=(nodejs)
 makedepends=(npm)
 source=(https://registry.npmjs.org/$_npmname/-/$_npmname-$pkgver.tgz)
 noextract=($_npmname-$pkgver.tgz)
-sha256sums=('d6357a1f4870ab27d25c8daeae6204409ce9de590447a8202ff82982cfb903e8')
+sha256sums=('8e8c2d32faec00ef19e92a09c3ca52248dd8b096e7372b8f26bab40805d22c7b')
 
 package() {
   npm install --global \
