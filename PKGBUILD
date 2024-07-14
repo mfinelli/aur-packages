@@ -3,7 +3,7 @@
 
 _name=proto-plus
 pkgname=python-$_name
-pkgver=1.23.0
+pkgver=1.24.0
 pkgrel=1
 pkgdesc='A wrapper around protocol buffers.'
 arch=('any')
@@ -12,7 +12,7 @@ license=('Apache')
 depends=('python' 'python-google-api-core' 'python-protobuf')
 makedepends=('python-setuptools')
 source=("https://files.pythonhosted.org/packages/source/${_name::1}/$_name/$_name-$pkgver.tar.gz")
-b2sums=('1a30304e652ac5dab68f96574fc223036e0a3353151491c79ab35018a67a2901eafd6c8ebffe286ec52c8b02fb86c4534653643ff6e322cfea2d5999159fb283')
+b2sums=('587bcedfa031c79eda0837d735a13abdcd057093359dfbf7ead7c9335a8d37bdbaa0bdd56342b9d46865167b09d6c2aa988369916dd709aec9da62300bfdbc83')
 
 build() {
 	cd $_name-$pkgver
