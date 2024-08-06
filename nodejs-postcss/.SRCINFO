@@ -1,14 +1,14 @@
 pkgbase = nodejs-postcss
 	pkgdesc = Tool for transforming styles with JS plugins
-	pkgver = 8.4.40
+	pkgver = 8.4.41
 	pkgrel = 1
 	url = https://postcss.org
 	arch = any
 	license = MIT
 	makedepends = npm
 	depends = nodejs
-	noextract = postcss-8.4.40.tgz
-	source = https://registry.npmjs.org/postcss/-/postcss-8.4.40.tgz
-	sha256sums = b8f39061856d316101ec38c65133b67b7b6004d8d6fa0081b303a6944d0377cd
+	noextract = postcss-8.4.41.tgz
+	source = https://registry.npmjs.org/postcss/-/postcss-8.4.41.tgz
+	sha256sums = 18e76964364012b06503c78eb3f6882c3ef606f74dfe677e7c8402394a01b557
 
 pkgname = nodejs-postcss
