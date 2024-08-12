@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=vangen
-pkgver=1.4.0
+pkgver=1.4.1
 pkgrel=1
 pkgdesc="Tool for generating static HTML for Go vanity import paths"
 arch=(x86_64)
@@ -10,7 +10,7 @@ license=(MIT)
 depends=(glibc)
 makedepends=(go)
 source=("$pkgname-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz")
-sha256sums=('5b10eb21f586d910a4cbd33381d53a22db0d610d33da620803e0478772810b5d')
+sha256sums=('fc47793bf0ebb98f40eb5048e7e3835864910d62778d888a6dcd947eadb4edc9')
 
 prepare() {
   cd $pkgname-$pkgver
