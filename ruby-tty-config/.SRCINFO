@@ -1,6 +1,6 @@
 pkgbase = ruby-tty-config
 	pkgdesc = A highly customisable application configuration interface
-	pkgver = 0.5.1
+	pkgver = 0.6.0
 	pkgrel = 1
 	url = https://github.com/piotrmurach/tty-config
 	arch = any
@@ -17,7 +17,7 @@ pkgbase = ruby-tty-config
 	makedepends = ruby-rdoc
 	depends = ruby
 	options = !emptydirs
-	source = https://github.com/piotrmurach/tty-config/archive/v0.5.1.tar.gz
-	sha256sums = 507ddd029750e8fc8bf761984d9fae2aeed95db901569959d6a4f54dd851710f
+	source = ruby-tty-config-0.6.0.tar.gz::https://github.com/piotrmurach/tty-config/archive/89bdc6ef9bc72f309e2baf6db21522444c496c48.tar.gz
+	sha256sums = 502214512421164d554ffea43dcefab22a4ed94b2571492c3d9cfa86ac66a4f2
 
 pkgname = ruby-tty-config
