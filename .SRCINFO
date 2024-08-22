@@ -5,11 +5,13 @@ pkgbase = python-proto-plus
 	url = https://github.com/googleapis/proto-plus-python
 	arch = any
 	license = Apache
+	makedepends = python-build
+	makedepends = python-installer
 	makedepends = python-setuptools
+	makedepends = python-wheel
 	depends = python
-	depends = python-google-api-core
 	depends = python-protobuf
-	source = https://files.pythonhosted.org/packages/source/p/proto-plus/proto-plus-1.24.0.tar.gz
-	b2sums = 587bcedfa031c79eda0837d735a13abdcd057093359dfbf7ead7c9335a8d37bdbaa0bdd56342b9d46865167b09d6c2aa988369916dd709aec9da62300bfdbc83
+	source = https://github.com/googleapis/proto-plus-python/archive/v1.24.0.tar.gz
+	b2sums = 29094738e9c84559b8b51b078ecb059e7475c5c6e9392f23925c6df264efebd22c191c5b593fc659aabb20ce9cb0d93cde9df28b0b40aac4bbc80e075a95ec24
 
 pkgname = python-proto-plus
