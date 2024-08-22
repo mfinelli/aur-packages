@@ -4,7 +4,7 @@
 _name=proto-plus
 pkgname=python-$_name
 pkgver=1.24.0
-pkgrel=1
+pkgrel=2
 pkgdesc='A wrapper around protocol buffers.'
 arch=('any')
 url="https://github.com/googleapis/proto-plus-python"
