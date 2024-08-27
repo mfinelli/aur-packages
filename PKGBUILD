@@ -1,6 +1,6 @@
 # Maintainer: Oscar Cowdery Lack <oscar.cowderylack@gmail.com>
 pkgname=nats-server
-pkgver=2.10.18
+pkgver=2.10.19
 pkgrel=1
 pkgdesc="High-Performance server for NATS.io, the cloud and edge native messaging system"
 arch=(x86_64)
@@ -8,7 +8,7 @@ url="https://github.com/nats-io/nats-server"
 license=('Apache-2.0')
 makedepends=(git go)
 source=("$pkgname::git+$url#tag=v$pkgver")
-sha256sums=('793ec1928d25fb4695d8e0231a72343175d82cb744782d1c0a2771d2a18e8515')
+sha256sums=('9c5479a7fb3dcf789c3ed0a8a8e2af704e55f76ca99af54a242b7bb4d4c7d6d5')
 
 build() {
     cd "$pkgname"
