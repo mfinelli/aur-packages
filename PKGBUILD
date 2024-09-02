@@ -2,7 +2,7 @@
 
 _gemname=flay
 pkgname=ruby-$_gemname
-pkgver=2.13.2
+pkgver=2.13.3
 pkgrel=1
 pkgdesc="Analyzes code for structural similarities"
 arch=(any)
@@ -11,21 +11,16 @@ license=(MIT)
 options=(!emptydirs)
 depends=(ruby ruby-erubi ruby-path_expander ruby-ruby2ruby ruby-ruby_parser
          ruby-sexp_processor)
-checkdepends=(ruby-minitest)
-makedepends=(ruby-hoe ruby-rdoc rubygems)
+checkdepends=(ruby-minitest ruby-racc)
+makedepends=(ruby-hoe ruby-rake ruby-rdoc rubygems)
 source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
-sha256sums=('f0b022a50477b00513c57ce60cd17040a67e476683f4f94194f5d5a2500de2f5')
+sha256sums=('c656e6fc71f1995123a81ac3c70c4137c4a3a5f73044ca718b80390f45c14e18')
 
 prepare() {
   cd $_gemname-$pkgver
 
   # there is no license file in the repo, but we can extract one
   sed '/== License:/,$!d' README.rdoc > LICENSE
-
-  # this test expects no error output to stderr but we
-  # get a bunch of deprecation warnings from sexp (but no other
-  # error output)
-  sed -i '285d' test/test_flay.rb
 }
 
 build() {
