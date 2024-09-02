@@ -2,7 +2,7 @@
 
 _gemname=oj
 pkgname=ruby-$_gemname
-pkgver=3.16.3
+pkgver=3.16.5
 pkgrel=1
 pkgdesc="The fastest JSON parser and object serializer"
 arch=(i686 x86_64)
@@ -10,14 +10,17 @@ url=http://www.ohler.com/oj/
 license=(MIT)
 options=(!emptydirs)
 depends=(ruby)
-checkdepends=(ruby-bundler ruby-rake ruby-rake-compiler ruby-minitest
-              ruby-test-unit)
+checkdepends=(ruby-bundler ruby-minitest ruby-rake ruby-rake-compiler
+              ruby-rubocop ruby-test-unit)
 makedepends=(rubygems ruby-rdoc)
 source=(https://github.com/ohler55/oj/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('8c3138a52ad2cf2c8232f75a3bcf328adc7a29edd3946002c1ad226bf3783b31')
+sha256sums=('841af2f6fd2787cd2027ca4a79ec5dfa38f6addcb2a3df66714671c6abb872d5')
 
 prepare() {
   cd $_gemname-$pkgver
+
+  sed -i '/rubocop/d' Gemfile
+  sed -i '/simplecov/d' Gemfile
 
   # oj insists on running some tests with bundler
   sed -i 's/bundle exec//' Rakefile
