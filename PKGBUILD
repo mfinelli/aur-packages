@@ -4,7 +4,7 @@
 
 _gemname=ruby2ruby
 pkgname=ruby-$_gemname
-pkgver=2.5.0
+pkgver=2.5.1
 pkgrel=1
 pkgdesc="Provides a means of generating pure ruby code easily"
 arch=(any)
@@ -12,19 +12,13 @@ url=https://github.com/seattlerb/ruby2ruby
 license=(MIT)
 options=(!emptydirs)
 depends=(ruby ruby-ruby_parser ruby-sexp_processor)
-makedepends=(ruby-hoe ruby-rdoc rubygems)
-source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz
-       https://github.com/seattlerb/ruby2ruby/commit/94c39959019f93ce2a8346060bc4d4c109ead1ac.patch
-       https://github.com/seattlerb/ruby2ruby/commit/e935bfdb76419f0a3ba55aac05536132f1e2986d.patch)
-sha256sums=('5fdda6031edd4157481a6bf080bbc408ddc0791caff72c37f108fbb17e42614a'
-            'fc3ee9229a2239705b4485578601ddb68d5e1ac0f348810a879f3ecbf01f5f25'
-            '4524101e5e2161132185f30cd3f1cf9ee7295dd5dfb0cda466a24cde2de1ad82')
+makedepends=(ruby-rake ruby-hoe ruby-minitest ruby-rdoc rubygems)
+checkdepends=(ruby-racc)
+source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
+sha256sums=('6a5c8e4f55097c69b3aaf6952e061531c4296c37cf306cce07e50ca6a065d146')
 
 prepare() {
   cd $_gemname-$pkgver
-
-  patch -p1 -N -i "${srcdir}/94c39959019f93ce2a8346060bc4d4c109ead1ac.patch"
-  patch -p1 -N -i "${srcdir}/e935bfdb76419f0a3ba55aac05536132f1e2986d.patch"
 
   # there is no license file in the repo, but we can extract one
   sed '/== License:/,$!d' README.rdoc > LICENSE
