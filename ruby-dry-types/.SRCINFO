@@ -1,0 +1,20 @@
+pkgbase = ruby-dry-types
+	pkgdesc = Flexible type system for Ruby with coercions and constraints
+	pkgver = 1.5.1
+	pkgrel = 1
+	url = https://github.com/dry-rb/dry-types
+	arch = any
+	license = MIT
+	makedepends = ruby-rdoc
+	depends = ruby
+	depends = ruby-concurrent
+	depends = ruby-dry-container
+	depends = ruby-dry-core
+	depends = ruby-dry-inflector
+	depends = ruby-dry-logic
+	noextract = dry-types-1.5.1.gem
+	options = !emptydirs
+	source = https://rubygems.org/downloads/dry-types-1.5.1.gem
+	b2sums = 1d2e23a9dcf5786334bd9f26904d18c891710481898c4610052c2cc914c38dee0b635d8ef4a5469306876f1ae61b335aab086ca241909fb3e60e7b5cfa7167da
+
+pkgname = ruby-dry-types
