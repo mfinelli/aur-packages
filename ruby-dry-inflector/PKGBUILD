@@ -1,45 +1,86 @@
-# Maintainer: George Rawlinson <grawlinson@archlinux.org>
+# Maintainer: Mario Finelli <mario at finel dot li>
+# Contributor: George Rawlinson <grawlinson@archlinux.org>
 
 _gemname=dry-inflector
 pkgname=ruby-$_gemname
-pkgver=1.0.0
+pkgver=1.1.0
 pkgrel=1
-pkgdesc='String inflections for Ruby'
-arch=('any')
-url='https://github.com/dry-rb/dry-inflector'
-license=('MIT')
-depends=('ruby')
-makedepends=('ruby-rdoc')
-options=('!emptydirs')
-source=("https://rubygems.org/downloads/$_gemname-$pkgver.gem")
-noextract=("$_gemname-$pkgver.gem")
-b2sums=('f5d44108cf0d44c646a4a395b7adcda5fa4e5f355d45bd399b230ab35cb21c9e0f7f26ea737e320de60ae0da0d1d0c9afb5218fd4d25b6b6af969b434b63a4b9')
+pkgdesc="Inflector for Ruby"
+arch=(any)
+url=https://github.com/dry-rb/dry-inflector
+license=(MIT)
+depends=(ruby)
+checkdepends=(ruby-bundler ruby-byebug ruby-rake ruby-rexml ruby-rspec
+              ruby-rubocop ruby-simplecov ruby-warning ruby-yard)
+makedepends=(rubygems ruby-rdoc)
+options=(!emptydirs)
+source=(${_gemname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz)
+sha256sums=('4a867d9c775e2e081879f2ebc62edb3c72d532866f19373522b5348ddf03f2a9')
 
-package() {
-  local _gemdir="$(ruby -e'puts Gem.default_dir')"
+prepare() {
+  cd "${_gemname}-${pkgver}"
+
+  sed -i 's|~>|>=|g' ${_gemname}.gemspec
+  sed -i '/cobertura/d' Gemfile.devtools
+  sed -i '/rubocop/d' Gemfile.devtools # repo rubocop is too old
+}
+
+build() {
+  cd "${_gemname}-${pkgver}"
+
+  local _gemdir="$(gem env gemdir)"
+
+  gem build "${_gemname}.gemspec"
 
   gem install \
     --local \
     --verbose \
     --ignore-dependencies \
     --no-user-install \
-    --install-dir "$pkgdir/$_gemdir" \
-    --bindir "$pkgdir/usr/bin" \
-    "$_gemname-$pkgver.gem"
+    --install-dir "tmp_install/${_gemdir}" \
+    --bindir "tmp_install/usr/bin" \
+    "${_gemname}-${pkgver}.gem"
 
-  # delete cache
-  cd "$pkgdir/$_gemdir"
-  rm -vrf cache
+  # remove unrepreducible files
+  rm --force --recursive --verbose \
+    "tmp_install/${_gemdir}/cache/" \
+    "tmp_install/${_gemdir}/gems/${_gemname}-${pkgver}/vendor/" \
+    "tmp_install/${_gemdir}/doc/${_gemname}-${pkgver}/ri/ext/"
 
-  # delete unnecessary files & folders
-  cd "gems/$_gemname-$pkgver"
-  rm -vrf "$_gemname.gemspec"
+  find "tmp_install/${_gemdir}/gems/" \
+    -type f \
+    \( \
+      -iname "*.o" -o \
+      -iname "*.c" -o \
+      -iname "*.so" -o \
+      -iname "*.time" -o \
+      -iname "gem.build_complete" -o \
+      -iname "Makefile" \
+    \) \
+    -delete
 
-  # move documentation
-  install -vd "$pkgdir/usr/share/doc/$pkgname"
-  mv -vt "$pkgdir/usr/share/doc/$pkgname" *.md
-
-  # move license
-  install -vd "$pkgdir/usr/share/licenses/$pkgname"
-  mv -vt "$pkgdir/usr/share/licenses/$pkgname" LICENSE
+  find "tmp_install/${_gemdir}/extensions/" \
+    -type f \
+    \( \
+      -iname "mkmf.log" -o \
+      -iname "gem_make.out" \
+    \) \
+    -delete
 }
+
+check() {
+  cd $_gemname-$pkgver
+  local _gemdir="$(gem env gemdir)"
+  GEM_HOME="tmp_install/${_gemdir}" rake
+}
+
+package() {
+  cd "${_gemname}-${pkgver}"
+
+  cp --archive --verbose tmp_install/* "${pkgdir}"
+
+  install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+}
+
+# vim: set ts=2 sw=2 et:
