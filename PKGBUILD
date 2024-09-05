@@ -1,25 +1,26 @@
+# Maintainer: Mario Finelli <mario at finel dot li>
 # Contributor: George Rawlinson <grawlinson@archlinux.org>
-# Contributor: Mario Finelli <mario at finel dot li>
 
 _gemname=dry-core
 pkgname=ruby-$_gemname
 pkgver=1.0.1
-pkgrel=1
-pkgdesc='A toolset of small support modules used throughout the dry-rb ecosystem'
-arch=('any')
-url='https://github.com/dry-rb/dry-core'
-license=('MIT')
-depends=('ruby' 'ruby-concurrent')
-makedepends=('ruby-rdoc')
-options=('!emptydirs')
+pkgrel=2
+pkgdesc="A toolset of small support modules used throughout the dry-rb ecosystem"
+arch=(any)
+url=https://github.com/dry-rb/dry-core
+license=(MIT)
+depends=(ruby ruby-concurrent ruby-zeitwerk)
+checkdepends=(ruby-activesupport ruby-bundler ruby-dry-types ruby-inflecto
+              ruby-rake ruby-rspec)
+makedepends=(rubygems ruby-rdoc)
+options=(!emptydirs)
 source=(${_gemname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz)
-b2sums=('fb85107dd68dfb2a8d3ee2e66b4bb8b416ac325be4d28bcbbf5605e0a90992eb8aa85a8fad3cba8f228a5a7e50109cd2c1dbf920eebc3423d282055204c6b0a5')
+sha256sums=('b37cd8d7733e8e34caf098525b9384fc132a92b58892e77c17f84809b81b1347')
 
 prepare() {
   cd "${_gemname}-${pkgver}"
 
-  # update gemspec/Gemfile to allow newer version of the dependencies
-  sed --in-place --regexp-extended 's|~>|>=|g' "${_gemname}.gemspec"
+  sed -i 's|~>|>=|g' ${_gemname}.gemspec
 }
 
 build() {
@@ -65,11 +66,19 @@ build() {
     -delete
 }
 
+check() {
+  cd $_gemname-$pkgver
+  local _gemdir="$(gem env gemdir)"
+  GEM_HOME="tmp_install/${_gemdir}" rake
+}
+
 package() {
   cd "${_gemname}-${pkgver}"
 
   cp --archive --verbose tmp_install/* "${pkgdir}"
 
-  install --verbose -D --mode=0644 LICENSE --target-directory "${pkgdir}/usr/share/licenses/${pkgname}"
-  install --verbose -D --mode=0644 *.md --target-directory "${pkgdir}/usr/share/doc/${pkgname}"
+  install -Dm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
+
+# vim: set ts=2 sw=2 et:
