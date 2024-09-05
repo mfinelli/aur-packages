@@ -4,7 +4,7 @@
 _gemname=inflecto
 pkgname=ruby-$_gemname
 pkgver=0.0.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Inflector for strings"
 arch=(any)
 url=https://rubygems.org/gems/inflecto
