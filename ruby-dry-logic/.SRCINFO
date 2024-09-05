@@ -1,0 +1,17 @@
+pkgbase = ruby-dry-logic
+	pkgdesc = Predicate logic with rule composition
+	pkgver = 1.2.0
+	pkgrel = 1
+	url = https://github.com/dry-rb/dry-logic
+	arch = any
+	license = MIT
+	makedepends = ruby-rdoc
+	depends = ruby
+	depends = ruby-concurrent
+	depends = ruby-dry-core
+	noextract = dry-logic-1.2.0.gem
+	options = !emptydirs
+	source = https://rubygems.org/downloads/dry-logic-1.2.0.gem
+	b2sums = 24005b3bad9f53dcd9f91bf18cc6170106a088501ab214360f4b4474e0de2c9a60a304d772121659b7d1e93d103bdcbd92bd66ffab516d13ba1a33ac8558d849
+
+pkgname = ruby-dry-logic
