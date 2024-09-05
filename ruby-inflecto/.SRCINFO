@@ -1,14 +1,16 @@
 pkgbase = ruby-inflecto
 	pkgdesc = Inflector for strings
 	pkgver = 0.0.2
-	pkgrel = 1
-	url = https://github.com/mbj/inflecto
+	pkgrel = 2
+	url = https://rubygems.org/gems/inflecto
 	arch = any
+	license = MIT
+	makedepends = rubygems
+	makedepends = ruby-rdoc
 	depends = ruby
 	noextract = inflecto-0.0.2.gem
 	options = !emptydirs
 	source = https://rubygems.org/downloads/inflecto-0.0.2.gem
-	sha512sums = dbd1aa3a199365aa301d2570894e347e4f4fe6202924d6337b936ce3e5ed934e7e5c57c6c4ade42d6e0ffa43c574f3ac530ec6dccc6ad8d16b6ff96e4d057628
+	sha256sums = e4ea51d7b1bae9580e50059084273b26bf518722853c59784d85e35dbb2ab420
 
 pkgname = ruby-inflecto
-
