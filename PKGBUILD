@@ -3,16 +3,17 @@
 # Contributor: Andy Weidenbaum <archbaum@gmail.com>
 
 pkgname=nodejs-n
-pkgver=9.2.3
+pkgver=10.0.0
 pkgrel=1
 pkgdesc="Node version management"
 arch=(any)
 depends=(bash)
+optdepends=("jq: faster package.json lookups")
 url=https://github.com/tj/n
 license=(MIT)
 install=$pkgname.install
 source=(https://github.com/tj/n/archive/v$pkgver/n-$pkgver.tar.gz)
-sha256sums=('c160fd30281d2aeb07d0101758f2f592dd3c6a23370417d9c6bf1efb5368a7dd')
+sha256sums=('096b78d1ccb4ad006293ed1e2b258925d99565449d374f5745ee374dc6f07a23')
 
 package() {
   cd n-$pkgver
