@@ -1,6 +1,6 @@
 pkgbase = ruby-shoulda-matchers
 	pkgdesc = Shoulda Matchers provides RSpec- and Minitest-compatible one-liners
-	pkgver = 5.3.0
+	pkgver = 6.4.0
 	pkgrel = 1
 	url = https://github.com/thoughtbot/shoulda-matchers
 	arch = any
@@ -10,7 +10,7 @@ pkgbase = ruby-shoulda-matchers
 	depends = ruby
 	depends = ruby-activesupport
 	options = !emptydirs
-	source = https://github.com/thoughtbot/shoulda-matchers/archive/v5.3.0.tar.gz
-	sha256sums = 38e12a2862018744839ef78a274e8672a634af24a5c01844a13ab01086193717
+	source = https://github.com/thoughtbot/shoulda-matchers/archive/v6.4.0.tar.gz
+	sha256sums = 1c74a848ab2a9d01f8cf1abadbdba11cc4f1f2657d90b3b6293d8eb47d830fa4
 
 pkgname = ruby-shoulda-matchers
