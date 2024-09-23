@@ -3,20 +3,21 @@
 
 pkgname=networkmanager-fortisslvpn
 pkgver=1.4.0
-pkgrel=4
+pkgrel=5
 pkgdesc="NetworkManager VPN plugin for Fortinet SSLVPN"
-url="https://wiki.gnome.org/Projects/NetworkManager"
+url=https://gitlab.gnome.org/GNOME/NetworkManager-fortisslvpn
 arch=(x86_64)
-license=(GPL)
+license=(GPL-2.0-or-later)
 _pppver=2.5.0
 depends=(
   libnm
   libsecret
   openfortivpn
-  "ppp=$_pppver"
+  "ppp>=$_pppver"
 )
 makedepends=(
   git
+  glib2-devel
   libnma
   libnma-gtk4
   python
@@ -27,7 +28,7 @@ optdepends=(
 )
 _commit=308987d45faee919e54547eb7ff0120c32c5a84e  # tags/1.4.0^0
 source=("git+https://gitlab.gnome.org/GNOME/NetworkManager-fortisslvpn.git#commit=$_commit")
-b2sums=('SKIP')
+sha256sums=('65781e81e56681169c105380d4d6a3c831f5cc778687cf9638a642974860b771')
 
 pkgver() {
   cd NetworkManager-fortisslvpn
