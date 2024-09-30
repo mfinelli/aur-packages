@@ -1,13 +1,13 @@
 pkgbase = nats-server
 	pkgdesc = High-Performance server for NATS.io, the cloud and edge native messaging system
-	pkgver = 2.10.20
+	pkgver = 2.10.21
 	pkgrel = 1
 	url = https://github.com/nats-io/nats-server
 	arch = x86_64
 	license = Apache-2.0
 	makedepends = git
 	makedepends = go
-	source = nats-server::git+https://github.com/nats-io/nats-server#tag=v2.10.20
-	sha256sums = a38a62f64c000a7857e1f46853e842b5baffb7b530558516886cccf2b275281d
+	source = nats-server::git+https://github.com/nats-io/nats-server#tag=v2.10.21
+	sha256sums = a3632ca3f2b956cc1c4f99415ae70c05e00d176a2a43915f142ee47b2feabf07
 
 pkgname = nats-server
