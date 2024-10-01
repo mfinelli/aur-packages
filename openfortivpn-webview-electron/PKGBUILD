@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=openfortivpn-webview-electron
-pkgver=1.2.1
+pkgver=1.2.2
 pkgrel=1
 pkgdesc="SAML single sing-on and easily retrieve the SVPNCOOKIE needed by openfortivpn"
 arch=(any)
@@ -23,7 +23,6 @@ prepare() {
 
 build() {
     cd $pkgname/openfortivpn-webview-electron
-    npm ci
     local i686=ia32 x86_64=x64
     export NODE_ENV=production
     ./node_modules/.bin/electron-builder --linux --"${!CARCH}" --dir \
