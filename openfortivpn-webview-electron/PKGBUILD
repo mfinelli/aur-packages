@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=openfortivpn-webview-electron
-pkgver=1.2.2
+pkgver=1.2.3
 pkgrel=1
 pkgdesc="SAML single sing-on and easily retrieve the SVPNCOOKIE needed by openfortivpn"
 arch=(any)
