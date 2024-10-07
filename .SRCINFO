@@ -1,6 +1,6 @@
 pkgbase = openfortivpn-webview-electron
 	pkgdesc = SAML single sing-on and easily retrieve the SVPNCOOKIE needed by openfortivpn
-	pkgver = 1.2.2
+	pkgver = 1.2.3
 	pkgrel = 1
 	url = https://github.com/gm-vm/openfortivpn-webview
 	arch = any
