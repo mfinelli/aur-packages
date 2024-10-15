@@ -2,7 +2,7 @@
 
 _gemname=sshkit
 pkgname=ruby-$_gemname
-pkgver=1.23.1
+pkgver=1.23.2
 pkgrel=1
 pkgdesc="Toolkit for deploying code and assets to servers"
 arch=(any)
@@ -15,7 +15,7 @@ depends=(ruby ruby-net-scp ruby-net-ssh)
 #               ruby-rainbow ruby-rake)
 makedepends=(ruby-rdoc rubygems)
 source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
-sha256sums=('6b285b24fd231cd27e332f845aaf43db59ca26fc67f906b309b4c1b46392cf9a')
+sha256sums=('72a63561c9679e7a4786391a608d6372ed5812392d3c57646b6f978cb619a244')
 
 prepare() {
   cd $_gemname-$pkgver
