@@ -2,7 +2,7 @@
 
 _gemname=faker
 pkgname=ruby-$_gemname
-pkgver=3.4.2
+pkgver=3.5.1
 pkgrel=1
 pkgdesc="Easily generate fake data: names, addresses, phone numbers, etc"
 arch=(any)
@@ -14,7 +14,7 @@ checkdepends=(rubocop ruby-bundler ruby-minitest ruby-pry ruby-rake
               ruby-simplecov ruby-test-unit ruby-timecop ruby-yard)
 options=(!emptydirs)
 source=(${url}/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('5cdac00b3e293b96de54fe6807e3113b318bb8cb49d1be77d9ca22a7059efd95')
+sha256sums=('e54bacf7a7f11a02983312224111014cba356d6e1918f79d9fc545d81ed404bd')
 
 prepare() {
   cd $_gemname-$pkgver
