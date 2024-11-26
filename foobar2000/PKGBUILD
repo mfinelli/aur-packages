@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=foobar2000
-pkgver=2.1.6
+pkgver=2.24
 pkgrel=1
 pkgdesc="An advanced freeware audio player (uses Wine)"
 arch=(i686 x86_64)
@@ -17,7 +17,7 @@ source=("foobar2000_v$pkgver.exe::${url}/download"
         "${pkgname}.png"
         "${pkgname}.desktop")
 install=$pkgname.install
-sha256sums=('cf4a67c8d5731a2328eb4a81de40ead108f9dec585d5278df98563cd3653254d'
+sha256sums=('7f804232cf7e053eaf8343faad89ae25074bef238000724477f98823e1a9f13c'
             '134cf36d7631628bfa4a3830704aa6a9efb6e265660b31d5b487df97aaa32721'
             'e9d1f7a8dc182f780d0fb15818c2837ebe0b70abcbef1c849a4185da7c09be7c'
             '2031e952d1d1d6cb4c2ff2b879421149f3f0780ca5d3ac03bc9c23fcbbd053d6'
