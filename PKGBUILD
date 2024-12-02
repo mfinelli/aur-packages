@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=wgo
-pkgver=0.5.6d
+pkgver=0.5.7
 pkgrel=1
 pkgdesc="Live reload for Go apps"
 arch=(x86_64)
@@ -10,7 +10,7 @@ license=(MIT)
 depends=(glibc)
 makedepends=(go)
 source=(${url}/archive/v${pkgver}/$pkgname-$pkgver.tar.gz)
-sha256sums=('2c2cdfa06678fe58f6d402d6c088a7b4132a717239b74256dbccf1f3421ae7db')
+sha256sums=('49bd5e622f04adea77d94eebfaf47934a2bde7b3bb863733d2bab28eeebcd7dd')
 
 prepare() {
   cd $pkgname-$pkgver
@@ -35,6 +35,12 @@ build() {
     -mod=readonly \
     -ldflags "-linkmode external -extldflags \"${LDFLAGS}\"" \
     ./...
+}
+
+check() {
+  cd $pkgname-$pkgver
+  export GOPATH="$srcdir/gopath"
+  go test -mod=readonly -v ./...
 }
 
 package() {
