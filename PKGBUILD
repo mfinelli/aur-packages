@@ -2,7 +2,7 @@
 
 _gemname=rantly
 pkgname=ruby-$_gemname
-pkgver=2.0.0
+pkgver=3.0.0
 pkgrel=1
 pkgdesc="Ruby Imperative Random Data Generator and Quickcheck"
 arch=(any)
@@ -13,16 +13,16 @@ depends=(ruby)
 checkdepends=(ruby-minitest ruby-rake ruby-simplecov ruby-rubocop ruby-rubocop-performance)
 makedepends=(rubygems ruby-rdoc)
 source=(${url}/archive/${pkgver}.tar.gz
-        ${url}/commit/73768bff7928d60c6b7c03aea5d15ea6206d1620.patch)
-sha256sums=('510a61c89cb87dd99d2219be5baa892fb2646739be44844d84a9732a787d05ed'
-            '6b640dd97452e3ea372c4c03cb2cfcddb64848c686a9e6642c602bbf1aa83b42')
+        https://patch-diff.githubusercontent.com/raw/rantly-rb/rantly/pull/86.patch)
+sha256sums=('ecd37ad5541a914e52987165754d087dee0a677c9aa8d2c62f68849e8f34d143'
+            '50982670fda8d2e3f2958670d52786a6542d43a6cbf38b84a037fb2f7677e02c')
 
 prepare() {
   cd $_gemname-$pkgver
   sed -i '/coveralls/d' Gemfile
   sed -i 's|~>|>=|g' Gemfile
 
-  patch -p1 -N -i "${srcdir}/73768bff7928d60c6b7c03aea5d15ea6206d1620.patch"
+  patch -p1 -N -i "${srcdir}/86.patch"
 }
 
 build() {
