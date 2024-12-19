@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=redli
-pkgver=0.13.0
+pkgver=0.14.0
 pkgrel=1
 pkgdesc="A humane alternative to the Redis-cli and TLS"
 arch=(x86_64)
@@ -9,8 +9,8 @@ url=https://github.com/IBM-Cloud/redli
 license=(Apache-2.0)
 depends=(glibc)
 makedepends=(go)
-source=(https://github.com/IBM-Cloud/redli/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.gz)
-sha256sums=('1e41f4d253d971e469c50843e70fa2900c6ccfc60a77efc2d196ecc69f20190d')
+source=(${url}/archive/v${pkgver}/${pkgname}-v${pkgver}.tar.gz)
+sha256sums=('9fda0bfaffa863507dd43d30a047d666f7d39e96b24cf118f53d7aeeb2c0a24f')
 
 prepare() {
   cd redli-$pkgver
