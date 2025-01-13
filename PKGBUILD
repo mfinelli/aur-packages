@@ -3,21 +3,21 @@
 
 _gemname=exifr
 pkgname=ruby-${_gemname}
-pkgver=1.4.0
+pkgver=1.4.1
 pkgrel=1
 pkgdesc="Module to read EXIF from JPEG and TIFF images"
 arch=(any)
-url=https://github.com/remvee/exifr
+url=https://codeberg.org/rwv/exifr
 license=(MIT)
 options=(!emptydirs)
 depends=(ruby)
 checkdepends=(ruby-rake ruby-test-unit)
 makedepends=(rubygems ruby-rdoc)
-source=(${url}/archive/release-$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('eb0bdd795476adff27bf3b9fbb2c98b58e00b310973a2956e8b5c622967f9f15')
+source=($pkgname-$pkgver.tar.gz::${url}/archive/release-${pkgver}.tar.gz)
+sha256sums=('5edf6038ff855b5b842330c9d0fe3a592128042a50d23e6e24950ee3faf90334')
 
 build() {
-  cd $_gemname-release-$pkgver
+  cd $_gemname
   local _gemdir="$(gem env gemdir)"
 
   gem build "${_gemname}.gemspec"
@@ -59,13 +59,13 @@ build() {
 }
 
 check() {
-  cd $_gemname-release-$pkgver
+  cd $_gemname
   local _gemdir="$(gem env gemdir)"
   GEM_HOME="tmp_install/${_gemdir}" rake
 }
 
 package() {
-  cd $_gemname-release-$pkgver
+  cd $_gemname
 
   cp --archive --verbose tmp_install/* "${pkgdir}"
 
