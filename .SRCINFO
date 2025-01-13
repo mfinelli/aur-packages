@@ -1,6 +1,6 @@
 pkgbase = ruby-mechanize
 	pkgdesc = The Mechanize library is used for automating interaction with websites
-	pkgver = 2.13.0
+	pkgver = 2.14.0
 	pkgrel = 1
 	url = https://github.com/sparklemotion/mechanize
 	arch = any
@@ -24,7 +24,7 @@ pkgbase = ruby-mechanize
 	depends = ruby-webrick
 	depends = ruby-webrobots
 	options = !emptydirs
-	source = git+https://github.com/sparklemotion/mechanize.git#tag=v2.13.0
-	sha256sums = af0924d03c1efa524f4ab61bf50606b8a7b52cbc509de4fc1c0489ff88db79c4
+	source = git+https://github.com/sparklemotion/mechanize.git#tag=v2.14.0
+	sha256sums = e00eea263babeb0c631ae2a5dd8556a3c3d55673a8ac2d4305ab6b9cffdc23b2
 
 pkgname = ruby-mechanize
