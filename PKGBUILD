@@ -2,7 +2,7 @@
 # Contributor: Igor Dyatlov <dyatlov.igor@protonmail.com>
 
 pkgname=gnome-shell-extension-randomwallpaper
-pkgver=3.0.2
+pkgver=3.1.0
 pkgrel=1
 pkgdesc="Random Wallpapers for Gnome 3"
 arch=(any)
@@ -11,7 +11,7 @@ license=(MIT)
 depends=(gnome-shell)
 makedepends=(blueprint-compiler npm)
 source=(RandomWallpaperGnome3-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz)
-sha256sums=('b1fcbe4db1da19215d29629230b071692d5100a1d343d4bfdb26ea8519c9f0bf')
+sha256sums=('589b92324c15dab83c9efccd52d65beccc12ef547f05c17c709f19fcd672a636')
 
 prepare() {
   cd RandomWallpaperGnome3-$pkgver
