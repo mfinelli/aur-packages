@@ -2,18 +2,18 @@
 
 _gemname=rchardet
 pkgname=ruby-$_gemname
-pkgver=1.8.0
-pkgrel=3
+pkgver=1.9.0
+pkgrel=1
 pkgdesc="Character encoding auto-detection in Ruby"
 arch=(any)
 url=https://github.com/jmhodges/rchardet
 license=(LGPL-2.1-or-later)
 depends=(ruby)
-checkdepends=(ruby-bundler ruby-rake ruby-minitest ruby-bump)
+checkdepends=(ruby-bundler ruby-rake ruby-maxitest ruby-minitest)
 makedepends=(ruby-rdoc rubygems)
 options=(!emptydirs)
 source=(${url}/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('663ebadfca8ac4b93f0cd6ddb9c24139fc0cc5e75fd64aabcb75b059e066f0ae')
+sha256sums=('5fa465455dcafac8215d99ce89c8e7579478293dfced9547f9ce97e7bf5b3a59')
 
 prepare() {
   cd "$_gemname-$pkgver"
@@ -21,19 +21,10 @@ prepare() {
   # the license file in the readme is LGPL 2.1
   sed -i 's/"LGPL"/"LGPL-2.1-or-later"/' $_gemname.gemspec
 
-  # remove stuff that we don't need to run minitest
-  for pkg in bundler/setup bundler/gem_tasks wwtd/tasks; do
-    sed -i "s|require '$pkg'||" Rakefile
-  done
-
-  sed -i '/wwtd/d' Gemfile
-  sed -i '/minitest-rg/d' Gemfile
-  sed -i '/minitest\/rg/d' test/test_helper.rb
+  sed -i '/bump/d' Gemfile
+  sed -i '/bump/d' Rakefile
 
   rm Gemfile.lock
-
-  # keeping the gemfile requires building in a chroot
-  # rm Gemfile
 }
 
 build() {
