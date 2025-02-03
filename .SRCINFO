@@ -1,6 +1,6 @@
 pkgbase = python-hcl2
 	pkgdesc = A parser for HCL2 written in Python
-	pkgver = 4.3.3
+	pkgver = 6.1.0
 	pkgrel = 1
 	url = https://github.com/amplify-education/python-hcl2
 	arch = any
@@ -16,7 +16,7 @@ pkgbase = python-hcl2
 	makedepends = python-wheel
 	depends = python
 	depends = python-lark
-	source = git+https://github.com/amplify-education/python-hcl2.git#tag=v4.3.3
-	sha256sums = SKIP
+	source = git+https://github.com/amplify-education/python-hcl2.git#tag=v6.1.0
+	sha256sums = 401fb4a2410c48fb3732068022792afca78104fa1e8e43444a9abb60ea8df4cc
 
 pkgname = python-hcl2
