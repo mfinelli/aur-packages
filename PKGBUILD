@@ -1,17 +1,17 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=cui
-pkgver=0.5.0
+pkgver=0.5.1
 pkgrel=1
 pkgdesc="http request/response tui"
 arch=(x86_64)
 url=https://github.com/mfinelli/cui
-license=(GPL3)
+license=(GPL-3.0-or-later)
 depends=(glibc)
 makedepends=(go)
 source=(${url}/releases/download/v${pkgver}/${pkgname}_v${pkgver}.tar.gz{,.asc})
 validpgpkeys=(7A701FCB0E832A8CDADADA907C3ACA9DD0C33A05)
-sha256sums=('d885dd2f869890042346e8df67906068c8e36951dc4a84d59ae56ee82bb7aecb'
+sha256sums=('92fe6665ca1932964cd02eaff1535fc68a21a79450525416378057bc9ca3a362'
             'SKIP')
 
 check() {
@@ -27,7 +27,13 @@ build() {
   export CGO_CXXFLAGS="${CXXFLAGS}"
   export CGO_LDFLAGS="${LDFLAGS}"
 
-  make
+  go build \
+    -buildmode=pie \
+    -trimpath \
+    -ldflags "-linkmode external -extldflags \"${LDFLAGS}\"" \
+    -mod=vendor \
+    -modcacherw \
+    -o $pkgname
 }
 
 package() {
