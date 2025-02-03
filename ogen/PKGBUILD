@@ -1,16 +1,16 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=ogen
-pkgver=0.81.2
+pkgver=1.9.0
 pkgrel=1
 pkgdesc="OpenAPI v3 code generator for go"
 arch=(x86_64)
 url=https://ogen.dev
-license=(Apache)
+license=(Apache-2.0)
 depends=(glibc)
 makedepends=(go)
 source=("$pkgname-$pkgver.tar.gz::https://github.com/ogen-go/ogen/archive/v$pkgver.tar.gz")
-sha256sums=('003465a514e11c17fc0fefb5b3e88b6f5df796b0372ba6a86d996584cbe70486')
+sha256sums=('7f3f75608290e96c6725bb8cdd75cb76499c263804069b932adf1c8eaee4188b')
 
 prepare() {
   cd $pkgname-$pkgver
