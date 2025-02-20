@@ -1,6 +1,6 @@
 pkgbase = ruby-sshkit
 	pkgdesc = Toolkit for deploying code and assets to servers
-	pkgver = 1.23.2
+	pkgver = 1.24.0
 	pkgrel = 1
 	url = https://github.com/capistrano/sshkit
 	arch = any
@@ -11,7 +11,7 @@ pkgbase = ruby-sshkit
 	depends = ruby-net-scp
 	depends = ruby-net-ssh
 	options = !emptydirs
-	source = https://github.com/capistrano/sshkit/archive/v1.23.2/sshkit-1.23.2.tar.gz
-	sha256sums = 72a63561c9679e7a4786391a608d6372ed5812392d3c57646b6f978cb619a244
+	source = https://github.com/capistrano/sshkit/archive/v1.24.0/sshkit-1.24.0.tar.gz
+	sha256sums = 0048301c22adf5518e042e0d668a5c6a067ee3a4023fd9a332f849648aa55aa0
 
 pkgname = ruby-sshkit
