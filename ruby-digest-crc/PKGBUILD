@@ -3,7 +3,7 @@
 
 _gemname=digest-crc
 pkgname=ruby-${_gemname}
-pkgver=0.6.5
+pkgver=0.7.0
 pkgrel=1
 pkgdesc="A Cyclic Redundancy Check (CRC) library for Ruby"
 arch=(x86_64)
@@ -14,7 +14,7 @@ checkdepends=(ruby-rspec ruby-simplecov ruby-yard)
 makedepends=(rubygems ruby-rdoc ruby-bundler ruby-rake ruby-rubygems-tasks)
 options=(!emptydirs)
 source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
-sha256sums=('87e0ed5e6a4200b5df69b54f16e598b7d387f19b04fed352d22e8ded83b1205c')
+sha256sums=('1c95920174e0ed0ed92e588519148f6fd722d0897a5e59c53e1994f84efac1c3')
 
 prepare() {
   cd $_gemname-$pkgver
