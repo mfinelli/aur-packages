@@ -1,13 +1,13 @@
 pkgbase = newrelic-cli
 	pkgdesc = The New Relic Command Line Interface
-	pkgver = 0.97.3
+	pkgver = 0.97.7
 	pkgrel = 1
 	url = https://github.com/newrelic/newrelic-cli
 	arch = x86_64
 	license = Apache-2.0
 	makedepends = go
 	depends = glibc
-	source = https://github.com/newrelic/newrelic-cli/archive/v0.97.3/newrelic-cli-0.97.3.tar.gz
-	sha256sums = 2d52d08444e48091885c45f229ce273c387422ddf980b6b8fd6ddb9d645f15fd
+	source = https://github.com/newrelic/newrelic-cli/archive/v0.97.7/newrelic-cli-0.97.7.tar.gz
+	sha256sums = 9b7ad1cac895822a4a4ff2b77eaf0f8dcfd63f1bc109884410dc922457aa5bde
 
 pkgname = newrelic-cli
