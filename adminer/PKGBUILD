@@ -2,32 +2,22 @@
 # Contributor: Sabart Otto <seberm at gmail dot com>
 
 pkgname=adminer
-pkgver=4.8.1
+pkgver=4.17.0
 pkgrel=1
 pkgdesc="A full-featured MySQL management tool written in PHP"
 arch=(any)
-license=(Apache GPL2)
+license=(Apache-2.0 GPL-2.0-or-later)
 depends=(php)
 optdepends=(apache elasticsearch mariadb mongodb mysql postgresql sqlite)
 url=https://www.adminer.org
 install=adminer.install
-source=("adminer.install"
-        "httpd-${pkgname}.conf"
-        "https://github.com/vrana/adminer/releases/download/v${pkgver}/adminer-${pkgver}.php")
-sha256sums=('e8d00ae49761c4d9cbbb9d3e32756f601e28c74a306d55974accc753b2a5ed36'
-            '7886a90cc6e57c48d18048344c1040f3ab6e361dfa7793b17b83604fdfd87f6e'
-            '2fd7e6d8f987b243ab1839249551f62adce19704c47d3d0c8dd9e57ea5b9c6b3')
+source=("https://github.com/vrana/adminer/releases/download/v${pkgver}/adminer-${pkgver}.php")
+sha256sums=('39bea9953057300ca346738d60c54f4d12d0f475db93e5dc9b7ac9d7c27a7bf9')
 
 package() {
   cd "$srcdir"
   install -Dm0644 "${pkgname}-${pkgver}.php" \
     "$pkgdir/usr/share/webapps/$pkgname/index.php"
-
-  # TODO: I don't really like this. What if someone is using nginx, for
-  # example? Or doesn't care to have any configuration installed at all.
-  # Consider removing.
-  install -Dm0644 "httpd-${pkgname}.conf" \
-    "$pkgdir/etc/httpd/conf/extra/httpd-${pkgname}.conf"
 }
 
 # vim: set ts=2 sw=2 et:
