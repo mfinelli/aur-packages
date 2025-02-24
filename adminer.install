@@ -1,8 +1,18 @@
 read -r -d '' MESSAGE << EOM
 If you use apache and want to enable the adminer interface just run the
-following command as root:
+following commands:
 
-echo "Include conf/extra/httpd-adminer.conf" >> /etc/httpd/conf/httpd.conf
+cat <<EOF | sudo tee -a /etc/httpd/conf/extra/httpd-adminer.conf
+Alias /adminer "/usr/share/webapps/adminer"
+<Directory "/usr/share/webapps/adminer">
+  AllowOverride All
+  Options FollowSymlinks
+  Require all granted
+</Directory>
+EOF
+
+echo "Include conf/extra/httpd-adminer.conf" |
+  sudo tee -a /etc/httpd/conf/httpd.conf
 
 Restart apache (systemctl restart httpd) and then you can access adminer on
 http://localhost/adminer.
