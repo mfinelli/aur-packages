@@ -1,31 +1,24 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=gnome-shell-extension-emoji-copy
-pkgver=23
-pkgrel=2
+pkgver=26
+pkgrel=1
 pkgdesc="simplify emoji selection and clipboard management"
 arch=(any)
 url=https://github.com/FelipeFTN/emoji-copy
 license=(GPL-3.0-or-later)
 depends=(gnome-shell)
 makedepends=(python python-requests zip)
-source=(emoji-copy-$pkgver.tar.gz::${url}/archive/v2.2.0.tar.gz
-        emoji-copy-support-gnome47.patch::https://patch-diff.githubusercontent.com/raw/FelipeFTN/Emoji-Copy/pull/70.patch)
-sha256sums=('b2aefee7d2bf1add05a1632019464cad80941a999a52d42528aa10c4c3e5f775'
-            '549f3b21363b0c3d54781c26f46e927fa680905bd0c056696c87a4ae6421ba47')
-
-prepare() {
-  cd Emoji-Copy-2.2.0
-  patch -p1 -N -i "${srcdir}/emoji-copy-support-gnome47.patch"
-}
+source=(emoji-copy-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz)
+sha256sums=('8daffcb6380931cd5979e13bc0f2e1726e152afb2ec920877805363a67b911b4')
 
 build() {
-  cd Emoji-Copy-2.2.0
+  cd Emoji-Copy-$pkgver
   make
 }
 
 package() {
-  cd Emoji-Copy-2.2.0
+  cd Emoji-Copy-$pkgver
 
   local metadata="$(find . -name 'metadata.json' | grep -v zip-temp)"
   local uuid="$(grep -Po '(?<="uuid": ")[^"]*' "$metadata")"
