@@ -1,10 +1,11 @@
 pkgbase = ruby-tty-screen
 	pkgdesc = Terminal screen detection
 	pkgver = 0.8.2
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/piotrmurach/tty-screen
 	arch = any
 	license = MIT
+	checkdepends = ruby-bundler
 	checkdepends = ruby-rake
 	checkdepends = ruby-rspec
 	makedepends = rubygems
