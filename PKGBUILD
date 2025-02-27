@@ -4,14 +4,14 @@
 _gemname=tty-screen
 pkgname=ruby-$_gemname
 pkgver=0.8.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Terminal screen detection"
 arch=(any)
 url=https://github.com/piotrmurach/tty-screen
 license=(MIT)
 options=(!emptydirs)
 depends=(ruby)
-checkdepends=(ruby-rake ruby-rspec)
+checkdepends=(ruby-bundler ruby-rake ruby-rspec)
 makedepends=(rubygems ruby-rdoc)
 source=(${url}/archive/v${pkgver}.tar.gz)
 sha256sums=('ee2d8cd8fce43c8653a5db13657f04b22ee0d32d75e0c83bf0df6245f130090b')
