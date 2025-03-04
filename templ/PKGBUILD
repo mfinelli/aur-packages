@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=templ
-pkgver=0.3.819
+pkgver=0.3.833
 pkgrel=1
 pkgdesc="A language for writing HTML user interfaces in Go"
 arch=(x86_64)
@@ -10,7 +10,7 @@ license=(MIT)
 depends=(glibc)
 makedepends=(go)
 source=(https://github.com/a-h/templ/archive/v${pkgver}/$pkgname-$pkgver.tar.gz)
-sha256sums=('b1eb741291c4c2309d498ef458ef6fbc0eb53a31f46b2690df26e12912e4c8ac')
+sha256sums=('f9275bff1d92f4342c8337275aba0d5aec567c13747c0eb8ac9c72d6a46c0ec1')
 
 prepare() {
   cd $pkgname-$pkgver
