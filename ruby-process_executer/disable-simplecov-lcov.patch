@@ -1,16 +1,30 @@
 diff --git a/spec/spec_helper.rb b/spec/spec_helper.rb
-index 5f54fbc..e24fc81 100644
+index e5d00d1..4704650 100644
 --- a/spec/spec_helper.rb
 +++ b/spec/spec_helper.rb
-@@ -15,10 +15,9 @@ end
- # Setup simplecov
- 
+@@ -30,25 +30,17 @@ end
+ # SimpleCov configuration
+ #
  require 'simplecov'
 -require 'simplecov-lcov'
- require 'json'
+-require 'simplecov-rspec'
  
--SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter, SimpleCov::Formatter::LcovFormatter]
-+SimpleCov.formatters = [SimpleCov::Formatter::HTMLFormatter]
+ def ci_build? = ENV.fetch('GITHUB_ACTIONS', 'false') == 'true'
  
- # Report if the test coverage was below the configured threshold
+ if ci_build?
+   SimpleCov.formatters = [
+     SimpleCov::Formatter::HTMLFormatter,
+-    SimpleCov::Formatter::LcovFormatter
+   ]
+ end
+ 
+ require 'rbconfig'
+ 
+-SimpleCov::RSpec.start(list_uncovered_lines: ci_build?) do
+-  # Avoid false positives in spec directory from JRuby, TruffleRuby, and Windows
+-  add_filter '/spec/' unless RUBY_ENGINE == 'ruby' && !Gem.win_platform?
+-end
+-
+ # Make sure to require your project AFTER starting SimpleCov
  #
+ require 'process_executer'

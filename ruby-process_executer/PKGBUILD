@@ -2,7 +2,7 @@
 
 _gemname=process_executer
 pkgname=ruby-$_gemname
-pkgver=1.1.0
+pkgver=1.3.0
 pkgrel=1
 pkgdesc="An API for executing commands in a subprocess"
 arch=(any)
@@ -14,8 +14,8 @@ makedepends=(rubygems ruby-rdoc)
 options=(!emptydirs)
 source=(${_gemname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz
         disable-simplecov-lcov.patch)
-sha256sums=('f0708822cd2b680b988b485203eaff644db165d2bb509026956549341747d04f'
-            '15aff615d2f63dbda8239b61ac9b03b6fb474d188f098b9b0de52af56fecc44c')
+sha256sums=('995e95c4343d5d10fdb9604e8859bea2b0370af8bd21d79da6c944cd8cb94fec'
+            '0466fa05ad1ca828035cabe2558de7dc2a285eb7e46dd0b21ee22c3c128dd598')
 
 prepare() {
   cd "${_gemname}-${pkgver}"
@@ -80,7 +80,7 @@ package() {
 
   cp --archive --verbose tmp_install/* "${pkgdir}"
 
-  install -Dm0644 LICENSE.md "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm0644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
 

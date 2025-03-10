@@ -1,6 +1,6 @@
 pkgbase = ruby-process_executer
 	pkgdesc = An API for executing commands in a subprocess
-	pkgver = 1.1.0
+	pkgver = 1.3.0
 	pkgrel = 1
 	url = https://github.com/main-branch/process_executer
 	arch = any
@@ -12,9 +12,9 @@ pkgbase = ruby-process_executer
 	makedepends = ruby-rdoc
 	depends = ruby
 	options = !emptydirs
-	source = process_executer-1.1.0.tar.gz::https://github.com/main-branch/process_executer/archive/refs/tags/v1.1.0.tar.gz
+	source = process_executer-1.3.0.tar.gz::https://github.com/main-branch/process_executer/archive/refs/tags/v1.3.0.tar.gz
 	source = disable-simplecov-lcov.patch
-	sha256sums = f0708822cd2b680b988b485203eaff644db165d2bb509026956549341747d04f
-	sha256sums = 15aff615d2f63dbda8239b61ac9b03b6fb474d188f098b9b0de52af56fecc44c
+	sha256sums = 995e95c4343d5d10fdb9604e8859bea2b0370af8bd21d79da6c944cd8cb94fec
+	sha256sums = 0466fa05ad1ca828035cabe2558de7dc2a285eb7e46dd0b21ee22c3c128dd598
 
 pkgname = ruby-process_executer
