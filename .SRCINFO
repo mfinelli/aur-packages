@@ -1,0 +1,20 @@
+pkgbase = ruby-rspec-block_is_expected
+	pkgdesc = Simplify testing of blocks in RSpec
+	pkgver = 1.0.6
+	pkgrel = 1
+	url = https://github.com/pboling/rspec-block_is_expected
+	arch = any
+	license = MIT
+	checkdepends = ruby-bundler
+	checkdepends = ruby-byebug
+	checkdepends = ruby-rake
+	checkdepends = ruby-rspec
+	checkdepends = ruby-rspec-pending_for
+	makedepends = rubygems
+	makedepends = ruby-rdoc
+	depends = ruby
+	options = !emptydirs
+	source = https://github.com/pboling/rspec-block_is_expected/archive/6201dd6150a21b047dada6d14997a9d91444a998/rspec-block_is_expected-1.0.6.tar.gz
+	sha256sums = 69e21aa3a6fb0e193fb6376a822c8ac23ed4edcdd9c275b19d1ef97e665c7749
+
+pkgname = ruby-rspec-block_is_expected
