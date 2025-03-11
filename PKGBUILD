@@ -3,11 +3,11 @@
 
 pkgname=adminer
 pkgver=5.0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="A full-featured MySQL management tool written in PHP"
 arch=(any)
 license=(Apache-2.0 GPL-2.0-only)
-depends=(php)
+depends=(php-interpreter)
 optdepends=(apache elasticsearch mariadb mongodb mysql postgresql sqlite)
 url=https://www.adminer.org
 install=adminer.install

@@ -1,13 +1,13 @@
 pkgbase = adminer
 	pkgdesc = A full-featured MySQL management tool written in PHP
 	pkgver = 5.0.2
-	pkgrel = 1
+	pkgrel = 2
 	url = https://www.adminer.org
 	install = adminer.install
 	arch = any
 	license = Apache-2.0
 	license = GPL-2.0-only
-	depends = php
+	depends = php-interpreter
 	optdepends = apache
 	optdepends = elasticsearch
 	optdepends = mariadb
