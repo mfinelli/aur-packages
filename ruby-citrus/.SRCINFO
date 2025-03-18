@@ -1,7 +1,7 @@
 pkgbase = ruby-citrus
 	pkgdesc = Parsing Expressions for Ruby
 	pkgver = 3.0.2
-	pkgrel = 2
+	pkgrel = 3
 	url = https://github.com/mjackson/citrus
 	arch = any
 	license = MIT
