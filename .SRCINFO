@@ -1,6 +1,6 @@
 pkgbase = keymapper
 	pkgdesc = A cross-platform context-aware keyremapper
-	pkgver = 4.11.1
+	pkgver = 4.11.4
 	pkgrel = 1
 	url = https://github.com/houmain/keymapper
 	arch = i686
@@ -17,7 +17,7 @@ pkgbase = keymapper
 	depends = libxkbcommon
 	depends = libxkbcommon-x11
 	depends = wayland
-	source = https://github.com/houmain/keymapper/archive/4.11.1/keymapper-4.11.1.tar.gz
-	sha256sums = d203265024c07aba85fc4311822297318a37ae50aba1f70015439d789ddc5479
+	source = https://github.com/houmain/keymapper/archive/4.11.4/keymapper-4.11.4.tar.gz
+	sha256sums = 13b8d57717d57e719e30a8573362ab952406a375c9eade9da257457aec59997e
 
 pkgname = keymapper
