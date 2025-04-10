@@ -1,6 +1,6 @@
 pkgbase = mdq
 	pkgdesc = like jq but for Markdown: find specific elements in a md doc
-	pkgver = 0.3.0
+	pkgver = 0.5.0
 	pkgrel = 1
 	url = https://github.com/yshavit/mdq
 	arch = x86_64
@@ -8,7 +8,7 @@ pkgbase = mdq
 	license = MIT
 	makedepends = cargo
 	depends = gcc-libs
-	source = https://github.com/yshavit/mdq/archive/v0.3.0/mdq-0.3.0.tar.gz
-	sha256sums = 0a62a73f762e6ffa38dc914c585916d50d093c282a4805d6abd3cf1896a14293
+	source = https://github.com/yshavit/mdq/archive/v0.5.0/mdq-0.5.0.tar.gz
+	sha256sums = 9b1021bf710a1028d534769f6cbf035b199a6fc8a24607f2dbe9f3b18a7146d1
 
 pkgname = mdq

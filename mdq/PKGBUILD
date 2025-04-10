@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=mdq
-pkgver=0.3.0
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="like jq but for Markdown: find specific elements in a md doc"
 arch=(x86_64)
@@ -10,7 +10,7 @@ license=(Apache-2.0 MIT)
 depends=(gcc-libs)
 makedepends=(cargo)
 source=($url/archive/v$pkgver/$pkgname-$pkgver.tar.gz)
-sha256sums=('0a62a73f762e6ffa38dc914c585916d50d093c282a4805d6abd3cf1896a14293')
+sha256sums=('9b1021bf710a1028d534769f6cbf035b199a6fc8a24607f2dbe9f3b18a7146d1')
 
 build() {
   cd $pkgname-$pkgver
@@ -28,3 +28,5 @@ package() {
   install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
   install -Dm0644 LICENSE-MIT "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
+
+# vim: set ts=2 sw=2 et:
