@@ -2,7 +2,7 @@
 
 _gemname=shoulda-matchers
 pkgname=ruby-$_gemname
-pkgver=6.4.0
+pkgver=6.5.0
 pkgrel=1
 pkgdesc="Shoulda Matchers provides RSpec- and Minitest-compatible one-liners"
 arch=(any)
@@ -13,7 +13,7 @@ depends=(ruby ruby-activesupport)
 makedepends=(rubygems ruby-rdoc)
 # checkdepends=(ruby-bundler ruby-rake ruby-rspec)
 source=(${url}/archive/v${pkgver}.tar.gz)
-sha256sums=('1c74a848ab2a9d01f8cf1abadbdba11cc4f1f2657d90b3b6293d8eb47d830fa4')
+sha256sums=('72e30297306206b9f2d23490ce73d85c3d73368643823604a111395becdf735b')
 
 prepare() {
   cd $_gemname-$pkgver
