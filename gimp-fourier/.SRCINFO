@@ -1,15 +1,15 @@
 pkgbase = gimp-fourier
 	pkgdesc = A GIMP plugin to do the fourier transform
-	pkgver = 0.4.3
-	pkgrel = 6
+	pkgver = 0.4.5gimp3rc1
+	pkgrel = 1
 	url = https://www.lprp.fr/gimp_plugin_en/#fourier
 	arch = i686
 	arch = x86_64
-	license = GPL
+	license = GPL-3.0-or-later
 	depends = fftw
+	depends = glibc
 	depends = gimp
-	source = https://www.lprp.fr/files/old-web/soft/gimp/fourier-0.4.3.tar.gz
-	sha256sums = 562f99f7146ed6a0afda7fdfaaf8e063c3c13b9ba38b817a535568ac3672c755
+	source = https://github.com/rpeyron/plugin-gimp-fourier/archive/refs/tags/v0.4.5+gimp3rc1.tar.gz
+	sha256sums = 8406fa49b8d31444b5870063eaf0dbd89b6e909231b3fa57d083c05fd38c134a
 
 pkgname = gimp-fourier
-
