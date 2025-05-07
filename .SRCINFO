@@ -1,6 +1,6 @@
 pkgbase = adminer
 	pkgdesc = A full-featured MySQL management tool written in PHP
-	pkgver = 5.2.1
+	pkgver = 5.3.0
 	pkgrel = 1
 	url = https://www.adminer.org
 	install = adminer.install
@@ -15,7 +15,7 @@ pkgbase = adminer
 	optdepends = mysql
 	optdepends = postgresql
 	optdepends = sqlite
-	source = https://github.com/vrana/adminer/releases/download/v5.2.1/adminer-5.2.1.php
-	sha256sums = 572118dff2305f136a4b8d59404d01c3d8450e99e3abd506081ffdddd8816573
+	source = https://github.com/vrana/adminer/releases/download/v5.3.0/adminer-5.3.0.php
+	sha256sums = 7dcc196e941b18b74635afe1740dcd86970ab08b8eba0f00f149925aea3972ed
 
 pkgname = adminer
