@@ -1,0 +1,14 @@
+pkgbase = plymouth-theme-arch-logo-symbol
+	pkgdesc = Arch linux logo (symbol) plymouth theme
+	pkgver = 1
+	pkgrel = 1
+	url = https://github.com/mfinelli/plymouth-theme-arch-logo-symbol
+	arch = any
+	license = MIT
+	license = MIT-0
+	license = X11
+	depends = plymouth
+	source = https://github.com/mfinelli/plymouth-theme-arch-logo-symbol/archive/v1/plymouth-theme-arch-logo-symbol-1.tar.gz
+	sha256sums = f72e62406819ef07c7d678cf54d0b2b2ce4a26e956695a1542abcbfa4119975a
+
+pkgname = plymouth-theme-arch-logo-symbol
