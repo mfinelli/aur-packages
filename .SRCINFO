@@ -1,6 +1,6 @@
 pkgbase = terraform-docs
 	pkgdesc = Generate documentation from Terraform modules in various output formats
-	pkgver = 0.19.0
+	pkgver = 0.20.0
 	pkgrel = 1
 	url = https://github.com/terraform-docs/terraform-docs
 	arch = x86_64
@@ -10,7 +10,7 @@ pkgbase = terraform-docs
 	license = MIT
 	makedepends = go
 	depends = glibc
-	source = terraform-docs-0.19.0.tar.gz::https://github.com/terraform-docs/terraform-docs/archive/v0.19.0.tar.gz
-	sha256sums = 9341dadb3d45ab8e050d7209c5bd11090e0225b6fc4ea3383d767f08f7e86c6f
+	source = terraform-docs-0.20.0.tar.gz::https://github.com/terraform-docs/terraform-docs/archive/v0.20.0.tar.gz
+	sha256sums = 793ad60be207292b9f27664d5c73bd75512e7a5e458b0fe2daa872b5ad46d6a9
 
 pkgname = terraform-docs
