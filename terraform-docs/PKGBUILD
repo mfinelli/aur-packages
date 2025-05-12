@@ -1,38 +1,62 @@
-# Maintainer: Jeff Henson <jeff@henson.io>
-# Old Maintainer: Gabriel M. Dutra <0xdutra@gmail.com>
+# Maintainer: Mario Finelli <mario at finel dot li>
+# Contributor: Jeff Henson <jeff@henson.io>
+# Contributor: Gabriel M. Dutra <0xdutra@gmail.com>
 
 pkgname=terraform-docs
-pkgver=0.19.0
+pkgver=0.20.0
 pkgrel=1
-pkgdesc=" Generate documentation from Terraform modules in various output formats"
-arch=('x86_64' 'i686' 'armv7h' 'aarch64')
+pkgdesc="Generate documentation from Terraform modules in various output formats"
+arch=(x86_64 i686 armv7h aarch64)
 url="https://github.com/terraform-docs/terraform-docs"
-license=('MIT')
-depends=('glibc')
-makedepends=('go')
-source=("${pkgname}-${pkgver}.tar.gz::https://github.com/terraform-docs/${pkgname}/archive/v${pkgver}.tar.gz")
-sha256sums=('9341dadb3d45ab8e050d7209c5bd11090e0225b6fc4ea3383d767f08f7e86c6f')
+license=(MIT)
+depends=(glibc)
+makedepends=(go)
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
+sha256sums=('793ad60be207292b9f27664d5c73bd75512e7a5e458b0fe2daa872b5ad46d6a9')
+
+prepare() {
+  cd $pkgname-$pkgver
+  export GOPATH="${srcdir}/gopath"
+  go mod download
+}
 
 build() {
-	cd "${pkgname}-${pkgver}"
-	export CGO_CPPFLAGS="${CPPFLAGS}"
-	export CGO_CFLAGS="${CFLAGS}"
-	export CGO_CXXFLAGS="${CXXFLAGS}"
-	export CGO_LDFLAGS="${LDFLAGS}"
-	export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external -mod=readonly -modcacherw"
-	go build -o "${pkgname}"
+  cd $pkgname-$pkgver
 
-	./${pkgname} completion bash > ${pkgname}.bash
-	./${pkgname} completion zsh > ${pkgname}.zsh
-	./${pkgname} completion fish > ${pkgname}.fish
+  export CGO_LDFLAGS="$LDFLAGS"
+  export CGO_CFLAGS="$CFLAGS"
+  export CGO_CPPFLAGS="$CPPFLAGS"
+  export CGO_CXXFLAGS="$CXXFLAGS"
+
+  export GOPATH="${srcdir}/gopath"
+
+  go build \
+    -o $pkgname \
+    -trimpath \
+    -buildmode=pie \
+    -mod=readonly \
+    -ldflags "-linkmode external -extldflags \"${LDFLAGS}\"" \
+    main.go
+}
+
+check() {
+  cd $pkgname-$pkgver
+  export GOPATH="${srcdir}/gopath"
+  go test -v ./...
 }
 
 package() {
-	cd "${pkgname}-${pkgver}"
-	install -Dm755 "${pkgname}" -t "${pkgdir}/usr/bin/"
-	install -vDm 644 README.md -t "${pkgdir}/usr/share/doc/${pkgname}/"
+  cd $pkgname-$pkgver
+  install -vDm0755 $pkgname "$pkgdir/usr/bin/$pkgname"
+  install -vDm0644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -vDm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 
-	install -vDm 644 ${pkgname}.bash "${pkgdir}/usr/share/bash-completion/completions/${pkgname}"
-	install -vDm 644 ${pkgname}.zsh "${pkgdir}/usr/share/zsh/site-functions/_${pkgname}"
-	install -vDm 644 ${pkgname}.fish "${pkgdir}/usr/share/fish/vendor_completions.d/${pkgname}.fish"
+  "${pkgdir}/usr/bin/${pkgname}" completion bash | install -Dm0644 \
+    /dev/stdin "${pkgdir}/usr/share/bash-completion/completions/${pkgname}"
+  "${pkgdir}/usr/bin/${pkgname}" completion zsh | install -Dm0644 \
+    /dev/stdin "${pkgdir}/usr/share/zsh/site-functions/_${pkgname}"
+  "${pkgdir}/usr/bin/${pkgname}" completion fish | install -Dm0644 \
+    /dev/stdin "${pkgdir}/usr/share/fish/vendor_completions.d/${pkgname}.fish"
 }
+
+# vim: set ts=2 sw=2 et:
