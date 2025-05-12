@@ -3,18 +3,21 @@
 
 pkgname=gnome-shell-extension-randomwallpaper
 pkgver=3.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Random Wallpapers for Gnome 3"
 arch=(any)
 url=https://github.com/ifl0w/RandomWallpaperGnome3
 license=(MIT)
 depends=(gnome-shell)
 makedepends=(blueprint-compiler npm)
-source=(RandomWallpaperGnome3-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz)
-sha256sums=('589b92324c15dab83c9efccd52d65beccc12ef547f05c17c709f19fcd672a636')
+source=(RandomWallpaperGnome3-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz
+  gnome48.patch)
+sha256sums=('589b92324c15dab83c9efccd52d65beccc12ef547f05c17c709f19fcd672a636'
+            '909eae6023f1ad10172b1cfbb239d4d3231e94181df68f547c1a54b62390dea8')
 
 prepare() {
   cd RandomWallpaperGnome3-$pkgver
+  patch -p1 -N -i "${srcdir}/gnome48.patch"
   npm ci
 }
 

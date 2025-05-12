@@ -1,0 +1,11 @@
+diff --git a/src/metadata.json b/src/metadata.json
+index 2e4bc29..b643aa7 100644
+--- a/src/metadata.json
++++ b/src/metadata.json
+@@ -1,5 +1,5 @@
+ {
+-  "shell-version": [ "45", "46", "47" ],
++  "shell-version": [ "45", "46", "47", "48" ],
+   "uuid": "randomwallpaper@iflow.space",
+   "settings-schema": "org.gnome.shell.extensions.space.iflow.randomwallpaper",
+   "name": "Random Wallpaper",
