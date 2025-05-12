@@ -2,24 +2,33 @@
 
 pkgname=dnglab
 pkgver=0.6.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Camera RAW to DNG file format converter"
 arch=(x86_64)
 url=https://github.com/dnglab/dnglab
 license=(LGPL-2.1-only)
-depends=(gcc-libs)
+depends=(glibc gcc-libs)
 makedepends=(cargo)
 source=($url/archive/v$pkgver/$pkgname-$pkgver.tar.gz)
 sha256sums=('a3c4d7bb22bf16811f2018eb1b4c9f633b67320d56659fc643d4d809dc58d01b')
 
+prepare() {
+  cd $pkgname-$pkgver
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
 build() {
   cd $pkgname-$pkgver
-  cargo build --release --locked
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  cargo build --frozen --release
 }
 
 check() {
   cd $pkgname-$pkgver
-  cargo test --all --release --locked
+  export RUSTUP_TOOLCHAIN=stable
+  cargo test --all --release --frozen
 }
 
 package() {
