@@ -1,13 +1,13 @@
 pkgbase = ogen
 	pkgdesc = OpenAPI v3 code generator for go
-	pkgver = 1.9.0
+	pkgver = 1.13.0
 	pkgrel = 1
 	url = https://ogen.dev
 	arch = x86_64
 	license = Apache-2.0
 	makedepends = go
 	depends = glibc
-	source = ogen-1.9.0.tar.gz::https://github.com/ogen-go/ogen/archive/v1.9.0.tar.gz
-	sha256sums = 7f3f75608290e96c6725bb8cdd75cb76499c263804069b932adf1c8eaee4188b
+	source = ogen-1.13.0.tar.gz::https://github.com/ogen-go/ogen/archive/v1.13.0.tar.gz
+	sha256sums = 1f7fab8f544d2a76e0622500bf523efcd356e817a34d137761f425b6c470db93
 
 pkgname = ogen
