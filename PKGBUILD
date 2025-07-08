@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=foobar2000
-pkgver=2.24.5
+pkgver=2.24.6
 pkgrel=1
 pkgdesc="An advanced freeware audio player (uses Wine)"
 arch=(i686 x86_64)
@@ -20,8 +20,8 @@ sha256sums=('134cf36d7631628bfa4a3830704aa6a9efb6e265660b31d5b487df97aaa32721'
             'e9d1f7a8dc182f780d0fb15818c2837ebe0b70abcbef1c849a4185da7c09be7c'
             '2031e952d1d1d6cb4c2ff2b879421149f3f0780ca5d3ac03bc9c23fcbbd053d6'
             '2b6134997e55ce5ef5014dc266cda71b763949ad683d321246a5143333dd1fa0')
-sha256sums_i686=('658ab5c5798aaa36e848bfbf3e6059861992f81bad76623366659f79d18f47b9')
-sha256sums_x86_64=('8bf05b283528e94107fbe4ff42857cf62a394b05cfeb84310f2a2931b3e78815')
+sha256sums_i686=('17e530ae99564c6c9236b3e6f3531b8cb0ff2fc4fc81f9a0efa9be0d64e0701e')
+sha256sums_x86_64=('17995d11803a6ab1603b8cc22a55134905a631f8a7d98537203485093256d995')
 
 package() {
   if [[ "$CARCH" == "x86_64" ]]; then
