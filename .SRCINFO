@@ -1,0 +1,20 @@
+pkgbase = ruby-track_open_instances
+	pkgdesc = A mixin to track instances of Ruby classes that require explicit cleanup
+	pkgver = 0.1.15
+	pkgrel = 1
+	url = https://github.com/main-branch/track_open_instances
+	arch = any
+	license = MIT
+	checkdepends = ruby-bundler
+	checkdepends = ruby-rake
+	checkdepends = ruby-rspec
+	checkdepends = ruby-simplecov
+	makedepends = git
+	makedepends = ruby-rdoc
+	makedepends = rubygems
+	depends = ruby
+	options = !emptydirs
+	source = ruby-track_open_instances::git+https://github.com/main-branch/track_open_instances.git#tag=v0.1.15
+	sha256sums = b7acf65b2b0f4dc89da515ff1a57c45ca58fc4b9bd728cbe910969cade61fbaf
+
+pkgname = ruby-track_open_instances
