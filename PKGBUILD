@@ -2,7 +2,7 @@
 
 _gemname=git
 pkgname=ruby-$_gemname
-pkgver=3.1.0
+pkgver=4.0.4
 pkgrel=1
 pkgdesc="Ruby library to manipulate git repositories by wrapping system calls to the git binary"
 arch=(any)
@@ -11,11 +11,11 @@ license=(MIT)
 depends=(ruby git ruby-activesupport ruby-addressable ruby-process_executer
          ruby-rchardet)
 checkdepends=(openssh ruby-bundler ruby-minitar ruby-mocha ruby-rake
-              ruby-redcarpet ruby-test-unit ruby-yard)
+              ruby-redcarpet ruby-rubocop ruby-test-unit ruby-yard)
 makedepends=(rubygems ruby-rdoc)
 source=(git+https://github.com/ruby-git/ruby-git.git#tag=v$pkgver
         disable-yardstick.patch)
-sha256sums=('52c4da9862dd04461be1701f266caddcc3f2028f10a0099e5872cae8365ea08d'
+sha256sums=('58b40a32c3c6726780b79e631fbcd1448cb32b2daa46326bd2ceb336282948d8'
             '5f349421bda8e4b674dc65e94cbf8141bf9208aeb0b0d418e006db20c3836953')
 
 prepare() {
@@ -24,6 +24,7 @@ prepare() {
 
   patch -p1 -N -i "$srcdir/disable-yardstick.patch"
   sed -i -e '/yardstick/d' ${_gemname}.gemspec
+  sed -i -e '/main_branch_shared_rubocop_config/d' ${_gemname}.gemspec
 
   sed -i -e '/create_github_release/d' ${_gemname}.gemspec
 }
