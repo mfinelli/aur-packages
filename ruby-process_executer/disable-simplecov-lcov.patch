@@ -1,8 +1,8 @@
 diff --git a/spec/spec_helper.rb b/spec/spec_helper.rb
-index e5d00d1..4704650 100644
+index 02a4c45..4cf1109 100644
 --- a/spec/spec_helper.rb
 +++ b/spec/spec_helper.rb
-@@ -30,25 +30,17 @@ end
+@@ -51,15 +51,12 @@ end
  # SimpleCov configuration
  #
  require 'simplecov'
@@ -18,11 +18,13 @@ index e5d00d1..4704650 100644
    ]
  end
  
+@@ -272,11 +269,6 @@ end
+ 
  require 'rbconfig'
  
 -SimpleCov::RSpec.start(list_uncovered_lines: ci_build?) do
 -  # Avoid false positives in spec directory from JRuby, TruffleRuby, and Windows
--  add_filter '/spec/' unless RUBY_ENGINE == 'ruby' && !Gem.win_platform?
+-  add_filter '/spec/' unless mri? && windows?
 -end
 -
  # Make sure to require your project AFTER starting SimpleCov

@@ -2,20 +2,20 @@
 
 _gemname=process_executer
 pkgname=ruby-$_gemname
-pkgver=1.3.0
+pkgver=4.0.0
 pkgrel=1
 pkgdesc="An API for executing commands in a subprocess"
 arch=(any)
 url=https://github.com/main-branch/process_executer
 license=(MIT)
-depends=(ruby)
+depends=(ruby ruby-track_open_instances)
 checkdepends=(ruby-rake ruby-rspec ruby-simplecov)
 makedepends=(rubygems ruby-rdoc)
 options=(!emptydirs)
 source=(${_gemname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz
         disable-simplecov-lcov.patch)
-sha256sums=('995e95c4343d5d10fdb9604e8859bea2b0370af8bd21d79da6c944cd8cb94fec'
-            '0466fa05ad1ca828035cabe2558de7dc2a285eb7e46dd0b21ee22c3c128dd598')
+sha256sums=('cdfce23a303625b5c0f06831a38de78868c7ef3cc56b919a1ec2f393551f9433'
+            '34bfe9ca48e8a06ed0eb0bf4fc1a41045cd03f0ab07394a751a359ee47255eb5')
 
 prepare() {
   cd "${_gemname}-${pkgver}"
