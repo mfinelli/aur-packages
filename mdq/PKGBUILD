@@ -1,25 +1,30 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=mdq
-pkgver=0.7.2
+pkgver=0.8.0
 pkgrel=1
 pkgdesc="like jq but for Markdown: find specific elements in a md doc"
 arch=(x86_64)
 url=https://github.com/yshavit/mdq
 license=(Apache-2.0 MIT)
-depends=(gcc-libs)
+depends=(gcc-libs glibc)
 makedepends=(cargo)
 source=($url/archive/v$pkgver/$pkgname-$pkgver.tar.gz)
-sha256sums=('78c4a7d3aef8b9db3a96bf5e8cfce4de6140b54e199f95bb0aa12e3faf945e6d')
+sha256sums=('6120705d573c5fc6189737bd584a1f2eff7f76fa94059ada78b207e248534d5b')
+
+prepare() {
+  cd $pkgname-$pkgver
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
 
 build() {
   cd $pkgname-$pkgver
-  cargo build --release --locked
+  cargo build --all-features --frozen --release
 }
 
 check() {
   cd $pkgname-$pkgver
-  cargo test --all --release --locked
+  cargo test --all-features --frozen
 }
 
 package() {
