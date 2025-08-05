@@ -1,18 +1,18 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=python-hcl2
-pkgver=7.2.1
+pkgver=7.3.1
 pkgrel=1
 pkgdesc="A parser for HCL2 written in Python"
 arch=(any)
 url=https://github.com/amplify-education/python-hcl2
 license=(MIT)
-depends=(python python-lark)
+depends=(python python-lark python-regex)
 makedepends=(git python-build python-installer python-setuptools 
              python-setuptools-scm python-wheel)
 checkdepends=(python-coverage python-mock python-nose2)
 source=(git+${url}.git#tag=v${pkgver})
-sha256sums=('3421465e290d19f7815a2c071f54ba1d33cb07567c9235cbe6c729269caecde0')
+sha256sums=('c7e808ea85b5bab22261a93136b8aae85a1f30fc329a27dbdf0c9da7ee755ff7')
 
 build() {
   cd $pkgname
