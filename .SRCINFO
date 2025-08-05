@@ -1,13 +1,13 @@
 pkgbase = templ
 	pkgdesc = A language for writing HTML user interfaces in Go
-	pkgver = 0.3.865
+	pkgver = 0.3.924
 	pkgrel = 1
 	url = https://templ.guide
 	arch = x86_64
 	license = MIT
 	makedepends = go
 	depends = glibc
-	source = https://github.com/a-h/templ/archive/v0.3.865/templ-0.3.865.tar.gz
-	sha256sums = 62c9d64aa11f1783db06a27e8f8f649c762486b14f0c64ce08d3eeb4a1a06ec1
+	source = https://github.com/a-h/templ/archive/v0.3.924/templ-0.3.924.tar.gz
+	sha256sums = d8102d60d4122f2c319bbc9134c1bed4bad962d33f456049ce876bfe8fd76cff
 
 pkgname = templ
