@@ -1,19 +1,17 @@
 pkgbase = gnome-shell-extension-pano
-	pkgdesc = Next-gen Clipboard Manager (forked from -git package)
-	pkgver = 23_alpha2
+	pkgdesc = Next-gen Clipboard Manager for Gnome Shell
+	pkgver = 23alpha5
 	pkgrel = 1
+	epoch = 1
 	url = https://github.com/oae/gnome-shell-pano
 	arch = any
 	license = GPL-2.0-or-later
-	makedepends = gobject-introspection
+	makedepends = git
 	makedepends = yarn
-	makedepends = appstream
 	makedepends = zip
-	depends = gnome-shell>=45
+	depends = gnome-shell
 	depends = libgda6
-	depends = cogl
-	depends = gsound
-	source = https://github.com/oae/gnome-shell-pano/archive/refs/tags/v23-alpha2.tar.gz
-	md5sums = SKIP
+	source = gnome-shell-extension-pano-23alpha5::https://github.com/oae/gnome-shell-pano/archive/refs/tags/v23-alpha5.tar.gz
+	sha256sums = 03e43d77ed516ff41170b52274a2b79bdda9ca66b809883c6468afa091c6291a
 
 pkgname = gnome-shell-extension-pano
