@@ -1,24 +1,20 @@
-# Maintainer: Christian Schendel (doppelhelix@gmail.com)
-# Maintainer: Kevin Concilio (kevin.concilio1@gmail.com)
+# Maintainer: Mario Finelli <mario at finel dot li>
+# Contributor: Christian Schendel (doppelhelix@gmail.com)
+# Contributor: Kevin Concilio (kevin.concilio1@gmail.com)
 
 pkgname=gnome-shell-extension-pano
-pkgver=23_alpha2
-version=${pkgver//_/-}
+pkgver=23alpha5
+version=23-alpha5
+epoch=1
 pkgrel=1
-pkgdesc="Next-gen Clipboard Manager (forked from -git package)"
-arch=('any')
-url="https://github.com/oae/gnome-shell-pano"
-license=('GPL-2.0-or-later')
-depends=('gnome-shell>=45'
-         'libgda6'
-         'cogl'
-         'gsound')
-makedepends=('gobject-introspection'
-             'yarn'
-             'appstream'
-             'zip')
-source=("$url/archive/refs/tags/v$version.tar.gz")
-md5sums=("SKIP")
+pkgdesc="Next-gen Clipboard Manager for Gnome Shell"
+arch=(any)
+url=https://github.com/oae/gnome-shell-pano
+license=(GPL-2.0-or-later)
+depends=(gnome-shell libgda6)
+makedepends=(git yarn zip)
+source=($pkgname-$pkgver::$url/archive/refs/tags/v$version.tar.gz)
+sha256sums=('03e43d77ed516ff41170b52274a2b79bdda9ca66b809883c6468afa091c6291a')
 
 prepare() {
   cd "gnome-shell-pano-$version"
