@@ -1,12 +1,12 @@
 pkgbase = ansible-aur
 	pkgdesc = Ansible module to manage packages from the AUR
-	pkgver = 0.11.1
+	pkgver = 0.12.0
 	pkgrel = 1
 	epoch = 1
 	url = https://github.com/kewlfft/ansible-aur
 	arch = any
-	license = GPL3
-	source = https://github.com/kewlfft/ansible-aur/archive/v0.11.1/ansible-aur-0.11.1.tar.gz
-	sha256sums = 99e2b07a18881423b6433f4c08ef4caf4906a11fb7fcde67abd211bf10a9ded7
+	license = GPL-3.0-or-later
+	source = https://github.com/kewlfft/ansible-aur/archive/v0.12.0/ansible-aur-0.12.0.tar.gz
+	sha256sums = 356095727931d95db48604c4194a1037b1ce946afa1dd27f506e2bebda8a1cf7
 
 pkgname = ansible-aur
