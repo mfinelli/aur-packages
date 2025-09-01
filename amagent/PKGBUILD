@@ -5,7 +5,7 @@
 #   -O automox-installer.sh
 
 pkgname=amagent
-pkgver=1.43.142
+pkgver=2.3.34
 pkgrel=1
 arch=("x86_64")
 pkgdesc="Automox agent"
@@ -13,15 +13,12 @@ url=https://www.automox.com
 license=(custom)
 depends=(curl dmidecode lsb-release lshw)
 install=amagent.install
-source=(file://${pkgname}_${pkgver}_amd64.deb fix-systemd-unit.patch)
-sha256sums=('4d602c741eca4e0e41a7e7b203519f427c61349bdb2de55c10c7bff436a6b862'
-            'ce29f4b5d2f22ada1f0354ba71a9014248e3837b5abc416146d1afcb07ad2665')
+source=(file://${pkgname}_${pkgver}_amd64.deb)
+sha256sums=('f6cf9018127e5bfa1a7c278dbc04a92d64dfee2e85e4776d1bb6a06dd835c976')
 
 prepare() {
   mkdir "$srcdir/$pkgname"
   bsdtar xf "$srcdir/data.tar.xz" -C "$srcdir/$pkgname"
-  patch "$srcdir/$pkgname/lib/systemd/system/amagent.service" \
-    "$srcdir/fix-systemd-unit.patch"
 }
 
 package() {
@@ -33,8 +30,10 @@ package() {
 
   install -dm0750 "$pkgdir/var/lib/amagent"
 
-  install -Dm0755 "$srcdir/$pkgname/opt/amagent/amagent" \
-    "$pkgdir/opt/amagent/amagent"
+  for bin in amagent agent-db-migration osqueryi; do
+    install -Dm0755 "$srcdir/$pkgname/opt/amagent/$bin" \
+      "$pkgdir/opt/amagent/$bin"
+  done
 }
 
 # vim: set ts=2 sw=2 et:
