@@ -3,17 +3,17 @@
 
 _gemname=net-ldap
 pkgname=ruby-$_gemname
-pkgver=0.19.0
+pkgver=0.20.0
 pkgrel=1
 pkgdesc="Pure Ruby LDAP library"
 arch=(any)
 url=https://github.com/ruby-ldap/ruby-net-ldap
 license=(MIT)
 options=(!emptydirs)
-depends=(ruby)
+depends=(ruby ruby-base64 ruby-ostruct)
 makedepends=(rubygems ruby-rdoc)
 source=(${url}/archive/v${pkgver}.tar.gz)
-sha256sums=('4e6f1807e0ba78b6431efd56fafcca0a286783a215e07745615471a7cd557aa9')
+sha256sums=('dd3d447815881fcfad481eeab341d91c351bb21d2de835193664d9bbb1db9638')
 
 build() {
   cd $pkgname-$pkgver
