@@ -3,14 +3,14 @@
 
 pkgname=ansible-aur
 epoch=1
-pkgver=0.12.0
+pkgver=0.13.0
 pkgrel=1
 pkgdesc="Ansible module to manage packages from the AUR"
 arch=(any)
 url=https://github.com/kewlfft/ansible-aur
 license=(GPL-3.0-or-later)
 source=($url/archive/v$pkgver/$pkgname-$pkgver.tar.gz)
-sha256sums=('356095727931d95db48604c4194a1037b1ce946afa1dd27f506e2bebda8a1cf7')
+sha256sums=('1a1fdfdb37d6829feedc8d007cd77965e13364aefbea202c20ecd7ae5983133c')
 
 package() {
   cd $pkgname-$pkgver
