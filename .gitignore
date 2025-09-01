@@ -4,4 +4,3 @@
 !.SRCINFO
 !dl.bash
 !amagent.install
-!fix-systemd-unit.patch
