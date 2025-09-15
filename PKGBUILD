@@ -2,7 +2,7 @@
 
 _gemname=rchardet
 pkgname=ruby-$_gemname
-pkgver=1.9.0
+pkgver=1.10.0
 pkgrel=1
 pkgdesc="Character encoding auto-detection in Ruby"
 arch=(any)
@@ -13,7 +13,7 @@ checkdepends=(ruby-bundler ruby-rake ruby-maxitest ruby-minitest)
 makedepends=(ruby-rdoc rubygems)
 options=(!emptydirs)
 source=(${url}/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('5fa465455dcafac8215d99ce89c8e7579478293dfced9547f9ce97e7bf5b3a59')
+sha256sums=('c33019c1e16d234abe063ba1d99901aab95c9b606edf4c682c57f16a1186e47d')
 
 prepare() {
   cd "$_gemname-$pkgver"
