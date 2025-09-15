@@ -1,6 +1,6 @@
 pkgbase = ruby-rchardet
 	pkgdesc = Character encoding auto-detection in Ruby
-	pkgver = 1.9.0
+	pkgver = 1.10.0
 	pkgrel = 1
 	url = https://github.com/jmhodges/rchardet
 	arch = any
@@ -13,7 +13,7 @@ pkgbase = ruby-rchardet
 	makedepends = rubygems
 	depends = ruby
 	options = !emptydirs
-	source = https://github.com/jmhodges/rchardet/archive/v1.9.0/rchardet-1.9.0.tar.gz
-	sha256sums = 5fa465455dcafac8215d99ce89c8e7579478293dfced9547f9ce97e7bf5b3a59
+	source = https://github.com/jmhodges/rchardet/archive/v1.10.0/rchardet-1.10.0.tar.gz
+	sha256sums = c33019c1e16d234abe063ba1d99901aab95c9b606edf4c682c57f16a1186e47d
 
 pkgname = ruby-rchardet
