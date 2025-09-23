@@ -1,7 +1,7 @@
 pkgbase = ruby-strings
 	pkgdesc = A set of useful functions for transforming strings
 	pkgver = 0.2.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/piotrmurach/strings
 	arch = any
 	license = MIT
