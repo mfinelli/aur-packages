@@ -1,0 +1,11 @@
+diff --git a/resources/metadata.json b/resources/metadata.json
+index f68bc9f..f096f32 100644
+--- a/resources/metadata.json
++++ b/resources/metadata.json
+@@ -9,5 +9,5 @@
+   },
+   "settings-schema": "org.gnome.shell.extensions.pano",
+   "url": "https://github.com/oae/gnome-shell-pano",
+-  "shell-version": ["45", "46", "47", "48"]
++  "shell-version": ["45", "46", "47", "48", "49"]
+ }
