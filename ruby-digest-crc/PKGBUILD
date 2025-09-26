@@ -4,14 +4,14 @@
 _gemname=digest-crc
 pkgname=ruby-${_gemname}
 pkgver=0.7.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A Cyclic Redundancy Check (CRC) library for Ruby"
 arch=(x86_64)
 url=https://github.com/postmodern/digest-crc
 license=(MIT)
-depends=(ruby)
+depends=(ruby ruby-rake)
 checkdepends=(ruby-rspec ruby-simplecov ruby-yard)
-makedepends=(rubygems ruby-rdoc ruby-bundler ruby-rake ruby-rubygems-tasks)
+makedepends=(rubygems ruby-rdoc ruby-bundler ruby-rubygems-tasks)
 options=(!emptydirs)
 source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
 sha256sums=('1c95920174e0ed0ed92e588519148f6fd722d0897a5e59c53e1994f84efac1c3')
