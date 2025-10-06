@@ -1,25 +1,19 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=gnome-shell-extension-simpleweather
-pkgver=48.2.0
-pkgrel=2
+pkgver=49.0.0
+pkgrel=1
 pkgdesc="A highly configurable GNOME shell extension for viewing the weather"
 arch=(any)
 url=https://github.com/romanlefler/SimpleWeather
 license=(GPL-3.0-or-later)
 depends=(gnome-shell)
 makedepends=(npm typescript zip)
-source=($pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz
-  ${url}/commit/8906a1e3a825e5fe7161a47aacc3dcec1d78ccb8.patch)
-sha256sums=('6e487285f6457c9af10e8d3710af17661a146a14ba31af3958739c5e14470dba'
-            'f55a968dddd7a4791e638362c657f787e2f1ca6bfe1e7e503cdc213db8cd63cd')
+source=($pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz)
+sha256sums=('953c1db151df60f0d6bb6a1e2fc21a0710df4ae33fd037e5439ea67f479e6b28')
 
 prepare() {
   cd SimpleWeather-$pkgver
-
-  # patch in gnome49 support
-  patch -p1 -N -i "${srcdir}/8906a1e3a825e5fe7161a47aacc3dcec1d78ccb8.patch"
-
   npm ci
 }
 
