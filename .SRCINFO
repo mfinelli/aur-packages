@@ -1,7 +1,7 @@
 pkgbase = gnome-shell-extension-simpleweather
 	pkgdesc = A highly configurable GNOME shell extension for viewing the weather
-	pkgver = 48.2.0
-	pkgrel = 2
+	pkgver = 49.0.0
+	pkgrel = 1
 	url = https://github.com/romanlefler/SimpleWeather
 	arch = any
 	license = GPL-3.0-or-later
@@ -9,9 +9,7 @@ pkgbase = gnome-shell-extension-simpleweather
 	makedepends = typescript
 	makedepends = zip
 	depends = gnome-shell
-	source = gnome-shell-extension-simpleweather-48.2.0.tar.gz::https://github.com/romanlefler/SimpleWeather/archive/refs/tags/v48.2.0.tar.gz
-	source = https://github.com/romanlefler/SimpleWeather/commit/8906a1e3a825e5fe7161a47aacc3dcec1d78ccb8.patch
-	sha256sums = 6e487285f6457c9af10e8d3710af17661a146a14ba31af3958739c5e14470dba
-	sha256sums = f55a968dddd7a4791e638362c657f787e2f1ca6bfe1e7e503cdc213db8cd63cd
+	source = gnome-shell-extension-simpleweather-49.0.0.tar.gz::https://github.com/romanlefler/SimpleWeather/archive/refs/tags/v49.0.0.tar.gz
+	sha256sums = 953c1db151df60f0d6bb6a1e2fc21a0710df4ae33fd037e5439ea67f479e6b28
 
 pkgname = gnome-shell-extension-simpleweather
