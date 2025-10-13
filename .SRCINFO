@@ -1,6 +1,6 @@
 pkgbase = foobar2000
 	pkgdesc = An advanced freeware audio player (uses Wine)
-	pkgver = 2.24.6
+	pkgver = 2.25.2
 	pkgrel = 1
 	url = https://www.foobar2000.org
 	install = foobar2000.install
@@ -19,9 +19,9 @@ pkgbase = foobar2000
 	sha256sums = e9d1f7a8dc182f780d0fb15818c2837ebe0b70abcbef1c849a4185da7c09be7c
 	sha256sums = 2031e952d1d1d6cb4c2ff2b879421149f3f0780ca5d3ac03bc9c23fcbbd053d6
 	sha256sums = 2b6134997e55ce5ef5014dc266cda71b763949ad683d321246a5143333dd1fa0
-	source_i686 = foobar2000_v2.24.6.exe::https://www.foobar2000.org/files/foobar2000_v2.24.6.exe
-	sha256sums_i686 = 17e530ae99564c6c9236b3e6f3531b8cb0ff2fc4fc81f9a0efa9be0d64e0701e
-	source_x86_64 = foobar2000-x64_v2.24.6.exe::https://www.foobar2000.org/files/foobar2000-x64_v2.24.6.exe
-	sha256sums_x86_64 = 17995d11803a6ab1603b8cc22a55134905a631f8a7d98537203485093256d995
+	source_i686 = foobar2000_v2.25.2.exe::https://www.foobar2000.org/files/foobar2000_v2.25.2.exe
+	sha256sums_i686 = e072c272b315c717283aff972552ea33d91e68fcfa3ca24df54962a8a6919b71
+	source_x86_64 = foobar2000-x64_v2.25.2.exe::https://www.foobar2000.org/files/foobar2000-x64_v2.25.2.exe
+	sha256sums_x86_64 = 2b1863a038d386ce9d81ec7efe9c0acb80652435db56c9598bc1d88e16c1d6f4
 
 pkgname = foobar2000
