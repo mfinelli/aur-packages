@@ -1,7 +1,7 @@
 pkgbase = ruby-hashie
 	pkgdesc = a collection of classes and mixins that make Ruby hashes more powerful
 	pkgver = 5.0.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/hashie/hashie
 	arch = any
 	license = MIT
@@ -13,6 +13,8 @@ pkgbase = ruby-hashie
 	depends = ruby
 	options = !emptydirs
 	source = https://github.com/hashie/hashie/archive/v5.0.0/hashie-5.0.0.tar.gz
+	source = https://github.com/hashie/hashie/commit/47ad61e1904723b56a1860b2da444775d556a156.patch
 	sha256sums = f16d5394d732678d6287a334aeb41e88bb12fe78c22c4b749ffcb0570014f59a
+	sha256sums = c2f6952200e6c033d71af6f0310e650cea8227e8f4e29b03347884e2798a7861
 
 pkgname = ruby-hashie
