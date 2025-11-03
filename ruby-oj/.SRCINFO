@@ -1,6 +1,6 @@
 pkgbase = ruby-oj
 	pkgdesc = The fastest JSON parser and object serializer
-	pkgver = 3.16.11
+	pkgver = 3.16.12
 	pkgrel = 1
 	url = http://www.ohler.com/oj/
 	arch = i686
@@ -17,7 +17,7 @@ pkgbase = ruby-oj
 	depends = ruby
 	depends = ruby-bigdecimal
 	options = !emptydirs
-	source = https://github.com/ohler55/oj/archive/v3.16.11/oj-3.16.11.tar.gz
-	sha256sums = 1d8b6335ccae3b3978a1fa72bc32e82bbf9b3eb6fec63413428c6d2a4c011fb6
+	source = https://github.com/ohler55/oj/archive/v3.16.12/oj-3.16.12.tar.gz
+	sha256sums = 5fcc9b9db259ebd1606ea09816a3c7dd73ded20d3686a1659662d2a82107fd9c
 
 pkgname = ruby-oj
