@@ -1,39 +1,20 @@
-diff --git a/Rakefile b/Rakefile
-index e2d8ef2..85070ae 100644
---- a/Rakefile
-+++ b/Rakefile
-@@ -18,34 +18,6 @@ task :test do
- end
- default_tasks << :test
- 
--unless RUBY_PLATFORM == 'java' || RUBY_ENGINE == 'truffleruby'
--  #
--  # YARD documentation for this project can NOT be built with JRuby.
--  # This project uses the redcarpet gem which can not be installed on JRuby.
--  #
--  require 'yard'
--  YARD::Rake::YardocTask.new
--  CLEAN << '.yardoc'
--  CLEAN << 'doc'
--  default_tasks << :yard
+diff --git a/tasks/yard.rake b/tasks/yard.rake
+index 75817cd..912d056 100644
+--- a/tasks/yard.rake
++++ b/tasks/yard.rake
+@@ -9,15 +9,4 @@ unless RUBY_PLATFORM == 'java' || RUBY_ENGINE == 'truffleruby'
+   YARD::Rake::YardocTask.new
+   CLEAN << '.yardoc'
+   CLEAN << 'doc'
 -
 -  require 'yardstick/rake/verify'
 -  Yardstick::Rake::Verify.new(:'yardstick:coverage') do |t|
 -    t.threshold = 50
 -    t.require_exact_threshold = false
 -  end
--  default_tasks << :'yardstick:coverage'
 -
 -  desc 'Run yardstick to check yard docs'
 -  task :yardstick do
 -    sh "yardstick 'lib/**/*.rb'"
 -  end
--  # Do not include yardstick as a default task for now since there are too many
--  # warnings.  Will work to get the warnings down before re-enabling it.
--  #
--  # default_tasks << :yardstick
--end
--
- default_tasks << :build
- 
- task default: default_tasks
+ end
