@@ -2,7 +2,7 @@
 
 _gemname=git
 pkgname=ruby-$_gemname
-pkgver=4.0.5
+pkgver=4.0.6
 pkgrel=1
 pkgdesc="Ruby library to manipulate git repositories by wrapping system calls to the git binary"
 arch=(any)
@@ -15,8 +15,8 @@ checkdepends=(openssh ruby-bundler ruby-minitar ruby-mocha ruby-rake
 makedepends=(rubygems ruby-rdoc)
 source=(git+https://github.com/ruby-git/ruby-git.git#tag=v$pkgver
         disable-yardstick.patch)
-sha256sums=('0462d7242c54b1bab9ab231c510485426653d245a9b0babbb15bbc448885e6ce'
-            '5f349421bda8e4b674dc65e94cbf8141bf9208aeb0b0d418e006db20c3836953')
+sha256sums=('affabc597090827950efaca62430ee0a58c2542264fa9dccfbd3b63eb4bbc8f8'
+            'a87ea4933af7bff13576d795c3ca3474e78347fd05d50a72ec7de65fdddc247e')
 
 prepare() {
   cd ${pkgname}
