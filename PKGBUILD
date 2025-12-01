@@ -1,14 +1,15 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=foobar2000
-pkgver=2.25.2
+pkgver=2.25.3
 pkgrel=1
 pkgdesc="An advanced freeware audio player (uses Wine)"
-arch=(i686 x86_64)
+arch=(aarch64 i686 x86_64)
 url=https://www.foobar2000.org
 license=(custom)
 depends=(wine desktop-file-utils)
 makedepends=(7zip wget)
+source_aarch64=("foobar2000-arm64ec_v$pkgver.exe::${url}/foobar2000-arm64ec_v${pkgver}.exe")
 source_i686=("foobar2000_v$pkgver.exe::${url}/files/${pkgname}_v${pkgver}.exe")
 source_x86_64=("foobar2000-x64_v$pkgver.exe::${url}/files/${pkgname}-x64_v${pkgver}.exe")
 source=("LICENSE"
@@ -20,12 +21,15 @@ sha256sums=('134cf36d7631628bfa4a3830704aa6a9efb6e265660b31d5b487df97aaa32721'
             'e9d1f7a8dc182f780d0fb15818c2837ebe0b70abcbef1c849a4185da7c09be7c'
             '2031e952d1d1d6cb4c2ff2b879421149f3f0780ca5d3ac03bc9c23fcbbd053d6'
             '2b6134997e55ce5ef5014dc266cda71b763949ad683d321246a5143333dd1fa0')
-sha256sums_i686=('e072c272b315c717283aff972552ea33d91e68fcfa3ca24df54962a8a6919b71')
-sha256sums_x86_64=('2b1863a038d386ce9d81ec7efe9c0acb80652435db56c9598bc1d88e16c1d6f4')
+sha256sums_aarch64=('10e2f87678630565e71bbd057dbc404d6c1884e80c7f530748e3c88ddc56da00')
+sha256sums_i686=('f548a4d2fc772029c7f9bfe972847889b10b2ef941eaf41c7bec98816c66fdfa')
+sha256sums_x86_64=('e6bbcd7fd36601599efb000400d447327156ca1c70156b1ec74289d8b40a0e89')
 
 package() {
-  if [[ "$CARCH" == "x86_64" ]]; then
+  if [[ $CARCH == x86_64 ]]; then
     _source_exe="${pkgname}-x64_v${pkgver}.exe"
+  elif [[ $CARCH == aarch64 ]]; then
+    _source_exe="${pkgname}-arm64ec_v${pkgver}.exe"
   else
     _source_exe="${pkgname}_v${pkgver}.exe"
   fi
