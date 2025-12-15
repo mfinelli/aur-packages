@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=capistrano
-pkgver=3.17.2
+pkgver=3.20.0
 pkgrel=1
 pkgdesc="A remote server automation and deployment tool written in Ruby"
 arch=(any)
@@ -9,17 +9,15 @@ url=https://capistranorb.com
 license=(MIT)
 options=(!emptydirs)
 depends=(ruby ruby-airbrussh ruby-i18n ruby-rake ruby-sshkit)
-checkdepends=(ruby-mocha ruby-rspec)
+checkdepends=(ruby-bundler ruby-cucumber ruby-mocha ruby-rspec)
 makedepends=(ruby-rdoc rubygems)
 source=(https://github.com/capistrano/capistrano/archive/v${pkgver}/$pkgname-$pkgver.tar.gz)
-sha256sums=('cf555b47b5051bcaada6c710cd198bc53cf79db02d75901c0c495e6676eb8902')
+sha256sums=('1e944f031094f130851bfa3e3a9dcf86921840e5fa107b12aefce199976d279b')
 
 prepare() {
   cd $pkgname-$pkgver
   sed -i 's|~>|>=|g' ${pkgname}.gemspec
   sed -i 's|git ls-files -z|find -print0|' ${pkgname}.gemspec
-
-  sed -i '/cucumber/Id' Rakefile
 
   # disable failed version-check test
   sed -i '/prints the Capistrano version/,+4d' \
