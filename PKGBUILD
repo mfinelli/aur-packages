@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=mdq
-pkgver=0.8.0
+pkgver=0.9.0
 pkgrel=1
 pkgdesc="like jq but for Markdown: find specific elements in a md doc"
 arch=(x86_64)
@@ -10,7 +10,7 @@ license=(Apache-2.0 MIT)
 depends=(gcc-libs glibc)
 makedepends=(cargo)
 source=($url/archive/v$pkgver/$pkgname-$pkgver.tar.gz)
-sha256sums=('6120705d573c5fc6189737bd584a1f2eff7f76fa94059ada78b207e248534d5b')
+sha256sums=('25beee2251e1b48970540466bbbe1f15a1d2acf20133a2a13858734b0922877a')
 
 prepare() {
   cd $pkgname-$pkgver
