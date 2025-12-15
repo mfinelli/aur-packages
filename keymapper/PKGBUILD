@@ -2,7 +2,7 @@
 # Contributor: houmain <houmain at posteo dot net>
 
 pkgname=keymapper
-pkgver=5.2.0
+pkgver=5.3.1
 pkgrel=1
 pkgdesc="A cross-platform context-aware keyremapper"
 arch=(i686 x86_64 armv7h aarch64)
@@ -12,7 +12,7 @@ depends=(dbus gcc-libs libappindicator-gtk3 libusb libx11 libxkbcommon
          libxkbcommon-x11 wayland)
 makedepends=(cmake)
 source=(${url}/archive/$pkgver/$pkgname-$pkgver.tar.gz)
-sha256sums=('2ff31e6916ece920a192d1bcb74e99532d5d9eb0bab80a02b68af0920f34b448')
+sha256sums=('e1ff17fa751caf00bbf3eae461f30cef6f6f9f830bd02a924de9a5efc0014b27')
 
 prepare() {
   cd $pkgname-$pkgver
