@@ -1,6 +1,6 @@
 pkgbase = ruby-flay
 	pkgdesc = Analyzes code for structural similarities
-	pkgver = 2.13.3
+	pkgver = 2.14.0
 	pkgrel = 1
 	url = https://github.com/seattlerb/flay
 	arch = any
@@ -18,7 +18,7 @@ pkgbase = ruby-flay
 	depends = ruby-ruby_parser
 	depends = ruby-sexp_processor
 	options = !emptydirs
-	source = https://github.com/seattlerb/flay/archive/v2.13.3/flay-2.13.3.tar.gz
-	sha256sums = c656e6fc71f1995123a81ac3c70c4137c4a3a5f73044ca718b80390f45c14e18
+	source = https://github.com/seattlerb/flay/archive/v2.14.0/flay-2.14.0.tar.gz
+	sha256sums = 47b16d4c21de689c4fcefadf647f6115e1d0be177500671d45ec9eee922c4f06
 
 pkgname = ruby-flay
