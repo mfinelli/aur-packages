@@ -2,7 +2,7 @@
 
 _gemname=flog
 pkgname=ruby-$_gemname
-pkgver=4.8.0
+pkgver=4.9.0
 pkgrel=1
 pkgdesc="Reports the most tortured code in an easy to read pain report"
 arch=(any)
@@ -11,9 +11,9 @@ license=(MIT)
 options=(!emptydirs)
 depends=(ruby ruby-path_expander ruby-ruby_parser ruby-sexp_processor)
 checkdepends=(ruby-minitest)
-makedepends=(ruby-hoe ruby-rdoc rubygems)
+makedepends=(ruby-hoe ruby-rake ruby-rdoc rubygems)
 source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
-sha256sums=('440b6a03682ad604eafd11560064a6952bb74e49f16a0afadc89b2a97ea5a526')
+sha256sums=('3a4292e0553f2fd2133c933daf60c5b4a775999992e59074d520988b713af994')
 
 prepare() {
   cd $_gemname-$pkgver
