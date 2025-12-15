@@ -2,7 +2,7 @@
 
 _gemname=rspec-pending_for
 pkgname=ruby-${_gemname}
-pkgver=0.1.17
+pkgver=0.1.19
 pkgrel=1
 pkgdesc="Mark specs pending or skipped for specific Ruby engine / version"
 arch=(any)
@@ -11,11 +11,12 @@ license=(MIT)
 depends=(ruby ruby-rspec-core ruby-ruby_engine ruby-ruby_version)
 checkdepends=(ruby-bundler ruby-byebug ruby-minitest ruby-pry ruby-rake
               ruby-redcarpet ruby-rspec ruby-rspec-block_is_expected
-              ruby-rubocop ruby-simplecov ruby-test-unit ruby-yard)
+              ruby-rspec_junit_formatter ruby-rubocop ruby-simplecov
+              ruby-test-unit ruby-yard)
 makedepends=(rubygems ruby-rdoc)
 options=(!emptydirs)
 source=(${url}/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('1edb94e47ef7e906efefb1c2fd97088d05a85dc16dc6a57988e9c0f28f36aaba')
+sha256sums=('adee5bfd1a07abcdbf1ebc77d884eebc75ce205939f8157a84075ae1a03edba7')
 
 prepare() {
   cd $_gemname-$pkgver
@@ -73,7 +74,7 @@ build() {
 check() {
   cd $_gemname-$pkgver
   local _gemdir="$(gem env gemdir)"
-  GEM_HOME="tmp_install/${_gemdir}" rake test
+  GEM_HOME="tmp_install/${_gemdir}" rspec
 }
 
 package() {
