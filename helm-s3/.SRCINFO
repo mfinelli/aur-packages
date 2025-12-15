@@ -1,6 +1,6 @@
 pkgbase = helm-s3
 	pkgdesc = Helm plugin that allows to set up a chart repository in AWS S3
-	pkgver = 0.17.0
+	pkgver = 0.17.1
 	pkgrel = 1
 	url = https://github.com/hypnoglow/helm-s3
 	install = helm-s3.install
@@ -9,7 +9,7 @@ pkgbase = helm-s3
 	makedepends = go
 	makedepends = go-task
 	depends = helm
-	source = https://github.com/hypnoglow/helm-s3/archive/v0.17.0/helm-s3-0.17.0.tar.gz
-	sha256sums = 0cc36bdc73a712bcfa49dc013df71c2a72591cbc5735a4f72ded2da4f03747c4
+	source = https://github.com/hypnoglow/helm-s3/archive/v0.17.1/helm-s3-0.17.1.tar.gz
+	sha256sums = 30fadaf4d40ac61eeac651cd3ad418f07f89a8dbcc38a9a38768a4255dfe5c5a
 
 pkgname = helm-s3
