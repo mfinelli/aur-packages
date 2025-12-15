@@ -2,28 +2,28 @@
 
 _gemname=airbrussh
 pkgname=ruby-$_gemname
-pkgver=1.4.1
+pkgver=1.6.0
 pkgrel=1
-pkgdesc='Airbrussh pretties up your SSHKit and Capistrano output'
+pkgdesc="Airbrussh pretties up your SSHKit and Capistrano output"
 arch=(any)
 url=https://github.com/mattbrictson/airbrussh
 license=(MIT)
 options=(!emptydirs)
 depends=(ruby ruby-sshkit)
-checkdepends=(ruby-bundler ruby-minitest ruby-minitest-reporters ruby-mocha
-              ruby-rake)
+checkdepends=(ruby-bundler ruby-base64 ruby-minitest ruby-minitest-reporters
+              ruby-mocha ruby-rake ruby-net-sftp)
 makedepends=(ruby-rdoc rubygems)
 source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
-sha256sums=('79252fadaf408d1fb55abf23a6fa2b9f8a3874c95aa2c785952367b01b2ff952')
+sha256sums=('822593ec55b173341f7f7f63bebda0a56f3578d190e56c56b503dd7d40553c0b')
 
 prepare() {
-  cd ${_gemname}-$pkgver
+  cd $_gemname-$pkgver
   sed -i 's|~>|>=|g' ${_gemname}.gemspec
   sed -i 's|git ls-files -z|find -print0|' ${_gemname}.gemspec
 }
 
 build() {
-  cd ${_gemname}-$pkgver
+  cd $_gemname-$pkgver
   local _gemdir="$(gem env gemdir)"
 
   gem build "${_gemname}.gemspec"
@@ -65,13 +65,13 @@ build() {
 }
 
 check() {
-  cd ${_gemname}-$pkgver
+  cd $_gemname-$pkgver
   local _gemdir="$(gem env gemdir)"
   GEM_HOME="tmp_install/${_gemdir}" rake test
 }
 
 package() {
-  cd ${_gemname}-$pkgver
+  cd $_gemname-$pkgver
 
   cp --archive --verbose tmp_install/* "${pkgdir}"
 
