@@ -1,0 +1,17 @@
+pkgbase = ruby-rspec_junit_formatter
+	pkgdesc = RSpec results that Hudson can read.
+	pkgver = 0.2.3
+	pkgrel = 1
+	url = http://github.com/sj26/rspec_junit_formatter
+	arch = any
+	license = MIT
+	depends = ruby
+	depends = ruby-builder
+	depends = ruby-rspec-core
+	noextract = rspec_junit_formatter-0.2.3.gem
+	options = !emptydirs
+	source = https://rubygems.org/downloads/rspec_junit_formatter-0.2.3.gem
+	sha256sums = 510525778d96ffb0dff778565e7c7ed2f4320e725b81bdd6ad01e2f722a2f042
+
+pkgname = ruby-rspec_junit_formatter
+
