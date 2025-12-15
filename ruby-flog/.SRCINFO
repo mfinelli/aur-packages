@@ -1,12 +1,13 @@
 pkgbase = ruby-flog
 	pkgdesc = Reports the most tortured code in an easy to read pain report
-	pkgver = 4.8.0
+	pkgver = 4.9.0
 	pkgrel = 1
 	url = https://github.com/seattlerb/flog
 	arch = any
 	license = MIT
 	checkdepends = ruby-minitest
 	makedepends = ruby-hoe
+	makedepends = ruby-rake
 	makedepends = ruby-rdoc
 	makedepends = rubygems
 	depends = ruby
@@ -14,7 +15,7 @@ pkgbase = ruby-flog
 	depends = ruby-ruby_parser
 	depends = ruby-sexp_processor
 	options = !emptydirs
-	source = https://github.com/seattlerb/flog/archive/v4.8.0/flog-4.8.0.tar.gz
-	sha256sums = 440b6a03682ad604eafd11560064a6952bb74e49f16a0afadc89b2a97ea5a526
+	source = https://github.com/seattlerb/flog/archive/v4.9.0/flog-4.9.0.tar.gz
+	sha256sums = 3a4292e0553f2fd2133c933daf60c5b4a775999992e59074d520988b713af994
 
 pkgname = ruby-flog
