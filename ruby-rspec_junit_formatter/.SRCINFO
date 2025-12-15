@@ -1,17 +1,21 @@
 pkgbase = ruby-rspec_junit_formatter
-	pkgdesc = RSpec results that Hudson can read.
-	pkgver = 0.2.3
+	pkgdesc = RSpec results that your continuous integration service can read
+	pkgver = 0.6.0
 	pkgrel = 1
-	url = http://github.com/sj26/rspec_junit_formatter
+	url = https://github.com/sj26/rspec_junit_formatter
 	arch = any
 	license = MIT
+	checkdepends = ruby-bundler
+	checkdepends = ruby-nokogiri
+	checkdepends = ruby-rake
+	checkdepends = ruby-coderay
+	checkdepends = ruby-rspec
+	makedepends = rubygems
+	makedepends = ruby-rdoc
 	depends = ruby
-	depends = ruby-builder
 	depends = ruby-rspec-core
-	noextract = rspec_junit_formatter-0.2.3.gem
 	options = !emptydirs
-	source = https://rubygems.org/downloads/rspec_junit_formatter-0.2.3.gem
-	sha256sums = 510525778d96ffb0dff778565e7c7ed2f4320e725b81bdd6ad01e2f722a2f042
+	source = https://github.com/sj26/rspec_junit_formatter/archive/v0.6.0/rspec_junit_formatter-0.6.0.tar.gz
+	sha256sums = 05ec70950f8dc3282c1fa49b8c0f828f10fd9280509e142dd1ffd720ccbd79ce
 
 pkgname = ruby-rspec_junit_formatter
-
