@@ -1,40 +1,85 @@
-# Maintainer: Andrea Richiardi <a.richiardi.work@gmail.com>
+# Maintainer: Mario Finelli <mario at finel dot li>
+# Contributor: Andrea Richiardi <a.richiardi.work@gmail.com>
 # Contributor: Jeremy Audet <jerebear@protonmail.com>
 # Contributor: Julien Nicoulaud <julien.nicoulaud@gmail.com>
 
 _gemname=sexp_processor
-pkgname="ruby-${_gemname}"
-pkgver=4.17.1
+pkgname=ruby-${_gemname}
+pkgver=4.17.4
 pkgrel=1
-pkgdesc="A branch of ParseTree that brings several sexp processing tools."
+pkgdesc="A branch of ParseTree that brings several sexp processing tools"
 arch=(any)
-url="https://github.com/seattlerb/sexp_processor"
+url=https://github.com/seattlerb/sexp_processor
 license=(MIT)
 depends=(ruby)
-makedepends=(ruby-rdoc)
+checkdepends=(ruby-minitest)
+makedepends=(ruby-hoe ruby-rake ruby-rdoc rubygems)
 options=(!emptydirs)
-source=("https://rubygems.org/downloads/${_gemname}-${pkgver}.gem")
-noextract=("${_gemname}-${pkgver}.gem")
-sha256sums=('91110946720307f30bf1d549e90d9a529fef40d1fc471c069c8cca7667015da0')
+source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
+sha256sums=('986a8e49a611715d92bc3ea844dadabdb06b45424989e7e6b1e0eb971e7d86fa')
 
-package() {
-  local _gemdir="$(ruby -e 'puts Gem.default_dir')"
+prepare() {
+  cd $_gemname-$pkgver
 
-  # install gem
-  HOME=/tmp gem install \
-    --no-user-install \
-    --ignore-dependencies \
-    --install-dir "${pkgdir}${_gemdir}" \
-    --bindir "${pkgdir}/usr/bin" \
-    "${srcdir}/${_gemname}-${pkgver}.gem"
-
-  # install license. Using `install` lets us ensure dest directory exists and
-  # permissions are OK. Unfortunately, it only works with files, not stdin.
-  local _license="$(mktemp)"
-  sed -n '/LICENSE:/,$ p' \
-    "${pkgdir}${_gemdir}/gems/${_gemname}-${pkgver}/README.rdoc" > "${_license}"
-  install -Dm 644 "${_license}" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-  rm "${_license}"
+  # there is no license file in the repo, but we can extract one
+  sed '/== LICENSE:/,$!d' README.rdoc > LICENSE
 }
 
-# vim:set ts=2 sw=2 et:
+build() {
+  cd $_gemname-$pkgver
+  local _gemdir="$(gem env gemdir)"
+
+  rake gem
+
+  gem install \
+    --local \
+    --verbose \
+    --ignore-dependencies \
+    --no-user-install \
+    --install-dir "tmp_install/${_gemdir}" \
+    --bindir "tmp_install/usr/bin" \
+    "pkg/${_gemname}-${pkgver}.gem"
+
+  # remove unrepreducible files
+  rm --force --recursive --verbose \
+    "tmp_install/${_gemdir}/cache/" \
+    "tmp_install/${_gemdir}/gems/${_gemname}-${pkgver}/vendor/" \
+    "tmp_install/${_gemdir}/doc/${_gemname}-${pkgver}/ri/ext/"
+
+  find "tmp_install/${_gemdir}/gems/" \
+    -type f \
+    \( \
+      -iname "*.o" -o \
+      -iname "*.c" -o \
+      -iname "*.so" -o \
+      -iname "*.time" -o \
+      -iname "gem.build_complete" -o \
+      -iname "Makefile" \
+    \) \
+    -delete
+
+  find "tmp_install/${_gemdir}/extensions/" \
+    -type f \
+    \( \
+      -iname "mkmf.log" -o \
+      -iname "gem_make.out" \
+    \) \
+    -delete
+}
+
+check() {
+  cd $_gemname-$pkgver
+  local _gemdir="$(gem env gemdir)"
+  GEM_HOME="tmp_install/${_gemdir}" rake test
+}
+
+package() {
+  cd $_gemname-$pkgver
+
+  cp --archive --verbose tmp_install/* "${pkgdir}"
+
+  install -v -Dm0644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  install -v -Dm0644 *.rdoc -t "${pkgdir}/usr/share/doc/${pkgname}"
+}
+
+# vim: set ts=2 sw=2 et:
