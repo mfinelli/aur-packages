@@ -1,7 +1,7 @@
 pkgbase = keymapper
 	pkgdesc = A cross-platform context-aware keyremapper
 	pkgver = 5.3.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/houmain/keymapper
 	arch = i686
 	arch = x86_64

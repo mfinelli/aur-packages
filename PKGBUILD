@@ -3,7 +3,7 @@
 
 pkgname=keymapper
 pkgver=5.3.1
-pkgrel=1
+pkgrel=2
 pkgdesc="A cross-platform context-aware keyremapper"
 arch=(i686 x86_64 armv7h aarch64)
 url=https://github.com/houmain/keymapper
@@ -31,6 +31,7 @@ build() {
 package() {
   cd $pkgname-$pkgver
   make DESTDIR="$pkgdir" install
+  install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
 }
 
 # vim: set ts=2 sw=2 et:
