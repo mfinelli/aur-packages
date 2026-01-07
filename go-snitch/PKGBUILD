@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=go-snitch
-pkgver=0.2.0
+pkgver=0.2.2
 pkgrel=1
 pkgdesc="A prettier way to inspect network connections"
 arch=(x86_64)
@@ -10,7 +10,7 @@ license=(MIT)
 depends=(glibc)
 makedepends=(go)
 source=(${url}/archive/v${pkgver}/snitch-$pkgver.tar.gz)
-sha256sums=('247f8fbb13a6739ffbb85db7e4bb5b8110a01e09eb21879cfe543b7e3e6ed6ce')
+sha256sums=('e0bc3a0b2e4f99d51fcd46217bd863d1ab18c08462fbbf1e875862fb8909c632')
 
 prepare() {
   cd snitch-$pkgver
