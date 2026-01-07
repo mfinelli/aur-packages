@@ -1,13 +1,13 @@
 pkgbase = go-snitch
 	pkgdesc = A prettier way to inspect network connections
-	pkgver = 0.2.0
+	pkgver = 0.2.2
 	pkgrel = 1
 	url = https://github.com/karol-broda/snitch
 	arch = x86_64
 	license = MIT
 	makedepends = go
 	depends = glibc
-	source = https://github.com/karol-broda/snitch/archive/v0.2.0/snitch-0.2.0.tar.gz
-	sha256sums = 247f8fbb13a6739ffbb85db7e4bb5b8110a01e09eb21879cfe543b7e3e6ed6ce
+	source = https://github.com/karol-broda/snitch/archive/v0.2.2/snitch-0.2.2.tar.gz
+	sha256sums = e0bc3a0b2e4f99d51fcd46217bd863d1ab18c08462fbbf1e875862fb8909c632
 
 pkgname = go-snitch
