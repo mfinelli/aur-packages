@@ -2,3 +2,5 @@
 !.gitignore
 !PKGBUILD
 !.SRCINFO
+
+!fix-test.patch
