@@ -1,0 +1,13 @@
+diff --git a/lib/librarian/dsl.rb b/lib/librarian/dsl.rb
+index 76b68be..2e8aaa1 100644
+--- a/lib/librarian/dsl.rb
++++ b/lib/librarian/dsl.rb
+@@ -88,7 +88,7 @@ module Librarian
+ 
+         specfile ||= block if block_given?
+ 
+-        if specfile.kind_of?(Pathname) and !File.exists?(specfile)
++        if specfile.kind_of?(Pathname) and !File.exist?(specfile)
+           debug { "Specfile #{specfile} not found, using defaults" } unless specfile.nil?
+           receiver(target).run(specfile, &default_specfile)
+         else
