@@ -3,7 +3,7 @@
 
 pkgname=mp3tag
 pkgver=3.33
-pkgrel=1
+pkgrel=2
 pkgdesc="The universal tag editor"
 arch=(i686 x86_64)
 url="https://www.mp3tag.de/en/"
@@ -14,21 +14,21 @@ source=(mp3tag
         LICENSE
         mp3tag.desktop
         mp3tag.png)
-source_i686=("https://download.mp3tag.de/${pkgname}v${pkgver/./}setup.exe")
-source_x86_64=("https://download.mp3tag.de/${pkgname}v${pkgver/./}-x64-setup.exe")
+source_i686=("https://download.mp3tag.de/${pkgname}-v${pkgver}-setup.exe")
+source_x86_64=("https://download.mp3tag.de/${pkgname}-v${pkgver}-x64-setup.exe")
 sha256sums=('378eabc03c7a4c6aa56c5aa90141204a04b727f7dc60e66a7f36a87a7eeae7d8'
             '18967b634e69d8ccb08383d42a49ced3c0b11c632649a15c3a6a55e3a27f62e9'
             'bc0c7b8a7a9f9ee92dfe2f1880ef5d91920473713b5d60e4afa361d69a446798'
             'a3e09f7cda34bc31b3b5b1d7cf2010c3b17847c141ef5a074472eb72f760f6bf')
-sha256sums_i686=('1040e355c552d8eca649a76446f27f4fc8306ef1c10097feb6592649a426f4df')
-sha256sums_x86_64=('1040e355c552d8eca649a76446f27f4fc8306ef1c10097feb6592649a426f4df')
+sha256sums_i686=('637861298aec102245e6d1b932d9acb2b8a7b735c9fd4975e916757e0416b359')
+sha256sums_x86_64=('434d684b8aaa5d2ccd529e873b9a9bdd46369d710dfbb320a08e1b4c36b384e8')
 options=('!strip')
 
 prepare() {
   if [[ $CARCH == i686 ]]; then
-    7z -y -o"$pkgname-$pkgver" x "${pkgname}v${pkgver/./}setup.exe"
+    7z -y -o"$pkgname-$pkgver" x "${pkgname}-v${pkgver}-setup.exe"
   else
-    7z -y -o"$pkgname-$pkgver" x "${pkgname}v${pkgver/./}-x64-setup.exe"
+    7z -y -o"$pkgname-$pkgver" x "${pkgname}-v${pkgver}-x64-setup.exe"
   fi
 }
 
