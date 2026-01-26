@@ -1,7 +1,7 @@
 pkgbase = mp3tag
 	pkgdesc = The universal tag editor
 	pkgver = 3.33
-	pkgrel = 1
+	pkgrel = 2
 	url = https://www.mp3tag.de/en/
 	arch = i686
 	arch = x86_64
@@ -17,9 +17,9 @@ pkgbase = mp3tag
 	sha256sums = 18967b634e69d8ccb08383d42a49ced3c0b11c632649a15c3a6a55e3a27f62e9
 	sha256sums = bc0c7b8a7a9f9ee92dfe2f1880ef5d91920473713b5d60e4afa361d69a446798
 	sha256sums = a3e09f7cda34bc31b3b5b1d7cf2010c3b17847c141ef5a074472eb72f760f6bf
-	source_i686 = https://download.mp3tag.de/mp3tagv333setup.exe
-	sha256sums_i686 = 1040e355c552d8eca649a76446f27f4fc8306ef1c10097feb6592649a426f4df
-	source_x86_64 = https://download.mp3tag.de/mp3tagv333-x64-setup.exe
-	sha256sums_x86_64 = 1040e355c552d8eca649a76446f27f4fc8306ef1c10097feb6592649a426f4df
+	source_i686 = https://download.mp3tag.de/mp3tag-v3.33-setup.exe
+	sha256sums_i686 = 637861298aec102245e6d1b932d9acb2b8a7b735c9fd4975e916757e0416b359
+	source_x86_64 = https://download.mp3tag.de/mp3tag-v3.33-x64-setup.exe
+	sha256sums_x86_64 = 434d684b8aaa5d2ccd529e873b9a9bdd46369d710dfbb320a08e1b4c36b384e8
 
 pkgname = mp3tag
