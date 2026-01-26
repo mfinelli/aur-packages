@@ -1,6 +1,6 @@
 pkgbase = go-critic
 	pkgdesc = The most opinionated Go source code linter for code audit
-	pkgver = 0.13.0
+	pkgver = 0.14.3
 	pkgrel = 1
 	url = https://go-critic.com
 	arch = x86_64
@@ -9,7 +9,7 @@ pkgbase = go-critic
 	makedepends = go
 	depends = glibc
 	options = !lto
-	source = go-critic::git+https://github.com/go-critic/go-critic.git#tag=v0.13.0
-	sha256sums = 230b5448dd2774d9c4ec95ad0f6cb44b4bf9b9fe30ed3d999b3a6aa887c070d8
+	source = go-critic::git+https://github.com/go-critic/go-critic.git#tag=v0.14.3
+	sha256sums = a62ca0d55670a0366177671ad91c5d570610f15fe86d3a9ae1b0ba134fc57adc
 
 pkgname = go-critic
