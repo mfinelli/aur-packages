@@ -4,7 +4,7 @@
 
 _name=proto-plus
 pkgname=python-$_name
-pkgver=1.27.0
+pkgver=1.27.1
 pkgrel=1
 pkgdesc="A wrapper around protocol buffers"
 arch=(any)
@@ -13,7 +13,7 @@ license=(Apache-2.0)
 depends=(python python-protobuf)
 makedepends=(python-build python-installer python-setuptools python-wheel)
 source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
-sha256sums=('253e613594ecb11e9c95f37780d38b89b7073fcb762d9716a15867accd83b804')
+sha256sums=('1fc65857bfdfbbce9de3dec21cb410ffc3eef539d359f9ab221f59bf8a556c6a')
 
 build() {
   cd $_name-python-$pkgver
