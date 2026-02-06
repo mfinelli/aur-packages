@@ -2,8 +2,8 @@
 
 _gemname=hashie
 pkgname=ruby-$_gemname
-pkgver=5.0.0
-pkgrel=2
+pkgver=5.1.0
+pkgrel=1
 pkgdesc="a collection of classes and mixins that make Ruby hashes more powerful"
 arch=(any)
 url=https://github.com/hashie/hashie
@@ -12,15 +12,11 @@ depends=(ruby)
 checkdepends=(ruby-rake ruby-rspec ruby-rspec-pending_for)
 makedepends=(rubygems ruby-rdoc)
 options=(!emptydirs)
-source=(https://github.com/hashie/hashie/archive/v$pkgver/$_gemname-$pkgver.tar.gz
-  https://github.com/hashie/hashie/commit/47ad61e1904723b56a1860b2da444775d556a156.patch)
-sha256sums=('f16d5394d732678d6287a334aeb41e88bb12fe78c22c4b749ffcb0570014f59a'
-            'c2f6952200e6c033d71af6f0310e650cea8227e8f4e29b03347884e2798a7861')
+source=(https://github.com/hashie/hashie/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
+sha256sums=('33f3e58043bd1aa82c5eb44ee9313c4170c8b5ebddcf0ae0b9e4114a77931056')
 
 prepare() {
   cd $_gemname-$pkgver
-
-  patch -p1 -i "$srcdir/47ad61e1904723b56a1860b2da444775d556a156.patch"
 
   sed -i 's|~>|>=|g' Gemfile
 
