@@ -2,7 +2,7 @@
 
 _gemname=rspec-pending_for
 pkgname=ruby-${_gemname}
-pkgver=0.1.19
+pkgver=0.1.20
 pkgrel=1
 pkgdesc="Mark specs pending or skipped for specific Ruby engine / version"
 arch=(any)
@@ -16,7 +16,7 @@ checkdepends=(ruby-bundler ruby-byebug ruby-minitest ruby-pry ruby-rake
 makedepends=(rubygems ruby-rdoc)
 options=(!emptydirs)
 source=(${url}/archive/v$pkgver/$_gemname-$pkgver.tar.gz)
-sha256sums=('adee5bfd1a07abcdbf1ebc77d884eebc75ce205939f8157a84075ae1a03edba7')
+sha256sums=('43b07facc2843ed2f39ad75bf170baefee447377fdc2fb79ca508b872ce03776')
 
 prepare() {
   cd $_gemname-$pkgver

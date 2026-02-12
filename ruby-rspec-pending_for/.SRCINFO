@@ -1,6 +1,6 @@
 pkgbase = ruby-rspec-pending_for
 	pkgdesc = Mark specs pending or skipped for specific Ruby engine / version
-	pkgver = 0.1.19
+	pkgver = 0.1.20
 	pkgrel = 1
 	url = https://github.com/pboling/rspec-pending_for
 	arch = any
@@ -25,7 +25,7 @@ pkgbase = ruby-rspec-pending_for
 	depends = ruby-ruby_engine
 	depends = ruby-ruby_version
 	options = !emptydirs
-	source = https://github.com/pboling/rspec-pending_for/archive/v0.1.19/rspec-pending_for-0.1.19.tar.gz
-	sha256sums = adee5bfd1a07abcdbf1ebc77d884eebc75ce205939f8157a84075ae1a03edba7
+	source = https://github.com/pboling/rspec-pending_for/archive/v0.1.20/rspec-pending_for-0.1.20.tar.gz
+	sha256sums = 43b07facc2843ed2f39ad75bf170baefee447377fdc2fb79ca508b872ce03776
 
 pkgname = ruby-rspec-pending_for
