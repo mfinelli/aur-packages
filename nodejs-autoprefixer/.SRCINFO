@@ -1,14 +1,14 @@
 pkgbase = nodejs-autoprefixer
 	pkgdesc = Parse CSS and add vendor prefixes to rules by Can I Use
-	pkgver = 10.4.23
+	pkgver = 10.4.24
 	pkgrel = 1
 	url = https://github.com/postcss/autoprefixer
 	arch = any
 	license = MIT
 	makedepends = npm
 	depends = nodejs
-	noextract = autoprefixer-10.4.23.tgz
-	source = https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.23.tgz
-	sha256sums = cd2206f5dd711cac3cd83d6e2db850977e9933de325e0e058ed84bf5a62208e8
+	noextract = autoprefixer-10.4.24.tgz
+	source = https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.24.tgz
+	sha256sums = e809ae398241364c2703132e77607d5254c27e1947d68590d3e44094eec0180e
 
 pkgname = nodejs-autoprefixer
