@@ -2,8 +2,8 @@
 # Contributor: houmain <houmain at posteo dot net>
 
 pkgname=keymapper
-pkgver=5.3.1
-pkgrel=2
+pkgver=5.3.2
+pkgrel=1
 pkgdesc="A cross-platform context-aware keyremapper"
 arch=(i686 x86_64 armv7h aarch64)
 url=https://github.com/houmain/keymapper
@@ -12,7 +12,7 @@ depends=(dbus gcc-libs libappindicator-gtk3 libusb libx11 libxkbcommon
          libxkbcommon-x11 wayland)
 makedepends=(cmake)
 source=(${url}/archive/$pkgver/$pkgname-$pkgver.tar.gz)
-sha256sums=('e1ff17fa751caf00bbf3eae461f30cef6f6f9f830bd02a924de9a5efc0014b27')
+sha256sums=('2908af2bd9f650e3ddda05bc99d8c4c07a74109a26a273073c012bc9e3fb40d5')
 
 prepare() {
   cd $pkgname-$pkgver
@@ -32,6 +32,10 @@ package() {
   cd $pkgname-$pkgver
   make DESTDIR="$pkgdir" install
   install -Dm0644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm0644 CHANGELOG.md "$pkgdir/usr/share/doc/$pkgname/CHANGELOG.md"
+
+  # make also bundles the documentation but sticks it in the wrong path
+  rm -rf "$pkgdir/usr/share/docs"
 }
 
 # vim: set ts=2 sw=2 et:
