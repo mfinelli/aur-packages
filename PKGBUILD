@@ -2,7 +2,7 @@
 # Contributor: Sabart Otto <seberm at gmail dot com>
 
 pkgname=adminer
-pkgver=5.4.1
+pkgver=5.4.2
 pkgrel=1
 pkgdesc="A full-featured MySQL management tool written in PHP"
 arch=(any)
@@ -12,7 +12,7 @@ optdepends=(apache elasticsearch mariadb mongodb mysql postgresql sqlite)
 url=https://www.adminer.org
 install=adminer.install
 source=("https://github.com/vrana/adminer/releases/download/v${pkgver}/adminer-${pkgver}.php")
-sha256sums=('3f65364b4cc96b5e4cae1b3e448b7b6fa42b0da1eeba78bed9b3774ade830fce')
+sha256sums=('5b761efe7049bf586119256324fd417b49e5bb9243b40d9734fe86655e4402fd')
 
 package() {
   install -Dm0644 "${pkgname}-${pkgver}.php" \
