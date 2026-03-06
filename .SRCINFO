@@ -1,13 +1,13 @@
 pkgbase = wgo
 	pkgdesc = Live reload for Go apps
-	pkgver = 0.6.2
+	pkgver = 0.6.3
 	pkgrel = 1
 	url = https://github.com/bokwoon95/wgo
 	arch = x86_64
 	license = MIT
 	makedepends = go
 	depends = glibc
-	source = https://github.com/bokwoon95/wgo/archive/v0.6.2/wgo-0.6.2.tar.gz
-	sha256sums = 7ed3ac185905dad49f7e042369070e9e4c98681334c940d15b5774125bf6a64a
+	source = https://github.com/bokwoon95/wgo/archive/v0.6.3/wgo-0.6.3.tar.gz
+	sha256sums = d4f87fe88b314d66977ccb97482cb0acf960e8bd0936f98ab0036cb24f964115
 
 pkgname = wgo
