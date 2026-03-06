@@ -2,7 +2,7 @@
 
 _gemname=airbrussh
 pkgname=ruby-$_gemname
-pkgver=1.6.0
+pkgver=1.6.1
 pkgrel=1
 pkgdesc="Airbrussh pretties up your SSHKit and Capistrano output"
 arch=(any)
@@ -14,7 +14,7 @@ checkdepends=(ruby-bundler ruby-base64 ruby-minitest ruby-minitest-reporters
               ruby-mocha ruby-rake ruby-net-sftp)
 makedepends=(ruby-rdoc rubygems)
 source=(${url}/archive/v${pkgver}/$_gemname-$pkgver.tar.gz)
-sha256sums=('822593ec55b173341f7f7f63bebda0a56f3578d190e56c56b503dd7d40553c0b')
+sha256sums=('39a9531eff2ebed3d26a1389aa48f9c253daa8273c1ce6c88f6e3e12705031e7')
 
 prepare() {
   cd $_gemname-$pkgver
