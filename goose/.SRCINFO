@@ -1,6 +1,6 @@
 pkgbase = goose
 	pkgdesc = Database migration tool written in Go
-	pkgver = 3.26.0
+	pkgver = 3.27.0
 	pkgrel = 1
 	url = https://github.com/pressly/goose
 	arch = i686
@@ -8,7 +8,7 @@ pkgbase = goose
 	license = MIT
 	makedepends = go
 	depends = glibc
-	source = https://github.com/pressly/goose/archive/v3.26.0/goose-3.26.0.tar.gz
-	sha256sums = fb93daf1aa33a5ef0dd5a3b8ca18f79181b4947930df3fb26e2ae26c9bd2385a
+	source = https://github.com/pressly/goose/archive/v3.27.0/goose-3.27.0.tar.gz
+	sha256sums = 4bc91796341475bed5686a59ee84ebd695e6738a9cdbf805f8efeebbe73716ee
 
 pkgname = goose
