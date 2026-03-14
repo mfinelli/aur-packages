@@ -1,0 +1,20 @@
+pkgbase = modctl-git
+	pkgdesc = command line mod manager
+	pkgver = r224.66753dd
+	pkgrel = 1
+	url = https://modctl.org
+	arch = aarch64
+	arch = x86_64
+	license = GPL-3.0-or-later
+	makedepends = git
+	makedepends = go
+	makedepends = sqlc
+	makedepends = scdoc
+	depends = glibc
+	depends = libarchive
+	provides = modctl
+	conflicts = modctl
+	source = git+https://github.com/mfinelli/modctl.git?signed
+	sha256sums = SKIP
+
+pkgname = modctl-git
