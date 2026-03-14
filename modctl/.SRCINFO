@@ -1,0 +1,19 @@
+pkgbase = modctl
+	pkgdesc = command line mod manager
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://modctl.org
+	arch = aarch64
+	arch = x86_64
+	license = GPL-3.0-or-later
+	makedepends = go
+	makedepends = scdoc
+	depends = glibc
+	depends = libarchive
+	source = https://github.com/mfinelli/modctl/releases/download/v0.1.0/modctl_v0.1.0.tar.zst
+	source = https://github.com/mfinelli/modctl/releases/download/v0.1.0/modctl_v0.1.0.tar.zst.asc
+	validpgpkeys = 2AF87031171950F11C460B5AEF5F1F6026B2C9C5
+	sha256sums = ad79b3a755fdd3c0ff1aad819218444264951056da20ce045a5d4d0c1e2d1427
+	sha256sums = SKIP
+
+pkgname = modctl
