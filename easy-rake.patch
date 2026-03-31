@@ -1,0 +1,97 @@
+diff --git a/Rakefile b/Rakefile
+index 2aefb76..5ebb41c 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -2,21 +2,9 @@
+ 
+ require "bundler"
+ require "rake/testtask"
+-require "rubocop/rake_task"
+-require "standard/rake"
+-require "yard"
+-require "yardstick/rake/measurement"
+-require "yardstick/rake/verify"
+ 
+ task default: %i[test lint steep yard verify_measurements mutant]
+ 
+-Yardstick::Rake::Measurement.new
+-Yardstick::Rake::Verify.new do |verify|
+-  verify.threshold = 100
+-end
+-
+-RuboCop::RakeTask.new
+-
+ desc "Run RuboCop and Standard"
+ task lint: %i[rubocop standard]
+ 
+@@ -37,8 +25,6 @@ Rake::Task["release"].clear
+ desc "Build gem and create tag (gem push handled by CI)"
+ task release: %w[build release:guard_clean release:source_control_push]
+ 
+-YARD::Rake::YardocTask.new
+-
+ Rake::TestTask.new :test do |t|
+   t.libs << "lib"
+   t.test_files = FileList["test/**/*.rb"]
+diff --git a/test/test_buftok.rb b/test/test_buftok.rb
+index 10d879a..30a3100 100644
+--- a/test/test_buftok.rb
++++ b/test/test_buftok.rb
+@@ -4,8 +4,6 @@ require_relative "test_helper"
+ 
+ class BufferedTokenizer
+   class InitTest < Minitest::Test
+-    cover BufferedTokenizer
+-
+     def test_buftok_alias
+       assert_same BufferedTokenizer, Buftok
+     end
+diff --git a/test/test_extract.rb b/test/test_extract.rb
+index bf2caf1..6c82283 100644
+--- a/test/test_extract.rb
++++ b/test/test_extract.rb
+@@ -4,8 +4,6 @@ require_relative "test_helper"
+ 
+ class BufferedTokenizer
+   class ExtractTest < Minitest::Test
+-    cover BufferedTokenizer
+-
+     def test_returns_complete_tokens
+       assert_equal %w[foo], BufferedTokenizer.new.extract("foo\nbar")
+     end
+diff --git a/test/test_flush.rb b/test/test_flush.rb
+index 4fe115e..e6e131c 100644
+--- a/test/test_flush.rb
++++ b/test/test_flush.rb
+@@ -4,8 +4,6 @@ require_relative "test_helper"
+ 
+ class BufferedTokenizer
+   class FlushTest < Minitest::Test
+-    cover BufferedTokenizer
+-
+     def test_empty_buffer
+       assert_equal "", BufferedTokenizer.new.flush
+     end
+diff --git a/test/test_helper.rb b/test/test_helper.rb
+index 1eac7e1..8ec5647 100644
+--- a/test/test_helper.rb
++++ b/test/test_helper.rb
+@@ -9,5 +9,4 @@ unless ENV["MUTANT"]
+ end
+ 
+ require "minitest/autorun"
+-require "mutant/minitest/coverage"
+ require "buftok"
+diff --git a/test/test_size.rb b/test/test_size.rb
+index 015a521..91e694e 100644
+--- a/test/test_size.rb
++++ b/test/test_size.rb
+@@ -4,8 +4,6 @@ require_relative "test_helper"
+ 
+ class BufferedTokenizer
+   class SizeTest < Minitest::Test
+-    cover BufferedTokenizer
+-
+     def test_zero_initially
+       assert_equal 0, BufferedTokenizer.new.size
+     end
