@@ -1,16 +1,21 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
+# this should match the version listed in src/lib/common/constants.ts
+_highlightver=11.11.1
+
 pkgname=gnome-shell-extension-copyous
-pkgver=1.3.0
-pkgrel=3
+pkgver=2.0.0
+pkgrel=1
 pkgdesc="Modern Clipboard Manager for GNOME"
 arch=(any)
 url=https://github.com/boerdereinar/copyous
 license=(GPL-3.0-or-later)
 depends=(gnome-shell libgda6 gsound)
 makedepends=(git nodejs pnpm)
-source=($pkgname::git+$url.git#tag=v$pkgver)
-sha256sums=('2103144518ed139f7f2937fa8f41514d9dcb862739e2736cf4cd0f71d17a8aac')
+source=($pkgname::git+$url.git#tag=v$pkgver
+  https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${_highlightver}/es/highlight.min.js)
+sha256sums=('fe78bec7f552f897ac5a69e1aa0c54ef095ea02e0e08079f3ba73f16fbefdb8a'
+            '7865839949f0764d9e0a21e311a4e2c42633eeaee8ca5ec127b86438565731fe')
 
 prepare() {
   cd $pkgname
@@ -37,7 +42,8 @@ package() {
 
   install -d "${destdir}"
   bsdtar xvf ${uuid}.zip -C "$pkgdir/usr/share/gnome-shell/extensions/${uuid}/" --no-same-owner
-  install -Dm644 "schemas/${schema}" -t "${pkgdir}/usr/share/glib-2.0/schemas/"
+  install -Dm0644 "schemas/${schema}" -t "${pkgdir}/usr/share/glib-2.0/schemas/"
+  install -Dm0644 "${srcdir}/highlight.min.js" "${destdir}/highlight.min.js"
 
   rm -rf "${destdir}/schemas"
 }
