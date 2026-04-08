@@ -2,7 +2,7 @@
 # Contributor: Igor Dyatlov <dyatlov.igor@protonmail.com>
 
 pkgname=gnome-shell-extension-nightthemeswitcher
-pkgver=81
+pkgver=82
 pkgrel=1
 pkgdesc="Automatically toggle your light and dark themes variants"
 arch=(any)
@@ -11,12 +11,7 @@ license=(GPL-3.0-or-later)
 depends=(gnome-shell)
 makedepends=(git meson npm)
 source=($pkgname::git+$url.git#tag=$pkgver)
-sha256sums=('a47c0b67d2febfc947c612ad2691f86e89f5e03d8f5ac5808ca5ec8573183e4a')
-
-prepare() {
-  cd $pkgname
-  npm ci
-}
+sha256sums=('9fc12dd33baa516f2d60855571d08942ba31c515e020416e2224922b26fca084')
 
 build() {
   cd $pkgname
