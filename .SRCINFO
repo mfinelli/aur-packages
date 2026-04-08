@@ -10,6 +10,8 @@ pkgbase = gnome-shell-extension-emoji-copy
 	makedepends = zip
 	depends = gnome-shell
 	source = emoji-copy-33.tar.gz::https://github.com/FelipeFTN/emoji-copy/archive/v33.tar.gz
+	source = gnome50.patch
 	sha256sums = c9cdfc5612940311aaf4cc65afee2a980d425e9bc9e71ddf02b7fa21d24c07ff
+	sha256sums = 6186933202855b34a6f65782d21aacce6c323568439d7fbcb2aab589b417b43c
 
 pkgname = gnome-shell-extension-emoji-copy

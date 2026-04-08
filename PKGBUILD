@@ -9,8 +9,15 @@ url=https://github.com/FelipeFTN/emoji-copy
 license=(GPL-3.0-or-later)
 depends=(gnome-shell)
 makedepends=(python python-requests zip)
-source=(emoji-copy-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz)
-sha256sums=('c9cdfc5612940311aaf4cc65afee2a980d425e9bc9e71ddf02b7fa21d24c07ff')
+source=(emoji-copy-$pkgver.tar.gz::${url}/archive/v$pkgver.tar.gz
+  gnome50.patch)
+sha256sums=('c9cdfc5612940311aaf4cc65afee2a980d425e9bc9e71ddf02b7fa21d24c07ff'
+            '6186933202855b34a6f65782d21aacce6c323568439d7fbcb2aab589b417b43c')
+
+prepare() {
+  cd Emoji-Copy-$pkgver
+  patch -p1 -N -i "${srcdir}/gnome50.patch"
+}
 
 build() {
   cd Emoji-Copy-$pkgver
