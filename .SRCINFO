@@ -1,7 +1,7 @@
 pkgbase = gnome-shell-extension-emoji-copy
 	pkgdesc = simplify emoji selection and clipboard management
 	pkgver = 33
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/FelipeFTN/emoji-copy
 	arch = any
 	license = GPL-3.0-or-later
