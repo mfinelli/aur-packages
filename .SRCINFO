@@ -1,0 +1,14 @@
+pkgbase = gnome-shell-extension-search-light
+	pkgdesc = Gnome Extension to bring macOS's Spotlight functionality
+	pkgver = 101
+	pkgrel = 1
+	url = https://github.com/icedman/search-light
+	arch = any
+	license = GPL-3.0-or-later
+	makedepends = git
+	makedepends = zip
+	depends = gnome-shell
+	source = git+https://github.com/icedman/search-light.git#commit=4e93e0e3e2fba8512dfd588177b7a6a2a71c9f1e
+	sha256sums = 07b76fb3b86eca7e8b80e05e3a4a451f0dda24e357b6e82e1fb0a575aaa5a505
+
+pkgname = gnome-shell-extension-search-light
