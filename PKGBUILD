@@ -5,7 +5,7 @@ _highlightver=11.11.1
 
 pkgname=gnome-shell-extension-copyous
 pkgver=2.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Modern Clipboard Manager for GNOME"
 arch=(any)
 url=https://github.com/boerdereinar/copyous
@@ -20,6 +20,8 @@ sha256sums=('fe78bec7f552f897ac5a69e1aa0c54ef095ea02e0e08079f3ba73f16fbefdb8a'
 prepare() {
   cd $pkgname
   git submodule update --init
+
+  git cherry-pick -n 7cf8bd49ae4ae4c8b6c1897c4fddfabe7ac71a93
 
   # remove the install script so that it doesn't automatically call
   # "make install"
