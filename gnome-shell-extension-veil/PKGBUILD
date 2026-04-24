@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=gnome-shell-extension-veil
-pkgver=0.3.0
+pkgver=0.4.1
 pkgrel=1
 pkgdesc="A cleaner, quieter GNOME panel"
 arch=(any)
@@ -10,7 +10,7 @@ license=(MIT)
 depends=(gnome-shell)
 makedepends=(bun zip)
 source=($pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz)
-sha256sums=('52207a0ac92582f99fae50894f312642f18d9dc09310d39cca47be7d18fb61e8')
+sha256sums=('a1c553020cb66a73d00226a41866bb08a4040cf5012bbed1aae7043df35b1eb0')
 
 prepare() {
   cd veil-$pkgver
