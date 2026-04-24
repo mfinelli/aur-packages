@@ -4,24 +4,22 @@
 _highlightver=11.11.1
 
 pkgname=gnome-shell-extension-copyous
-pkgver=2.0.0
-pkgrel=2
+pkgver=2.0.1
+pkgrel=1
 pkgdesc="Modern Clipboard Manager for GNOME"
 arch=(any)
 url=https://github.com/boerdereinar/copyous
 license=(GPL-3.0-or-later)
 depends=(gnome-shell libgda6 gsound)
-makedepends=(git nodejs pnpm)
+makedepends=(git jq meson nodejs pnpm uv)
 source=($pkgname::git+$url.git#tag=v$pkgver
   https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${_highlightver}/es/highlight.min.js)
-sha256sums=('fe78bec7f552f897ac5a69e1aa0c54ef095ea02e0e08079f3ba73f16fbefdb8a'
+sha256sums=('0fd69ed3188f109356521c76002775d953dcacea5fb182147bbb68774949e717'
             '7865839949f0764d9e0a21e311a4e2c42633eeaee8ca5ec127b86438565731fe')
 
 prepare() {
   cd $pkgname
   git submodule update --init
-
-  git cherry-pick -n 7cf8bd49ae4ae4c8b6c1897c4fddfabe7ac71a93
 
   # remove the install script so that it doesn't automatically call
   # "make install"
@@ -32,7 +30,15 @@ prepare() {
 
 build() {
   cd $pkgname
-  make build
+
+  (
+    cd submodules/gnome-shell/subprojects/extensions-tool
+    ./generate-translations.sh
+    meson setup --buildtype=release -Dman=false build
+    meson compile -C build
+  )
+
+  RELEASE=1 make build
 }
 
 package() {
