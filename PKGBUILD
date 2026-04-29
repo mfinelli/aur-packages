@@ -3,7 +3,7 @@
 
 _gemname=toml-rb
 pkgname=ruby-$_gemname
-pkgver=4.1.0
+pkgver=4.2.0
 pkgrel=1
 pkgdesc="A parser for TOML using Citrus library"
 arch=(any)
@@ -14,7 +14,7 @@ depends=(ruby ruby-citrus ruby-racc)
 checkdepends=(ruby-rake ruby-minitest)
 makedepends=(rubygems ruby-rdoc)
 source=(${url}/archive/v${pkgver}.tar.gz)
-sha256sums=('d25f0c8ed85ca2f24cfef8b9ab51df07a04c0cb033d2cab8cf424ca60f40f584')
+sha256sums=('bfa646ca7afb6c76e9af890e1b044e98df98484232679f049f592c37633380a1')
 
 prepare() {
   cd $_gemname-$pkgver
