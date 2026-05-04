@@ -1,20 +1,20 @@
 pkgbase = ruby-image_size
 	pkgdesc = measure image size using pure Ruby
-	pkgver = 3.4.0
+	pkgver = 3.5.0
 	pkgrel = 1
 	url = https://github.com/toy/image_size
 	arch = any
-	license = RUBY
-	license = GPL
+	license = Ruby
+	license = GPL-2.0-or-later
 	checkdepends = ruby-rspec
+	checkdepends = ruby-rubocop
+	checkdepends = ruby-rubocop-rspec
 	checkdepends = ruby-webrick
 	makedepends = rubygems
 	makedepends = ruby-rdoc
 	depends = ruby
 	options = !emptydirs
-	source = https://github.com/toy/image_size/archive/v3.4.0/image_size-3.4.0.tar.gz
-	source = fix-gemspec-for-tarball.patch
-	sha256sums = fd02e296bd9d1cde3ec1b999362e60225238fa126f9d2f0898423fb8aafe04e3
-	sha256sums = a0a5d5f87a0993a3e24273a1a2ab948f6f5babbcfd53dbfda230d68af1859d03
+	source = https://github.com/toy/image_size/archive/v3.5.0/image_size-3.5.0.tar.gz
+	sha256sums = a7c65768f0208ecf76972dcad8be701f5175782a29f47e781ad2e4c3c8ddf7c3
 
 pkgname = ruby-image_size
