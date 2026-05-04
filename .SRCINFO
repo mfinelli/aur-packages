@@ -1,7 +1,7 @@
 pkgbase = gnome-shell-extension-randomwallpaper
 	pkgdesc = Random Wallpapers for Gnome 3
-	pkgver = 3.1.0
-	pkgrel = 4
+	pkgver = 3.2.0
+	pkgrel = 1
 	url = https://github.com/ifl0w/RandomWallpaperGnome3
 	arch = any
 	license = MIT
@@ -9,9 +9,7 @@ pkgbase = gnome-shell-extension-randomwallpaper
 	makedepends = git
 	makedepends = npm
 	depends = gnome-shell
-	source = RandomWallpaperGnome3::git+https://github.com/ifl0w/RandomWallpaperGnome3.git#branch=support_48_49
-	source = gnome50.patch
-	sha256sums = SKIP
-	sha256sums = 62e3b0c74648b763272ef65cb2a2d2ebc23d28e4ef23a6798948362aff8d2173
+	source = RandomWallpaperGnome3::git+https://github.com/ifl0w/RandomWallpaperGnome3.git#tag=v3.2.0
+	sha256sums = ac621610da7d82f93439df72cfb0b89ce37f473520274cf5b6534f9fe6407088
 
 pkgname = gnome-shell-extension-randomwallpaper
