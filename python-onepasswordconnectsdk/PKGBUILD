@@ -2,7 +2,7 @@
 
 _name=onepasswordconnectsdk
 pkgname=python-${_name}
-pkgver=2.0.0
+pkgver=2.1.0
 pkgrel=1
 pkgdesc="Python SDK for 1Password Connect"
 arch=(any)
@@ -15,7 +15,7 @@ checkdepends=(python-pytest python-pytest-asyncio python-pytest-cov
 # source=(https://files.pythonhosted.org/packages/source/${_name::1}/$_name/$_name-$pkgver.tar.gz)
 # we use the tarball from github because the pypi source doesn't include tests
 source=(${url}/archive/v$pkgver/$_name-$pkgver.tar.gz)
-sha256sums=('50ddfb9f969d55f9675ed64c249dfb1cc27d42534ee0438c138b3057c124f955')
+sha256sums=('5e9930eae1427c6322a10365b6434f4d4a4bf5a66dab039809adf8fc43d78df3')
 
 build() {
   cd connect-sdk-python-$pkgver

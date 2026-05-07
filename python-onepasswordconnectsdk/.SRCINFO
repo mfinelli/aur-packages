@@ -1,6 +1,6 @@
 pkgbase = python-onepasswordconnectsdk
 	pkgdesc = Python SDK for 1Password Connect
-	pkgver = 2.0.0
+	pkgver = 2.1.0
 	pkgrel = 1
 	url = https://github.com/1Password/connect-sdk-python
 	arch = any
@@ -16,7 +16,7 @@ pkgbase = python-onepasswordconnectsdk
 	depends = python
 	depends = python-dateutil
 	depends = python-httpx
-	source = https://github.com/1Password/connect-sdk-python/archive/v2.0.0/onepasswordconnectsdk-2.0.0.tar.gz
-	sha256sums = 50ddfb9f969d55f9675ed64c249dfb1cc27d42534ee0438c138b3057c124f955
+	source = https://github.com/1Password/connect-sdk-python/archive/v2.1.0/onepasswordconnectsdk-2.1.0.tar.gz
+	sha256sums = 5e9930eae1427c6322a10365b6434f4d4a4bf5a66dab039809adf8fc43d78df3
 
 pkgname = python-onepasswordconnectsdk
