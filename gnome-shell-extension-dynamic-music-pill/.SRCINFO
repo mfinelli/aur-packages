@@ -1,0 +1,15 @@
+pkgbase = gnome-shell-extension-dynamic-music-pill
+	pkgdesc = A highly customizable music widget for GNOME Shell
+	pkgver = 1.1.0
+	pkgrel = 1
+	url = https://github.com/Andbal23/dynamic-music-pill
+	arch = any
+	license = GPL-3.0-or-later
+	makedepends = git
+	makedepends = jq
+	depends = gnome-shell
+	optdepends = cava: real-time visualizer
+	source = gnome-shell-extension-dynamic-music-pill::git+https://github.com/Andbal23/dynamic-music-pill.git#tag=1.1.0
+	sha256sums = 8a94ea836e5798104d80bf0becd10981c27ed0fa21e6b76d372cac316445090c
+
+pkgname = gnome-shell-extension-dynamic-music-pill
