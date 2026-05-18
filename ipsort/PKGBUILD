@@ -1,7 +1,7 @@
 # Maintainer: Mario Finelli <mario at finel dot li>
 
 pkgname=ipsort
-pkgver=1.0.0
+pkgver=1.1.0
 pkgrel=1
 pkgdesc="versitile ip address sorting tool"
 arch=(x86_64)
@@ -10,16 +10,13 @@ license=(GPL-3.0-or-later)
 makedepends=(cargo scdoc)
 depends=(glibc libgcc)
 options=(!lto)
-source=($pkgname-$pkgver.tar.gz::$url/archive/v$pkgver/$pkgname-$pkgver.tar.gz
-  $pkgname.patch::$url/commit/ec61159533856d09992315427765d02641825788.patch)
-sha256sums=('656c533f39dcd8ac1ffdfe001974637a37bc5976eb44e4400ecb025c05defb17'
-            'abbc6b3eb91446ebc8c17b1597bd985ef0678f0ab450f24a55bf757012874460')
+source=($pkgname-$pkgver.tar.gz::$url/archive/v$pkgver/$pkgname-$pkgver.tar.gz)
+sha256sums=('20988a7a2a9089857debba968a93a9a4d1a776440c95bbc43374184063d6d507')
 
 prepare() {
   cd $pkgname-$pkgver
   export RUSTUP_TOOLCHAIN=stable
   cargo fetch --locked --target "$(rustc --print host-tuple)"
-  patch -p1 -N -i "$srcdir/$pkgname.patch"
 }
 
 build() {
