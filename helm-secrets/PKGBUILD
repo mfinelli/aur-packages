@@ -3,7 +3,7 @@
 
 pkgname=helm-secrets
 pkgver=4.7.7
-pkgrel=1
+pkgrel=2
 pkgdesc="Helm plugin to manage secrets with Git workflow and store them anywhere"
 arch=(any)
 url=https://github.com/jkroepke/helm-secrets
