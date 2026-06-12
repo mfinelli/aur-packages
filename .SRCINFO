@@ -1,6 +1,6 @@
 pkgbase = gnome-shell-extension-veil
 	pkgdesc = A cleaner, quieter GNOME panel
-	pkgver = 0.4.1
+	pkgver = 0.4.2
 	pkgrel = 1
 	url = https://github.com/dagimg-dot/veil
 	arch = any
@@ -8,7 +8,7 @@ pkgbase = gnome-shell-extension-veil
 	makedepends = bun
 	makedepends = zip
 	depends = gnome-shell
-	source = gnome-shell-extension-veil-0.4.1.tar.gz::https://github.com/dagimg-dot/veil/archive/refs/tags/v0.4.1.tar.gz
-	sha256sums = a1c553020cb66a73d00226a41866bb08a4040cf5012bbed1aae7043df35b1eb0
+	source = gnome-shell-extension-veil-0.4.2.tar.gz::https://github.com/dagimg-dot/veil/archive/refs/tags/v0.4.2.tar.gz
+	sha256sums = 84aa44ca404e5dcf0d04eef0e737995a7493b05cf6e4882670b0345600cfcea0
 
 pkgname = gnome-shell-extension-veil
