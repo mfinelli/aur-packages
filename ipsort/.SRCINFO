@@ -1,6 +1,6 @@
 pkgbase = ipsort
 	pkgdesc = versitile ip address sorting tool
-	pkgver = 1.1.1
+	pkgver = 1.3.0
 	pkgrel = 1
 	url = https://github.com/mfinelli/ipsort
 	arch = x86_64
@@ -10,7 +10,7 @@ pkgbase = ipsort
 	depends = glibc
 	depends = libgcc
 	options = !lto
-	source = ipsort-1.1.1.tar.gz::https://github.com/mfinelli/ipsort/archive/v1.1.1/ipsort-1.1.1.tar.gz
-	sha256sums = fc29ed75e13cd53811dcdbc5a153c3613f2603e12660128b58f4b06647ae0603
+	source = ipsort-1.3.0.tar.gz::https://github.com/mfinelli/ipsort/archive/v1.3.0/ipsort-1.3.0.tar.gz
+	sha256sums = 5585313020cdfd4ad512965d0d8c207891d04ec1a3fe38b7420f6bb3c6b5c92e
 
 pkgname = ipsort
