@@ -15,6 +15,7 @@ sha256sums=('3dd77b9339322b9e256205909cf95c7074b4fc58c142e8ebfbebc80739463395')
 prepare() {
   cd $pkgname-$pkgver
   export GOPATH="${srcdir}/gopath"
+  export GOFLAGS="${GOFLAGS:+$GOFLAGS }-modcacherw"
   go mod download
 }
 
@@ -27,6 +28,7 @@ build() {
   export CGO_CXXFLAGS="$CXXFLAGS"
 
   export GOPATH="${srcdir}/gopath"
+  export GOFLAGS="${GOFLAGS:+$GOFLAGS }-modcacherw"
 
   go build \
     -o bin/newrelic \
